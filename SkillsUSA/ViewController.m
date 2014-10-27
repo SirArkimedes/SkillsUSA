@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "QRCodeReaderViewController.h"
 
 @interface ViewController ()
 
@@ -22,6 +23,36 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)cameraPressed:(id)sender {
+    QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
+    reader.modalPresentationStyle      = UIModalPresentationFormSheet;
+    
+    // Using delegate methods
+//    reader.delegate                    = self;
+    
+    // Or by using blocks
+    [reader setCompletionWithBlock:^(NSString *resultAsString) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            NSLog(@"%@", resultAsString);
+        }];
+    }];
+    
+    [self presentViewController:reader animated:YES completion:NULL];
+}
+
+#pragma mark - QRCodeReader Delegate Methods
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"%@", result);
+    }];
+}
+
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

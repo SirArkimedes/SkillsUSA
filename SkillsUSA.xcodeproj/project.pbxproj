@@ -15,6 +15,7 @@
 		4D45E46019F8370A004DAB2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D45E45F19F8370A004DAB2D /* Images.xcassets */; };
 		4D45E46319F8370A004DAB2D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45E46119F8370A004DAB2D /* LaunchScreen.xib */; };
 		4D45E46F19F8370A004DAB2D /* SkillsUSATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E46E19F8370A004DAB2D /* SkillsUSATests.m */; };
+		4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,9 @@
 		4D45E46819F8370A004DAB2D /* SkillsUSATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkillsUSATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D45E46D19F8370A004DAB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D45E46E19F8370A004DAB2D /* SkillsUSATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillsUSATests.m; sourceTree = "<group>"; };
+		4D45E47819F83865004DAB2D /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
+		4D45E47919F83865004DAB2D /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
+		4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 		4D45E44E19F8370A004DAB2D /* SkillsUSA */ = {
 			isa = PBXGroup;
 			children = (
+				4D45E47C19F83882004DAB2D /* QRCodeReader */,
 				4D45E45319F8370A004DAB2D /* AppDelegate.h */,
 				4D45E45419F8370A004DAB2D /* AppDelegate.m */,
 				4D45E45919F8370A004DAB2D /* ViewController.h */,
@@ -120,6 +125,16 @@
 				4D45E46D19F8370A004DAB2D /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D45E47C19F83882004DAB2D /* QRCodeReader */ = {
+			isa = PBXGroup;
+			children = (
+				4D45E47819F83865004DAB2D /* QRCodeReaderDelegate.h */,
+				4D45E47919F83865004DAB2D /* QRCodeReaderViewController.h */,
+				4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */,
+			);
+			name = QRCodeReader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,6 +239,7 @@
 			files = (
 				4D45E45519F8370A004DAB2D /* AppDelegate.m in Sources */,
 				4D45E45819F8370A004DAB2D /* SkillsUSA.xcdatamodeld in Sources */,
+				4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */,
 				4D45E45B19F8370A004DAB2D /* ViewController.m in Sources */,
 				4D45E45219F8370A004DAB2D /* main.m in Sources */,
 			);
@@ -301,7 +317,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -336,7 +352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -348,6 +364,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SkillsUSA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -358,6 +375,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SkillsUSA/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -416,6 +434,7 @@
 				4D45E47419F8370A004DAB2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4D45E47519F8370A004DAB2D /* Build configuration list for PBXNativeTarget "SkillsUSATests" */ = {
 			isa = XCConfigurationList;
@@ -424,6 +443,7 @@
 				4D45E47719F8370A004DAB2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
