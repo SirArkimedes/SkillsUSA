@@ -28,13 +28,13 @@
     QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
     reader.modalPresentationStyle      = UIModalPresentationFormSheet;
     
-    // Using delegate methods
-//    reader.delegate                    = self;
-    
-    // Or by using blocks
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         [self dismissViewControllerAnimated:YES completion:^{
             NSLog(@"%@", resultAsString);
+            if (resultAsString != nil) {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+                [alert show];
+            }
         }];
     }];
     
