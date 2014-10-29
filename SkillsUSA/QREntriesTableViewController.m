@@ -7,15 +7,44 @@
 //
 
 #import "QREntriesTableViewController.h"
+#import "RegistrantsTableViewCell.h"
+#import "QRCodeReaderViewController.h"
 
 @interface QREntriesTableViewController ()
+
+@property (strong, nonatomic) NSMutableArray *scannedResults;
 
 @end
 
 @implementation QREntriesTableViewController
 
+- (IBAction)startEdit:(id)sender {
+    if (self.tableView.editing)
+    {
+        //        [super setEditing:NO animated:NO];
+        [self.tableView setEditing:NO animated:YES];
+        //        [self.tableView reloadData];
+        self.navigationItem.rightBarButtonItem.title = @"Edit";
+        [self.navigationItem.rightBarButtonItem setStyle: UIBarButtonItemStylePlain];
+    }
+    else
+    {
+        //        [super setEditing:YES animated:YES];
+        [self.tableView setEditing:YES animated:YES];
+        //        [self.tableView reloadData];
+        self.navigationItem.rightBarButtonItem.title = @"Done";
+        [self.navigationItem.rightBarButtonItem setStyle: UIBarButtonItemStyleDone];
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    /*-------------------------------------------------------
+     TODO: Setup userDefaults
+     -------------------------------------------------------*/
+    
+    self.scannedResults = [[NSMutableArray alloc] init];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -38,38 +67,87 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return 5;
+    return [self.scannedResults count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scannedCell" forIndexPath:indexPath];
+    RegistrantsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scannedCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    cell.infoCell.text = [self.scannedResults objectAtIndex:indexPath.row];
+    NSLog(@"cellValue: %@", cell.infoCell.text);
     
     return cell;
 }
 
-
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [self.scannedResults removeObjectAtIndex:indexPath.row];
+        [tableView reloadData]; // tell table to refresh now
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+- (IBAction)addEntry:(id)sender {
+    QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
+    reader.modalPresentationStyle      = UIModalPresentationFormSheet;
+    
+    [reader setCompletionWithBlock:^(NSString *resultAsString) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            NSLog(@"String: %@", resultAsString);
+            
+            if (resultAsString == nil) {
+                NSLog(@"resultAsString = %@", resultAsString);
+            } else {
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+//                [alert show];
+                
+                [self.scannedResults addObject:resultAsString];
+                NSLog(@"Array: %@", self.scannedResults);
+                [self.tableView reloadData];
+            }
+            
+        }];
+    }];
+    
+    [self presentViewController:reader animated:YES completion:NULL];
+}
+
+#pragma mark - QRCodeReader Delegate Methods
+
+- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
+{
+    [self dismissViewControllerAnimated:YES completion:^{
+        NSLog(@"%@", result);
+    }];
+}
+
+- (void)readerDidCancel:(QRCodeReaderViewController *)reader
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    NSString *stringToMove = self.scannedResults[sourceIndexPath.row];
+    [self.scannedResults removeObjectAtIndex:sourceIndexPath.row];
+    [self.scannedResults insertObject:stringToMove atIndex:destinationIndexPath.row];
+}
 
 /*
 // Override to support rearranging the table view.

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */; };
 		4D45E45219F8370A004DAB2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45119F8370A004DAB2D /* main.m */; };
 		4D45E45519F8370A004DAB2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45419F8370A004DAB2D /* AppDelegate.m */; };
 		4D45E45819F8370A004DAB2D /* SkillsUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45619F8370A004DAB2D /* SkillsUSA.xcdatamodeld */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D1F9DCD1A013BAD00298F20 /* RegistrantsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrantsTableViewCell.h; sourceTree = "<group>"; };
+		4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrantsTableViewCell.m; sourceTree = "<group>"; };
 		4D45E44C19F8370A004DAB2D /* SkillsUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillsUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D45E45019F8370A004DAB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D45E45119F8370A004DAB2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -71,6 +74,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D0DB2701A013341005FB007 /* Registrants */ = {
+			isa = PBXGroup;
+			children = (
+				4DDEA39E19FEB29200E699A2 /* QREntriesTableViewController.h */,
+				4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */,
+				4D1F9DCD1A013BAD00298F20 /* RegistrantsTableViewCell.h */,
+				4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */,
+			);
+			name = Registrants;
+			sourceTree = "<group>";
+		};
+		4D0DB2711A01334A005FB007 /* Officers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Officers;
+			sourceTree = "<group>";
+		};
+		4D0DB2721A01334F005FB007 /* Committees */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Committees;
+			sourceTree = "<group>";
+		};
 		4D45E44319F8370A004DAB2D = {
 			isa = PBXGroup;
 			children = (
@@ -147,8 +175,9 @@
 				4D45E45419F8370A004DAB2D /* AppDelegate.m */,
 				4D45E45919F8370A004DAB2D /* ViewController.h */,
 				4D45E45A19F8370A004DAB2D /* ViewController.m */,
-				4DDEA39E19FEB29200E699A2 /* QREntriesTableViewController.h */,
-				4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */,
+				4D0DB2721A01334F005FB007 /* Committees */,
+				4D0DB2711A01334A005FB007 /* Officers */,
+				4D0DB2701A013341005FB007 /* Registrants */,
 			);
 			name = Files;
 			sourceTree = "<group>";
@@ -259,6 +288,7 @@
 				4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */,
 				4D45E45B19F8370A004DAB2D /* ViewController.m in Sources */,
 				4D45E45219F8370A004DAB2D /* main.m in Sources */,
+				4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */,
 				4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +366,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -371,7 +401,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -383,7 +413,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SkillsUSA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -394,7 +424,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SkillsUSA/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

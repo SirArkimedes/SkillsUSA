@@ -24,35 +24,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)cameraPressed:(id)sender {
-    QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
-    reader.modalPresentationStyle      = UIModalPresentationFormSheet;
-    
-    [reader setCompletionWithBlock:^(NSString *resultAsString) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            NSLog(@"%@", resultAsString);
-            if (resultAsString != nil) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-                [alert show];
-            }
-        }];
-    }];
-    
-    [self presentViewController:reader animated:YES completion:NULL];
-}
-
-#pragma mark - QRCodeReader Delegate Methods
-
-- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-{
-    [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"%@", result);
-    }];
-}
-
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
-}
 
 @end
