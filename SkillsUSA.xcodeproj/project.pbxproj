@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */; };
+		4D2D1EB31A03EC7500F9BE28 /* DetailCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */; };
 		4D45E45219F8370A004DAB2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45119F8370A004DAB2D /* main.m */; };
 		4D45E45519F8370A004DAB2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45419F8370A004DAB2D /* AppDelegate.m */; };
 		4D45E45819F8370A004DAB2D /* SkillsUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45619F8370A004DAB2D /* SkillsUSA.xcdatamodeld */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		4D1F9DCD1A013BAD00298F20 /* RegistrantsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrantsTableViewCell.h; sourceTree = "<group>"; };
 		4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrantsTableViewCell.m; sourceTree = "<group>"; };
+		4D2D1EB11A03EC7500F9BE28 /* DetailCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCellViewController.h; sourceTree = "<group>"; };
+		4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCellViewController.m; sourceTree = "<group>"; };
 		4D45E44C19F8370A004DAB2D /* SkillsUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillsUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D45E45019F8370A004DAB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D45E45119F8370A004DAB2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -81,6 +84,8 @@
 				4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */,
 				4D1F9DCD1A013BAD00298F20 /* RegistrantsTableViewCell.h */,
 				4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */,
+				4D2D1EB11A03EC7500F9BE28 /* DetailCellViewController.h */,
+				4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */,
 			);
 			name = Registrants;
 			sourceTree = "<group>";
@@ -290,6 +295,7 @@
 				4D45E45219F8370A004DAB2D /* main.m in Sources */,
 				4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */,
 				4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */,
+				4D2D1EB31A03EC7500F9BE28 /* DetailCellViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

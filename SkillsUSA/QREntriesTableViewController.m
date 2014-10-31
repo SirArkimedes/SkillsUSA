@@ -12,30 +12,14 @@
 
 @interface QREntriesTableViewController ()
 
-@property (strong, nonatomic) NSMutableArray *scannedResults;
+//@property (strong, nonatomic) NSMutableArray *scannedResults;
+@property (strong, nonatomic) NSMutableArray *scanName;
+@property (strong, nonatomic) NSMutableArray *scanSchool;
+
 
 @end
 
 @implementation QREntriesTableViewController
-
-- (IBAction)startEdit:(id)sender {
-    if (self.tableView.editing)
-    {
-        //        [super setEditing:NO animated:NO];
-        [self.tableView setEditing:NO animated:YES];
-        //        [self.tableView reloadData];
-        self.navigationItem.rightBarButtonItem.title = @"Edit";
-        [self.navigationItem.rightBarButtonItem setStyle: UIBarButtonItemStylePlain];
-    }
-    else
-    {
-        //        [super setEditing:YES animated:YES];
-        [self.tableView setEditing:YES animated:YES];
-        //        [self.tableView reloadData];
-        self.navigationItem.rightBarButtonItem.title = @"Done";
-        [self.navigationItem.rightBarButtonItem setStyle: UIBarButtonItemStyleDone];
-    }
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -44,7 +28,10 @@
      TODO: Setup userDefaults
      -------------------------------------------------------*/
     
-    self.scannedResults = [[NSMutableArray alloc] init];
+//    self.scannedResults     = [[NSMutableArray alloc] init];
+    self.scanName           = [[NSMutableArray alloc] init];
+    self.scanSchool         = [[NSMutableArray alloc] init];
+
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -58,6 +45,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -67,7 +57,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.scannedResults count];
+    return [self.scanName count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,8 +65,11 @@
     
     // Configure the cell...
     
-    cell.infoCell.text = [self.scannedResults objectAtIndex:indexPath.row];
-    NSLog(@"cellValue: %@", cell.infoCell.text);
+    cell.nameCell.text = [self.scanName objectAtIndex:indexPath.row];
+//    NSLog(@"nameCell: %@", cell.nameCell.text);
+    
+    cell.schoolCell.text = [self.scanSchool objectAtIndex:indexPath.row];
+//    NSLog(@"schoolCell: %@", cell.schoolCell.text);
     
     return cell;
 }
@@ -91,7 +84,8 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.scannedResults removeObjectAtIndex:indexPath.row];
+        [self.scanName removeObjectAtIndex:indexPath.row];
+        [self.scanSchool removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -104,7 +98,7 @@
     
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         [self dismissViewControllerAnimated:YES completion:^{
-            NSLog(@"String: %@", resultAsString);
+//            NSLog(@"String: %@", resultAsString);
             
             if (resultAsString == nil) {
                 NSLog(@"resultAsString = %@", resultAsString);
@@ -112,8 +106,20 @@
 //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
 //                [alert show];
                 
-                [self.scannedResults addObject:resultAsString];
-                NSLog(@"Array: %@", self.scannedResults);
+                NSArray *data = [resultAsString componentsSeparatedByString:@"/"];
+                NSLog(@"%@", data);
+                
+                NSString *str1 = [data objectAtIndex:0];
+                [self.scanName addObject:str1];
+//                NSLog(@"scanName: %@", self.scanName);
+                
+                NSString *str2 = [data objectAtIndex:1];
+                [self.scanSchool addObject:str2];
+//                NSLog(@"scanSchool: %@", self.scanSchool);
+
+                
+//                [self.scannedResults addObject:resultAsString];
+//                NSLog(@"Array: %@", self.scannedResults);
                 [self.tableView reloadData];
             }
             
@@ -128,7 +134,7 @@
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
 {
     [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"%@", result);
+        NSLog(@"Result: %@", result);
     }];
 }
 
@@ -144,9 +150,13 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
-    NSString *stringToMove = self.scannedResults[sourceIndexPath.row];
-    [self.scannedResults removeObjectAtIndex:sourceIndexPath.row];
-    [self.scannedResults insertObject:stringToMove atIndex:destinationIndexPath.row];
+    NSString *stringToMove = self.scanName[sourceIndexPath.row];
+    [self.scanName removeObjectAtIndex:sourceIndexPath.row];
+    [self.scanName insertObject:stringToMove atIndex:destinationIndexPath.row];
+    
+    NSString *stringToMove2 = self.scanSchool[sourceIndexPath.row];
+    [self.scanSchool removeObjectAtIndex:sourceIndexPath.row];
+    [self.scanSchool insertObject:stringToMove2 atIndex:destinationIndexPath.row];
 }
 
 /*

@@ -10,6 +10,7 @@
 
 @interface RegistrantsTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *infoCell;
+@property (weak, nonatomic) IBOutlet UILabel *nameCell;
+@property (weak, nonatomic) IBOutlet UILabel *schoolCell;
 
 @end
