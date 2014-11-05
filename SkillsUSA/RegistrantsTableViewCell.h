@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *nameCell;
 @property (weak, nonatomic) IBOutlet UILabel *schoolCell;
+@property (weak, nonatomic) IBOutlet UIImageView *colorCell;
 
 @end

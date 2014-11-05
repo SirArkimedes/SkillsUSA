@@ -17,6 +17,10 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
+@property (strong, nonatomic) NSMutableArray *scanName;
+@property (strong, nonatomic) NSMutableArray *scanSchool;
+@property (strong, nonatomic) NSMutableArray *scanColor;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

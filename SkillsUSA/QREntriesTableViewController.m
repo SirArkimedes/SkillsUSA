@@ -9,13 +9,9 @@
 #import "QREntriesTableViewController.h"
 #import "RegistrantsTableViewCell.h"
 #import "QRCodeReaderViewController.h"
+#import "AppDelegate.h"
 
 @interface QREntriesTableViewController ()
-
-//@property (strong, nonatomic) NSMutableArray *scannedResults;
-@property (strong, nonatomic) NSMutableArray *scanName;
-@property (strong, nonatomic) NSMutableArray *scanSchool;
-
 
 @end
 
@@ -27,11 +23,6 @@
     /*-------------------------------------------------------
      TODO: Setup userDefaults
      -------------------------------------------------------*/
-    
-//    self.scannedResults     = [[NSMutableArray alloc] init];
-    self.scanName           = [[NSMutableArray alloc] init];
-    self.scanSchool         = [[NSMutableArray alloc] init];
-
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -57,18 +48,36 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [self.scanName count];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    return [appDelegate.scanName count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     RegistrantsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"scannedCell" forIndexPath:indexPath];
     
     // Configure the cell...
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    cell.nameCell.text = [self.scanName objectAtIndex:indexPath.row];
+    
+    cell.colorCell.layer.cornerRadius = cell.colorCell.frame.size.width / 2;
+    cell.colorCell.clipsToBounds = YES;
+    
+    if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"red"]) {
+        cell.colorCell.backgroundColor = [UIColor redColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"blue"]) {
+        cell.colorCell.backgroundColor = [UIColor blueColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"yell ow"]) {
+        cell.colorCell.backgroundColor = [UIColor yellowColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"green"]) {
+        cell.colorCell.backgroundColor = [UIColor greenColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"purple"]) {
+        cell.colorCell.backgroundColor = [UIColor purpleColor];
+    }
+    
+    cell.nameCell.text      = [appDelegate.scanName objectAtIndex:indexPath.row];
 //    NSLog(@"nameCell: %@", cell.nameCell.text);
     
-    cell.schoolCell.text = [self.scanSchool objectAtIndex:indexPath.row];
+    cell.schoolCell.text    = [appDelegate.scanSchool objectAtIndex:indexPath.row];
 //    NSLog(@"schoolCell: %@", cell.schoolCell.text);
     
     return cell;
@@ -83,9 +92,10 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.scanName removeObjectAtIndex:indexPath.row];
-        [self.scanSchool removeObjectAtIndex:indexPath.row];
+        [appDelegate.scanName removeObjectAtIndex:indexPath.row];
+        [appDelegate.scanSchool removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -109,17 +119,19 @@
                 NSArray *data = [resultAsString componentsSeparatedByString:@"/"];
                 NSLog(@"%@", data);
                 
+                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 NSString *str1 = [data objectAtIndex:0];
-                [self.scanName addObject:str1];
+                [appDelegate.scanName addObject:str1];
 //                NSLog(@"scanName: %@", self.scanName);
                 
                 NSString *str2 = [data objectAtIndex:1];
-                [self.scanSchool addObject:str2];
+                [appDelegate.scanSchool addObject:str2];
 //                NSLog(@"scanSchool: %@", self.scanSchool);
-
                 
-//                [self.scannedResults addObject:resultAsString];
-//                NSLog(@"Array: %@", self.scannedResults);
+                NSString *str3 = [data objectAtIndex:2];
+                [appDelegate.scanColor addObject:str3];
+                NSLog(@"scanColor: %@", appDelegate.scanColor);
+                
                 [self.tableView reloadData];
             }
             
@@ -150,13 +162,15 @@
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
-    NSString *stringToMove = self.scanName[sourceIndexPath.row];
-    [self.scanName removeObjectAtIndex:sourceIndexPath.row];
-    [self.scanName insertObject:stringToMove atIndex:destinationIndexPath.row];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    NSString *stringToMove2 = self.scanSchool[sourceIndexPath.row];
-    [self.scanSchool removeObjectAtIndex:sourceIndexPath.row];
-    [self.scanSchool insertObject:stringToMove2 atIndex:destinationIndexPath.row];
+    NSString *stringToMove = appDelegate.scanName[sourceIndexPath.row];
+    [appDelegate.scanName removeObjectAtIndex:sourceIndexPath.row];
+    [appDelegate.scanName insertObject:stringToMove atIndex:destinationIndexPath.row];
+    
+    NSString *stringToMove2 = appDelegate.scanSchool[sourceIndexPath.row];
+    [appDelegate.scanSchool removeObjectAtIndex:sourceIndexPath.row];
+    [appDelegate.scanSchool insertObject:stringToMove2 atIndex:destinationIndexPath.row];
 }
 
 /*

@@ -14,6 +14,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ega-xS-j8i" kind="relationship" relationship="viewControllers" id="RCy-V7-XZW"/>
@@ -32,40 +33,49 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="63" sectionHeaderHeight="22" sectionFooterHeight="22" id="11C-Jr-9oa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="scannedCell" rowHeight="63" id="0Xq-Sr-oUM" customClass="RegistrantsTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Xq-Sr-oUM" id="paE-re-K79">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carthage Senior High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tg-ux-O5L">
-                                            <rect key="frame" x="16" y="31" width="543" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Andrew Robinson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWT-LV-rW4">
+                                            <rect key="frame" x="61" y="12" width="506" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="DAf-8v-t86"/>
+                                                <constraint firstAttribute="height" constant="22" id="nsJ-If-nOO"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Andrew Robinson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWT-LV-rW4">
-                                            <rect key="frame" x="16" y="8" width="584" height="22"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <color key="textColor" red="0.8980392157" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r81-lZ-kbj">
+                                            <rect key="frame" x="8" y="11" width="45" height="45"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carthage Senior High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tg-ux-O5L">
+                                            <rect key="frame" x="61" y="37" width="506" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="gWT-LV-rW4" secondAttribute="trailing" constant="-33" id="2X4-hM-UIw"/>
-                                        <constraint firstItem="gWT-LV-rW4" firstAttribute="top" secondItem="paE-re-K79" secondAttribute="topMargin" id="Oas-1C-xxr"/>
-                                        <constraint firstItem="7tg-ux-O5L" firstAttribute="top" secondItem="gWT-LV-rW4" secondAttribute="bottom" constant="1" id="RLR-gW-m6P"/>
-                                        <constraint firstItem="7tg-ux-O5L" firstAttribute="trailing" secondItem="paE-re-K79" secondAttribute="trailingMargin" id="Uth-l0-VXt"/>
-                                        <constraint firstItem="gWT-LV-rW4" firstAttribute="leading" secondItem="paE-re-K79" secondAttribute="leadingMargin" constant="8" id="bp6-5z-L9w"/>
-                                        <constraint firstItem="7tg-ux-O5L" firstAttribute="leading" secondItem="gWT-LV-rW4" secondAttribute="leading" id="j4g-TY-bTx"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="7tg-ux-O5L" secondAttribute="bottom" constant="2" id="sBK-sn-A5k"/>
+                                        <constraint firstItem="7tg-ux-O5L" firstAttribute="leading" secondItem="gWT-LV-rW4" secondAttribute="leading" id="3hM-Jn-Vo2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="7tg-ux-O5L" secondAttribute="bottom" constant="-4" id="Arf-bb-ut1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="r81-lZ-kbj" secondAttribute="bottom" constant="-2" id="Rul-sz-X7b"/>
+                                        <constraint firstItem="gWT-LV-rW4" firstAttribute="leading" secondItem="r81-lZ-kbj" secondAttribute="trailing" constant="8" symbolic="YES" id="dZ5-cU-idr"/>
+                                        <constraint firstItem="7tg-ux-O5L" firstAttribute="trailing" secondItem="gWT-LV-rW4" secondAttribute="trailing" id="ggy-Qg-o9n"/>
+                                        <constraint firstItem="gWT-LV-rW4" firstAttribute="centerX" secondItem="paE-re-K79" secondAttribute="centerX" constant="30.5" id="j6q-n0-Sww"/>
+                                        <constraint firstAttribute="trailing" secondItem="7tg-ux-O5L" secondAttribute="trailing" id="mfP-HX-S8a"/>
+                                        <constraint firstItem="r81-lZ-kbj" firstAttribute="top" secondItem="paE-re-K79" secondAttribute="topMargin" constant="3" id="qMN-nL-Qxh"/>
+                                        <constraint firstItem="gWT-LV-rW4" firstAttribute="top" secondItem="paE-re-K79" secondAttribute="topMargin" constant="4" id="r2G-Ph-CgB"/>
+                                        <constraint firstItem="r81-lZ-kbj" firstAttribute="leading" secondItem="paE-re-K79" secondAttribute="leadingMargin" id="uYa-o5-hKf"/>
+                                        <constraint firstItem="7tg-ux-O5L" firstAttribute="top" secondItem="gWT-LV-rW4" secondAttribute="bottom" constant="3" id="zYZ-mC-jf7"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
+                                    <outlet property="colorCell" destination="r81-lZ-kbj" id="aVR-ET-EQ6"/>
                                     <outlet property="nameCell" destination="gWT-LV-rW4" id="Mit-Wq-W3y"/>
                                     <outlet property="schoolCell" destination="7tg-ux-O5L" id="Dx9-8x-V3O"/>
                                     <segue destination="OzI-Bj-rZ5" kind="show" id="vza-Cy-rgR"/>
@@ -79,10 +89,10 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Registrants" id="5p3-Y6-BqB">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="sGr-bf-1FB">
-                            <color key="tintColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ohn-wY-Apl">
-                            <color key="tintColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="addEntry:" destination="YnH-ML-A1Z" id="igF-bW-bl8"/>
                             </connections>
@@ -105,35 +115,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: Andrew Robinson" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7P-nz-TP9">
-                                <rect key="frame" x="205" y="266" width="191" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: Andrew Robinson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7P-nz-TP9">
+                                <rect key="frame" x="16" y="266" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School: Carthage Senior High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsV-Cb-dXM">
-                                <rect key="frame" x="157" y="313" width="286" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School: Carthage Senior High School" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsV-Cb-dXM">
+                                <rect key="frame" x="16" y="313" width="568" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-v4-NGI">
+                                <rect key="frame" x="250" y="72" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Tvc-qc-4gd"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="centerX" secondItem="QkR-bZ-CjJ" secondAttribute="centerX" id="InR-ez-gJt"/>
-                            <constraint firstItem="h7P-nz-TP9" firstAttribute="centerX" secondItem="HsV-Cb-dXM" secondAttribute="centerX" id="fny-Le-sTt"/>
+                            <constraint firstItem="Jnf-v4-NGI" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="8" symbolic="YES" id="3yx-Ig-78d"/>
+                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="leading" secondItem="h7P-nz-TP9" secondAttribute="leading" id="6oo-Vi-sEB"/>
+                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="top" secondItem="h7P-nz-TP9" secondAttribute="bottom" constant="26" id="DpT-Sj-00x"/>
+                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="trailing" secondItem="h7P-nz-TP9" secondAttribute="trailing" id="GM9-CD-Ogm"/>
+                            <constraint firstItem="Jnf-v4-NGI" firstAttribute="centerX" secondItem="h7P-nz-TP9" secondAttribute="centerX" id="bHl-cd-o5M"/>
+                            <constraint firstItem="h7P-nz-TP9" firstAttribute="top" secondItem="Jnf-v4-NGI" secondAttribute="bottom" constant="94" id="gr7-Cb-mQ5"/>
                             <constraint firstItem="h7P-nz-TP9" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="202" id="kHa-pu-e8g"/>
-                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="top" secondItem="h7P-nz-TP9" secondAttribute="bottom" constant="26" id="oj3-zl-PvF"/>
+                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="leading" secondItem="QkR-bZ-CjJ" secondAttribute="leadingMargin" id="ol8-10-VcG"/>
+                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="trailing" secondItem="QkR-bZ-CjJ" secondAttribute="trailingMargin" id="t2w-UQ-bJ7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registrant Detail" id="lec-qp-Kdq">
-                        <barButtonItem key="leftBarButtonItem" title="Back" systemItem="cancel" id="Yao-EX-3j5">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Yao-EX-3j5">
                             <color key="tintColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="Uzg-uV-NuF" kind="unwind" unwindAction="unwindToList:" id="Tkx-KI-HYk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="colorImage" destination="Jnf-v4-NGI" id="bup-Ah-Zco"/>
+                        <outlet property="nameLabel" destination="h7P-nz-TP9" id="ZUp-Ut-rMf"/>
+                        <outlet property="schoolLabel" destination="HsV-Cb-dXM" id="BEN-we-GSx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NRP-Ma-Iom" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Uzg-uV-NuF" userLabel="Exit" sceneMemberID="exit"/>
@@ -148,6 +175,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t13-j6-zXZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.27450980392156865" green="0.27450980392156865" blue="0.27450980392156865" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="YnH-ML-A1Z" kind="relationship" relationship="rootViewController" id="c25-5r-UmQ"/>

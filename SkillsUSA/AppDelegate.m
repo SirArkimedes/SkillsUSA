@@ -17,6 +17,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.scanName = [[NSMutableArray alloc] init];
+    self.scanSchool = [[NSMutableArray alloc] init];
+    self.scanColor = [[NSMutableArray alloc] init];
+    
     return YES;
 }
 

@@ -7,8 +7,13 @@
 //
 
 #import "DetailCellViewController.h"
+#import "AppDelegate.h"
 
 @interface DetailCellViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *schoolLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *colorImage;
 
 @end
 
@@ -17,6 +22,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *str1 = [appDelegate.scanName objectAtIndex:0];
+    self.nameLabel.text = [NSString stringWithFormat:@"Name: %@", str1];
+    
+    NSString *str2 = [appDelegate.scanSchool objectAtIndex:0];
+    self.schoolLabel.text = [NSString stringWithFormat:@"School: %@", str2];
+    
+    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
+    self.colorImage.clipsToBounds = YES;
 }
 
 - (void)didReceiveMemoryWarning {
