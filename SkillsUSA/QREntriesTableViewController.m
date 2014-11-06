@@ -36,6 +36,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Unwind
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
 }
 
@@ -58,30 +60,37 @@
     // Configure the cell...
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    
+    // Rounds the edges of the imageview
     cell.colorCell.layer.cornerRadius = cell.colorCell.frame.size.width / 2;
     cell.colorCell.clipsToBounds = YES;
     
-    if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"red"]) {
+    // Checks for color type, not case sensitive.
+    if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor redColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"blue"]) {
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor blueColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"yell ow"]) {
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor yellowColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"green"]) {
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] isEqual: @"purple"]) {
+    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor purpleColor];
+    } else if ([appDelegate.scanColor objectAtIndex:indexPath.row] == nil) {
+        NSLog(@"scanColor is nil");
+    } else {
+        cell.colorCell.backgroundColor = [UIColor whiteColor];
     }
     
-    cell.nameCell.text      = [appDelegate.scanName objectAtIndex:indexPath.row];
+    cell.nameCell.text = [appDelegate.scanName objectAtIndex:indexPath.row];
 //    NSLog(@"nameCell: %@", cell.nameCell.text);
     
-    cell.schoolCell.text    = [appDelegate.scanSchool objectAtIndex:indexPath.row];
+    cell.schoolCell.text = [appDelegate.scanSchool objectAtIndex:indexPath.row];
 //    NSLog(@"schoolCell: %@", cell.schoolCell.text);
     
     return cell;
 }
+
+#pragma mark - Deleting Tableview Cells
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -89,18 +98,20 @@
     return YES;
 }
 
-
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [appDelegate.scanName removeObjectAtIndex:indexPath.row];
         [appDelegate.scanSchool removeObjectAtIndex:indexPath.row];
+        [appDelegate.scanColor removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
+
+#pragma mark - IBAction Camera Selection
 
 - (IBAction)addEntry:(id)sender {
     QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
@@ -130,7 +141,7 @@
                 
                 NSString *str3 = [data objectAtIndex:2];
                 [appDelegate.scanColor addObject:str3];
-                NSLog(@"scanColor: %@", appDelegate.scanColor);
+//                NSLog(@"scanColor: %@", appDelegate.scanColor);
                 
                 [self.tableView reloadData];
             }
@@ -154,6 +165,8 @@
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
+
+#pragma mark - Cell Movement
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     
