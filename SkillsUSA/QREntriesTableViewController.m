@@ -39,6 +39,7 @@
 #pragma mark - Unwind
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source

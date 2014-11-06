@@ -115,42 +115,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name: Andrew Robinson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7P-nz-TP9">
-                                <rect key="frame" x="16" y="266" width="568" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School: Carthage Senior High School" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsV-Cb-dXM">
-                                <rect key="frame" x="16" y="313" width="568" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-v4-NGI">
-                                <rect key="frame" x="250" y="72" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.8980392157" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gc5-cw-9Bx">
+                                <rect key="frame" x="16" y="168" width="568" height="46"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School: Carthage Senior High School" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HsV-Cb-dXM">
+                                        <rect key="frame" x="8" y="12" width="552" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="Tvc-qc-4gd"/>
+                                    <constraint firstAttribute="bottom" secondItem="HsV-Cb-dXM" secondAttribute="bottom" constant="13" id="5wj-zj-7kx"/>
+                                    <constraint firstItem="HsV-Cb-dXM" firstAttribute="trailing" secondItem="Gc5-cw-9Bx" secondAttribute="trailingMargin" id="ZBd-WP-pbw"/>
+                                    <constraint firstItem="HsV-Cb-dXM" firstAttribute="top" secondItem="Gc5-cw-9Bx" secondAttribute="top" constant="12" id="k03-xA-vQu"/>
+                                    <constraint firstItem="HsV-Cb-dXM" firstAttribute="leading" secondItem="Gc5-cw-9Bx" secondAttribute="leadingMargin" id="vgn-hB-Dk2"/>
                                 </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAd-5P-ye3">
+                                <rect key="frame" x="96" y="84" width="488" height="48"/>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-v4-NGI">
+                                <rect key="frame" x="16" y="72" width="72" height="72"/>
+                                <color key="backgroundColor" red="0.8980392157" green="0.0" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Andrew Robinson" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7P-nz-TP9">
+                                <rect key="frame" x="96" y="97" width="488" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="Jnf-v4-NGI" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="8" symbolic="YES" id="3yx-Ig-78d"/>
-                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="leading" secondItem="h7P-nz-TP9" secondAttribute="leading" id="6oo-Vi-sEB"/>
-                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="top" secondItem="h7P-nz-TP9" secondAttribute="bottom" constant="26" id="DpT-Sj-00x"/>
-                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="trailing" secondItem="h7P-nz-TP9" secondAttribute="trailing" id="GM9-CD-Ogm"/>
-                            <constraint firstItem="Jnf-v4-NGI" firstAttribute="centerX" secondItem="h7P-nz-TP9" secondAttribute="centerX" id="bHl-cd-o5M"/>
-                            <constraint firstItem="h7P-nz-TP9" firstAttribute="top" secondItem="Jnf-v4-NGI" secondAttribute="bottom" constant="94" id="gr7-Cb-mQ5"/>
-                            <constraint firstItem="h7P-nz-TP9" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="202" id="kHa-pu-e8g"/>
-                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="leading" secondItem="QkR-bZ-CjJ" secondAttribute="leadingMargin" id="ol8-10-VcG"/>
-                            <constraint firstItem="HsV-Cb-dXM" firstAttribute="trailing" secondItem="QkR-bZ-CjJ" secondAttribute="trailingMargin" id="t2w-UQ-bJ7"/>
+                            <constraint firstItem="h7P-nz-TP9" firstAttribute="centerX" secondItem="nAd-5P-ye3" secondAttribute="centerX" id="2WY-Tr-dLO"/>
+                            <constraint firstItem="Gc5-cw-9Bx" firstAttribute="top" secondItem="Jnf-v4-NGI" secondAttribute="bottom" constant="24" id="KhZ-AA-cav"/>
+                            <constraint firstItem="Gc5-cw-9Bx" firstAttribute="leading" secondItem="Jnf-v4-NGI" secondAttribute="leading" id="NgG-2o-3bQ"/>
+                            <constraint firstItem="nAd-5P-ye3" firstAttribute="trailing" secondItem="QkR-bZ-CjJ" secondAttribute="trailingMargin" id="O2K-MQ-Ix7"/>
+                            <constraint firstItem="Jnf-v4-NGI" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="8" symbolic="YES" id="UEz-A7-dJL"/>
+                            <constraint firstItem="nAd-5P-ye3" firstAttribute="centerY" secondItem="Jnf-v4-NGI" secondAttribute="centerY" id="Xyp-77-bFW"/>
+                            <constraint firstItem="h7P-nz-TP9" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="33" id="Y90-t3-HMR"/>
+                            <constraint firstItem="nAd-5P-ye3" firstAttribute="leading" secondItem="QkR-bZ-CjJ" secondAttribute="leading" constant="96" id="aTc-F1-ibY"/>
+                            <constraint firstItem="Gc5-cw-9Bx" firstAttribute="top" secondItem="nAd-5P-ye3" secondAttribute="bottom" constant="36" id="agg-10-2ft"/>
+                            <constraint firstItem="Jnf-v4-NGI" firstAttribute="leading" secondItem="QkR-bZ-CjJ" secondAttribute="leadingMargin" id="do9-Ii-2HH"/>
+                            <constraint firstItem="Gc5-cw-9Bx" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="104" id="fJx-an-w2t"/>
+                            <constraint firstItem="nAd-5P-ye3" firstAttribute="trailing" secondItem="Gc5-cw-9Bx" secondAttribute="trailing" id="fKH-Ow-uOY"/>
+                            <constraint firstItem="nAd-5P-ye3" firstAttribute="leading" secondItem="Jnf-v4-NGI" secondAttribute="trailing" constant="8" symbolic="YES" id="ndL-mY-Zyn"/>
+                            <constraint firstItem="nAd-5P-ye3" firstAttribute="top" secondItem="pK8-mz-44y" secondAttribute="bottom" constant="20" id="ppm-Le-pYs"/>
+                            <constraint firstItem="h7P-nz-TP9" firstAttribute="leading" secondItem="Jnf-v4-NGI" secondAttribute="trailing" constant="8" id="wzK-66-BHZ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registrant Detail" id="lec-qp-Kdq">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Yao-EX-3j5">
-                            <color key="tintColor" red="0.035294117649999998" green="0.2470588235" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="Uzg-uV-NuF" kind="unwind" unwindAction="unwindToList:" id="Tkx-KI-HYk"/>
                             </connections>
@@ -358,6 +377,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lhe-gn-IZX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
