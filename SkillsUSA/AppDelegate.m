@@ -22,6 +22,8 @@
     self.scanSchool = [[NSMutableArray alloc] init];
     self.scanColor = [[NSMutableArray alloc] init];
     
+    self.indexPath = [[NSIndexPath alloc] init];
+    
     return YES;
 }
 

@@ -23,31 +23,63 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    NSString *str1 = [appDelegate.scanName objectAtIndex:_indexPath.row];
+//    self.nameLabel.text = str1;
+//    
+//    NSString *str2 = [appDelegate.scanSchool objectAtIndex:_indexPath.row];
+//    self.schoolLabel.text = str2;
+//    
+//    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
+//    self.colorImage.clipsToBounds = YES;
+//    
+//    if ([[appDelegate.scanColor objectAtIndex:_indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
+//        self.colorImage.backgroundColor = [UIColor redColor];
+//    } else if ([[appDelegate.scanColor objectAtIndex:_indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
+//        self.colorImage.backgroundColor = [UIColor blueColor];
+//    } else if ([[appDelegate.scanColor objectAtIndex:_indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
+//        self.colorImage.backgroundColor = [UIColor yellowColor];
+//    } else if ([[appDelegate.scanColor objectAtIndex:_indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
+//        self.colorImage.backgroundColor = [UIColor greenColor];
+//    } else if ([[appDelegate.scanColor objectAtIndex:_indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
+//        self.colorImage.backgroundColor = [UIColor purpleColor];
+//    } else if ([appDelegate.scanColor objectAtIndex:_indexPath.row] == nil) {
+//        NSLog(@"scanColor is nil");
+//    } else {
+//        self.colorImage.backgroundColor = [UIColor whiteColor];
+//    }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *str1 = [appDelegate.scanName objectAtIndex:0];
-    self.nameLabel.text = [NSString stringWithFormat:@"%@", str1];
+    NSString *str1 = [appDelegate.scanName objectAtIndex:appDelegate.indexPath.row];
+    self.nameLabel.text = str1;
     
-    NSString *str2 = [appDelegate.scanSchool objectAtIndex:0];
-    self.schoolLabel.text = [NSString stringWithFormat:@"School: %@", str2];
+    NSString *str2 = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
+    self.schoolLabel.text = str2;
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;
     
-//    if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
-//        self.color.backgroundColor = [UIColor redColor];
-//    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
-//        cell.colorCell.backgroundColor = [UIColor blueColor];
-//    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
-//        cell.colorCell.backgroundColor = [UIColor yellowColor];
-//    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
-//        cell.colorCell.backgroundColor = [UIColor greenColor];
-//    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
-//        cell.colorCell.backgroundColor = [UIColor purpleColor];
-//    } else if ([appDelegate.scanColor objectAtIndex:indexPath.row] == nil) {
-//        NSLog(@"scanColor is nil");
-//    } else {
-//        cell.colorCell.backgroundColor = [UIColor whiteColor];
-//    }
+    if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
+        self.colorImage.backgroundColor = [UIColor redColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
+        self.colorImage.backgroundColor = [UIColor blueColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
+        self.colorImage.backgroundColor = [UIColor yellowColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
+        self.colorImage.backgroundColor = [UIColor greenColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
+        self.colorImage.backgroundColor = [UIColor purpleColor];
+    } else if ([appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] == nil) {
+        NSLog(@"scanColor is nil");
+    } else {
+        self.colorImage.backgroundColor = [UIColor whiteColor];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    
 }
 
 - (void)didReceiveMemoryWarning {

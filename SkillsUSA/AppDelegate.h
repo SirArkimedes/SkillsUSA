@@ -21,6 +21,8 @@
 @property (strong, nonatomic) NSMutableArray *scanSchool;
 @property (strong, nonatomic) NSMutableArray *scanColor;
 
+@property (strong, nonatomic) NSIndexPath *indexPath;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

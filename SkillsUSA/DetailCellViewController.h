@@ -10,4 +10,6 @@
 
 @interface DetailCellViewController : UIViewController
 
+//@property NSIndexPath *indexPath;
+
 @end

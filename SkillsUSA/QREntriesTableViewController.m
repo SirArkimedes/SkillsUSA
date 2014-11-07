@@ -9,6 +9,7 @@
 #import "QREntriesTableViewController.h"
 #import "RegistrantsTableViewCell.h"
 #import "QRCodeReaderViewController.h"
+#import "DetailCellViewController.h"
 #import "AppDelegate.h"
 
 @interface QREntriesTableViewController ()
@@ -34,6 +35,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Pass IndexPath to other views
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+//    DetailCellViewController *vc = [[DetailCellViewController alloc] initWithNibName:@"DetailCellViewController" bundle:nil];
+//    [vc setIndexPath:indexPath];
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.indexPath = indexPath;
+//    NSLog(@"indexPath.row: %ld", (long)indexPath.row);
+//    NSLog(@"indexPath.section: %ld", (long)indexPath.section);
+
 }
 
 #pragma mark - Unwind
@@ -165,6 +179,28 @@
 - (void)readerDidCancel:(QRCodeReaderViewController *)reader
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+#pragma mark - Share
+
+- (IBAction)sharePress:(id)sender {
+    
+    NSString *textToShare = @"My dad is a loser.";
+    NSArray *itemsToShare = @[textToShare, @"imageToShare"];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+    activityVC.excludedActivityTypes = @[UIActivityTypePrint,
+                                         UIActivityTypeCopyToPasteboard,
+                                         UIActivityTypeAssignToContact,
+                                         UIActivityTypeSaveToCameraRoll,
+                                         UIActivityTypeAirDrop,
+                                         UIActivityTypePostToTwitter,
+                                         UIActivityTypePostToFacebook,
+                                         UIActivityTypePostToFlickr,
+                                         UIActivityTypePostToVimeo,
+                                         UIActivityTypePostToWeibo,
+                                         UIActivityTypePostToTencentWeibo]; //or whichever you don't need
+    [self presentViewController:activityVC animated:YES completion:nil];
+    
 }
 
 #pragma mark - Cell Movement
