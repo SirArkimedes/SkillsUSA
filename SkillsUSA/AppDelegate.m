@@ -24,6 +24,15 @@
     
     self.indexPath = [[NSIndexPath alloc] init];
     
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] != nil) {
+        self.scanName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] mutableCopy];
+        self.scanSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanSchool"] mutableCopy];
+        self.scanColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanColor"] mutableCopy];
+    }
+//    self.scanName = [[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"];
+//    self.scanSchool = [[NSUserDefaults standardUserDefaults] objectForKey:@"scanSchool"];
+//    self.scanColor = [[NSUserDefaults standardUserDefaults] objectForKey:@"scanColor"];
+    
     return YES;
 }
 
@@ -35,6 +44,11 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.scanName forKey:@"scanName"];
+    [userDefaults setObject:self.scanSchool forKey:@"scanSchool"];
+    [userDefaults setObject:self.scanColor forKey:@"scanColor"];
+    [userDefaults synchronize];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

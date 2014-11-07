@@ -21,10 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*-------------------------------------------------------
-     TODO: Setup userDefaults
-     -------------------------------------------------------*/
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -142,17 +138,17 @@
 //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
 //                [alert show];
                 
-                NSArray *data = [resultAsString componentsSeparatedByString:@"/"];
+                NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
                 NSLog(@"%@", data);
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 NSString *str1 = [data objectAtIndex:0];
                 [appDelegate.scanName addObject:str1];
-//                NSLog(@"scanName: %@", self.scanName);
+//                NSLog(@"scanName: %@", appDelegate.scanName);
                 
                 NSString *str2 = [data objectAtIndex:1];
                 [appDelegate.scanSchool addObject:str2];
-//                NSLog(@"scanSchool: %@", self.scanSchool);
+//                NSLog(@"scanSchool: %@", appDelegate.scanSchool);
                 
                 NSString *str3 = [data objectAtIndex:2];
                 [appDelegate.scanColor addObject:str3];
@@ -171,6 +167,7 @@
 
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
 {
+    NSLog(@"Testing: %@", result);
     [self dismissViewControllerAnimated:YES completion:^{
         NSLog(@"Result: %@", result);
     }];
