@@ -71,6 +71,10 @@
         self.colorImage.backgroundColor = [UIColor greenColor];
     } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor purpleColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
+        self.colorImage.backgroundColor = [UIColor blackColor];
+    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
+        self.colorImage.backgroundColor = [UIColor orangeColor];
     } else if ([appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] == nil) {
         NSLog(@"scanColor is nil");
     } else {

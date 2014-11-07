@@ -9,6 +9,7 @@
 #import "QROfficersEntriresTableViewController.h"
 #import "QRCodeReaderViewController.h"
 #import "OfficersTableViewCell.h"
+#import "DetailViewController.h"
 #import "AppDelegate.h"
 
 @interface QROfficersEntriresTableViewController ()
@@ -39,7 +40,6 @@
     appDelegate.indexPath = indexPath;
     //    NSLog(@"indexPath.row: %ld", (long)indexPath.row);
     //    NSLog(@"indexPath.section: %ld", (long)indexPath.section);
-    
 }
 
 #pragma mark - Unwind
@@ -82,6 +82,10 @@
         cell.colorCell.backgroundColor = [UIColor greenColor];
     } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor purpleColor];
+    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
+        cell.colorCell.backgroundColor = [UIColor blackColor];
+    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
+        cell.colorCell.backgroundColor = [UIColor orangeColor];
     } else if ([appDelegate.officerColor objectAtIndex:indexPath.row] == nil) {
         NSLog(@"officerColor is nil");
     } else {
