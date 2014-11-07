@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *schoolLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *colorImage;
+@property (weak, nonatomic) IBOutlet UILabel *officerLabel;
 
 @end
 
@@ -52,11 +53,15 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *str1 = [appDelegate.scanName objectAtIndex:appDelegate.indexPath.row];
-    self.nameLabel.text = str1;
+    self.nameLabel.text = [appDelegate.scanName objectAtIndex:appDelegate.indexPath.row];
     
-    NSString *str2 = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
-    self.schoolLabel.text = str2;
+    self.schoolLabel.text = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
+    
+//    if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row] == nil]) {
+//        self.officerLabel.text = @"Member";
+//    } else {
+//        self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
+//    }
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;

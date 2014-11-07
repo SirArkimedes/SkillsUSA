@@ -12,6 +12,7 @@
 		4D3654301A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D36542F1A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m */; };
 		4D3654331A0D2F4C001ED6B6 /* OfficersTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3654321A0D2F4C001ED6B6 /* OfficersTableViewCell.m */; };
 		4D3654361A0D356A001ED6B6 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3654351A0D356A001ED6B6 /* DetailViewController.m */; };
+		4D3654391A0D4DE6001ED6B6 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D3654381A0D4DE6001ED6B6 /* AddViewController.m */; };
 		4D45E45219F8370A004DAB2D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45119F8370A004DAB2D /* main.m */; };
 		4D45E45519F8370A004DAB2D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45419F8370A004DAB2D /* AppDelegate.m */; };
 		4D45E45819F8370A004DAB2D /* SkillsUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E45619F8370A004DAB2D /* SkillsUSA.xcdatamodeld */; };
@@ -45,6 +46,8 @@
 		4D3654321A0D2F4C001ED6B6 /* OfficersTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OfficersTableViewCell.m; sourceTree = "<group>"; };
 		4D3654341A0D356A001ED6B6 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4D3654351A0D356A001ED6B6 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4D3654371A0D4DE6001ED6B6 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
+		4D3654381A0D4DE6001ED6B6 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
 		4D45E44C19F8370A004DAB2D /* SkillsUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SkillsUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D45E45019F8370A004DAB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D45E45119F8370A004DAB2D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -105,6 +108,8 @@
 				4D3654321A0D2F4C001ED6B6 /* OfficersTableViewCell.m */,
 				4D3654341A0D356A001ED6B6 /* DetailViewController.h */,
 				4D3654351A0D356A001ED6B6 /* DetailViewController.m */,
+				4D3654371A0D4DE6001ED6B6 /* AddViewController.h */,
+				4D3654381A0D4DE6001ED6B6 /* AddViewController.m */,
 			);
 			name = Officers;
 			sourceTree = "<group>";
@@ -301,6 +306,7 @@
 			files = (
 				4D45E45519F8370A004DAB2D /* AppDelegate.m in Sources */,
 				4D3654301A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m in Sources */,
+				4D3654391A0D4DE6001ED6B6 /* AddViewController.m in Sources */,
 				4D3654331A0D2F4C001ED6B6 /* OfficersTableViewCell.m in Sources */,
 				4D45E45819F8370A004DAB2D /* SkillsUSA.xcdatamodeld in Sources */,
 				4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */,

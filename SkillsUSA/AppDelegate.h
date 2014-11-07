@@ -24,6 +24,7 @@
 @property (strong, nonatomic) NSMutableArray *officersName;
 @property (strong, nonatomic) NSMutableArray *officersSchool;
 @property (strong, nonatomic) NSMutableArray *officerColor;
+@property (strong, nonatomic) NSMutableArray *officerRole;
 
 @property (strong, nonatomic) NSIndexPath *indexPath;
 

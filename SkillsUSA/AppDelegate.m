@@ -25,6 +25,7 @@
     self.officersName = [[NSMutableArray alloc] init];
     self.officersSchool = [[NSMutableArray alloc] init];
     self.officerColor = [[NSMutableArray alloc] init];
+    self.officerRole = [[NSMutableArray alloc] init];
     
     self.indexPath = [[NSIndexPath alloc] init];
     
@@ -32,6 +33,13 @@
         self.scanName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] mutableCopy];
         self.scanSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanSchool"] mutableCopy];
         self.scanColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanColor"] mutableCopy];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"officersName"] != nil) {
+        self.officersName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officersName"] mutableCopy];
+        self.officersSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officersSchool"] mutableCopy];
+        self.officerColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerColor"] mutableCopy];
+        self.officerRole = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerRole"] mutableCopy];
     }
     
     return YES;
@@ -49,6 +57,12 @@
     [userDefaults setObject:self.scanName forKey:@"scanName"];
     [userDefaults setObject:self.scanSchool forKey:@"scanSchool"];
     [userDefaults setObject:self.scanColor forKey:@"scanColor"];
+    
+    [userDefaults setObject:self.officersName forKey:@"officersName"];
+    [userDefaults setObject:self.officersSchool forKey:@"officersSchool"];
+    [userDefaults setObject:self.officerColor forKey:@"officerColor"];
+    [userDefaults setObject:self.officerRole forKey:@"officerRole"];
+    
     [userDefaults synchronize];
 }
 

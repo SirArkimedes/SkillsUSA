@@ -98,6 +98,9 @@
     cell.schoolCell.text = [appDelegate.officersSchool objectAtIndex:indexPath.row];
     //    NSLog(@"schoolCell: %@", cell.schoolCell.text);
     
+    cell.roleCell.text = [appDelegate.officerRole objectAtIndex:indexPath.row];
+    //    NSLog (@"officerRole: %@", clel.roleCell.text);
+    
     return cell;
 }
 
@@ -116,66 +119,11 @@
         [appDelegate.officersName removeObjectAtIndex:indexPath.row];
         [appDelegate.officersSchool removeObjectAtIndex:indexPath.row];
         [appDelegate.officerColor removeObjectAtIndex:indexPath.row];
+        [appDelegate.officerRole removeObjectAtIndex:indexPath.row];
         [tableView reloadData]; // tell table to refresh now
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
-}
-
-#pragma mark - IBAction Camera Selection
-
-- (IBAction)addEntry:(id)sender {
-    QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
-    reader.modalPresentationStyle      = UIModalPresentationFormSheet;
-    
-    [reader setCompletionWithBlock:^(NSString *resultAsString) {
-        [self dismissViewControllerAnimated:YES completion:^{
-            //            NSLog(@"String: %@", resultAsString);
-            
-            if (resultAsString == nil) {
-                NSLog(@"resultAsString = %@", resultAsString);
-            } else {
-                //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
-                //                [alert show];
-                
-                NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
-                NSLog(@"%@", data);
-                
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                NSString *str1 = [data objectAtIndex:0];
-                [appDelegate.officersName addObject:str1];
-                //                NSLog(@"officersName: %@", appDelegate.officersName);
-                
-                NSString *str2 = [data objectAtIndex:1];
-                [appDelegate.officersSchool addObject:str2];
-                //                NSLog(@"officersSchool: %@", appDelegate.officersSchool);
-                
-                NSString *str3 = [data objectAtIndex:2];
-                [appDelegate.officerColor addObject:str3];
-                //                NSLog(@"officerColor: %@", appDelegate.officerColor);
-                
-                [self.tableView reloadData];
-            }
-            
-        }];
-    }];
-    
-    [self presentViewController:reader animated:YES completion:NULL];
-}
-
-#pragma mark - QRCodeReader Delegate Methods
-
-- (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
-{
-    NSLog(@"Testing: %@", result);
-    [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"Result: %@", result);
-    }];
-}
-
-- (void)readerDidCancel:(QRCodeReaderViewController *)reader
-{
-    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 #pragma mark - Share

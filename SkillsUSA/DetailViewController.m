@@ -32,11 +32,12 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *str1 = [appDelegate.officersName objectAtIndex:appDelegate.indexPath.row];
-    self.nameLabel.text = str1;
     
-    NSString *str2 = [appDelegate.officersSchool objectAtIndex:appDelegate.indexPath.row];
-    self.schoolLabel.text = str2;
+    self.nameLabel.text = [appDelegate.officersName objectAtIndex:appDelegate.indexPath.row];
+    
+    self.schoolLabel.text = [appDelegate.officersSchool objectAtIndex:appDelegate.indexPath.row];
+    
+    self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;
