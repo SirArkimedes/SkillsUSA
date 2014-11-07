@@ -22,6 +22,10 @@
     self.scanSchool = [[NSMutableArray alloc] init];
     self.scanColor = [[NSMutableArray alloc] init];
     
+    self.officersName = [[NSMutableArray alloc] init];
+    self.officersSchool = [[NSMutableArray alloc] init];
+    self.officerColor = [[NSMutableArray alloc] init];
+    
     self.indexPath = [[NSIndexPath alloc] init];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] != nil) {
@@ -29,9 +33,6 @@
         self.scanSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanSchool"] mutableCopy];
         self.scanColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanColor"] mutableCopy];
     }
-//    self.scanName = [[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"];
-//    self.scanSchool = [[NSUserDefaults standardUserDefaults] objectForKey:@"scanSchool"];
-//    self.scanColor = [[NSUserDefaults standardUserDefaults] objectForKey:@"scanColor"];
     
     return YES;
 }
