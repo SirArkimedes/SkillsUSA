@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *colorImage;
 @property (weak, nonatomic) IBOutlet UIPickerView *rolePicker;
+@property (weak, nonatomic) IBOutlet UILabel *roleLabel;
 
 @property (strong, nonatomic) NSArray *pickerData;
 
@@ -54,6 +55,18 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return _pickerData.count;
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if ([[_pickerData objectAtIndex:row]  isEqual: @"President"]) {
+        self.roleLabel.text = @"Pres.";
+    } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Vice President"]) {
+        self.roleLabel.text = @"V.P.";
+    } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Treasurer"]) {
+        self.roleLabel.text = @"T";
+    } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Secratary"]) {
+        self.roleLabel.text = @"S";
+    }
 }
 
 #pragma mark - Title Color Change
@@ -116,9 +129,18 @@
                 [appDelegate.officerColor addObject:str3];
                 //                NSLog(@"scanColor: %@", appDelegate.scanColor);
                 
-                NSString *str4 = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
-                [appDelegate.officerRole addObject:str4];
-                NSLog(@"%@", appDelegate.officerRole);
+                if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"President"]) {
+                    [appDelegate.officerRole addObject:@"Pres."];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"Vice President"]) {
+                    [appDelegate.officerRole addObject:@"V.P."];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]   isEqual: @"Treasurer"]) {
+                    [appDelegate.officerRole addObject:@"T"];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"Secratary"]) {
+                    [appDelegate.officerRole addObject:@"S"];
+                }
+//                NSString *str4 = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
+//                [appDelegate.officerRole addObject:str4];
+//                NSLog(@"%@", appDelegate.officerRole);
                 
                 [self.navigationController popViewControllerAnimated:YES];
                 

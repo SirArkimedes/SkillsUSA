@@ -640,10 +640,19 @@
                                     <action selector="addEntry:" destination="8Kn-JC-cYp" eventType="touchUpInside" id="IFM-4S-W6j"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carthage Senior High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGP-rS-9K7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carthage High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGP-rS-9K7">
                                 <rect key="frame" x="69" y="125" width="506" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pres." textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d02-YM-aeU">
+                                <rect key="frame" x="397" y="113" width="165" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="165" id="DFB-vT-L6O"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -664,8 +673,11 @@
                             <constraint firstItem="a9r-6n-wwd" firstAttribute="leading" secondItem="EXE-SC-hTT" secondAttribute="leading" id="bIH-mi-dR9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oLb-Ji-GvZ" secondAttribute="trailing" constant="9" id="gK2-ye-3dn"/>
                             <constraint firstItem="aGP-rS-9K7" firstAttribute="leading" secondItem="EXE-SC-hTT" secondAttribute="trailing" constant="8" symbolic="YES" id="gb6-oO-Cbq"/>
+                            <constraint firstItem="d02-YM-aeU" firstAttribute="centerY" secondItem="EXE-SC-hTT" secondAttribute="centerY" id="qFt-PR-T47"/>
                             <constraint firstItem="aGP-rS-9K7" firstAttribute="top" secondItem="oLb-Ji-GvZ" secondAttribute="bottom" constant="2" id="rx1-wZ-Tyn"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="d02-YM-aeU" secondAttribute="trailing" constant="22" id="srv-kN-M4v"/>
                             <constraint firstItem="CNf-YH-PYX" firstAttribute="leading" secondItem="EXE-SC-hTT" secondAttribute="leading" id="tJ6-2P-m6t"/>
+                            <constraint firstItem="d02-YM-aeU" firstAttribute="top" secondItem="JxQ-mF-ddn" secondAttribute="bottom" constant="49" id="tL2-SU-uEU"/>
                             <constraint firstItem="oLb-Ji-GvZ" firstAttribute="top" secondItem="EXE-SC-hTT" secondAttribute="top" id="yot-mQ-0cv"/>
                             <constraint firstItem="aGP-rS-9K7" firstAttribute="leading" secondItem="oLb-Ji-GvZ" secondAttribute="leading" id="zGO-DU-8le"/>
                         </constraints>
@@ -677,6 +689,7 @@
                     </view>
                     <connections>
                         <outlet property="colorImage" destination="EXE-SC-hTT" id="DFy-BE-7zf"/>
+                        <outlet property="roleLabel" destination="d02-YM-aeU" id="OBh-RW-5IF"/>
                         <outlet property="rolePicker" destination="KZL-xP-0Xm" id="or8-9l-K49"/>
                     </connections>
                 </viewController>

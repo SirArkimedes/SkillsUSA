@@ -57,7 +57,7 @@
     
     self.schoolLabel.text = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
     
-//    if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row] == nil]) {
+//    if ([appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row] == nil) {
 //        self.officerLabel.text = @"Member";
 //    } else {
 //        self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
