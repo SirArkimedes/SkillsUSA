@@ -57,12 +57,6 @@
     
     self.schoolLabel.text = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
     
-//    if ([appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row] == nil) {
-//        self.officerLabel.text = @"Member";
-//    } else {
-//        self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
-//    }
-    
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;
     
@@ -74,8 +68,6 @@
         self.colorImage.backgroundColor = [UIColor yellowColor];
     } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
-        self.colorImage.backgroundColor = [UIColor purpleColor];
     } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor blackColor];
     } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {

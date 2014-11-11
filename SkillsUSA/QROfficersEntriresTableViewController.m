@@ -80,8 +80,6 @@
         cell.colorCell.backgroundColor = [UIColor yellowColor];
     } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"purple"] == NSOrderedSame) {
-        cell.colorCell.backgroundColor = [UIColor purpleColor];
     } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor blackColor];
     } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {

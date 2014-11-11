@@ -30,7 +30,7 @@
     self.colorImage.clipsToBounds = YES;
     
     // Init
-     _pickerData = @[@"President", @"Vice President", @"Treasurer", @"Secratary"];
+     _pickerData = @[@"President", @"Vice President", @"Treasurer", @"Secratary", @"Reporter", @"Historian", @"Parlimentarian", @"Chaplain"];
     
     // Connect data
     self.rolePicker.dataSource = self;
@@ -63,9 +63,17 @@
     } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Vice President"]) {
         self.roleLabel.text = @"V.P.";
     } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Treasurer"]) {
-        self.roleLabel.text = @"T";
+        self.roleLabel.text = @"Treas.";
     } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Secratary"]) {
-        self.roleLabel.text = @"S";
+        self.roleLabel.text = @"Sec.";
+    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Reporter"]) {
+        self.roleLabel.text = @"Rep.";
+    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Historian"]) {
+        self.roleLabel.text = @"Hist.";
+    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Parlimentarian"]) {
+        self.roleLabel.text = @"Par.";
+    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Chaplain"]) {
+        self.roleLabel.text = @"Chap.";
     }
 }
 
@@ -77,18 +85,32 @@
         NSString *title = [_pickerData objectAtIndex:0];
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         return attString;
-        
     } else if (row == 1) {
         NSString *title = [_pickerData objectAtIndex:1];
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         return attString;
-        
     } else if (row == 2) {
         NSString *title = [_pickerData objectAtIndex:2];
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         return attString;
     } else if (row == 3) {
         NSString *title = [_pickerData objectAtIndex:3];
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    } else if (row == 4) {
+        NSString *title = [_pickerData objectAtIndex:4];
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    } else if (row == 5) {
+        NSString *title = [_pickerData objectAtIndex:5];
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    } else if (row == 6) {
+        NSString *title = [_pickerData objectAtIndex:6];
+        NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+        return attString;
+    } else if (row == 7) {
+        NSString *title = [_pickerData objectAtIndex:7];
         NSAttributedString *attString = [[NSAttributedString alloc] initWithString:title attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
         return attString;
     }
@@ -131,13 +153,22 @@
                 
                 if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"President"]) {
                     [appDelegate.officerRole addObject:@"Pres."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"Vice President"]) {
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Vice President"]) {
                     [appDelegate.officerRole addObject:@"V.P."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]   isEqual: @"Treasurer"]) {
-                    [appDelegate.officerRole addObject:@"T"];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"Secratary"]) {
-                    [appDelegate.officerRole addObject:@"S"];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Treasurer"]) {
+                    [appDelegate.officerRole addObject:@"Treas."];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Secratary"]) {
+                    [appDelegate.officerRole addObject:@"Sec."];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Reporter"]) {
+                    [appDelegate.officerRole addObject:@"Rep."];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Historian"]) {
+                    [appDelegate.officerRole addObject:@"Hist."];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Parlimentarian"]) {
+                    [appDelegate.officerRole addObject:@"Par."];
+                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Chaplain"]) {
+                    [appDelegate.officerRole addObject:@"Chap."];
                 }
+                
 //                NSString *str4 = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
 //                [appDelegate.officerRole addObject:str4];
 //                NSLog(@"%@", appDelegate.officerRole);
