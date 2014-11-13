@@ -151,6 +151,8 @@
                 [appDelegate.officerColor addObject:str3];
                 //                NSLog(@"scanColor: %@", appDelegate.scanColor);
                 
+//                [appDelegate.officerRole addObject:[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]];
+                
                 if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"President"]) {
                     [appDelegate.officerRole addObject:@"Pres."];
                 } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Vice President"]) {

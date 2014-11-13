@@ -37,7 +37,24 @@
     
     self.schoolLabel.text = [appDelegate.officersSchool objectAtIndex:appDelegate.indexPath.row];
     
-    self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
+//    self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
+    if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Pres."]) {
+        self.officerLabel.text = @"President";
+    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"V.P."]) {
+        self.officerLabel.text = @"Vice President";
+    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Treas."]) {
+        self.officerLabel.text = @"Treasurer";
+    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Sec."]) {
+        self.officerLabel.text = @"Secratary";
+    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Rep."]) {
+        self.officerLabel.text = @"Reporter";
+    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Hist."]) {
+        self.officerLabel.text = @"Historian";
+    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Par."]) {
+        self.officerLabel.text = @"Parlimentarian";
+    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Chap."]) {
+        self.officerLabel.text = @"Chaplain";
+    }
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;
