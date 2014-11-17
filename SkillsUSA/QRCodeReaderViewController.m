@@ -86,31 +86,6 @@
     return YES;
 }
 
-#pragma mark - Managing the Orientation
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-
-    if (self.previewLayer.connection.isVideoOrientationSupported) {
-        self.previewLayer.connection.videoOrientation = [[self class] videoOrientationFromInterfaceOrientation:toInterfaceOrientation];
-    }
-}
-
-+ (AVCaptureVideoOrientation)videoOrientationFromInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    switch (interfaceOrientation) {
-        case UIInterfaceOrientationLandscapeLeft:
-            return AVCaptureVideoOrientationLandscapeLeft;
-        case UIInterfaceOrientationLandscapeRight:
-            return AVCaptureVideoOrientationLandscapeRight;
-        case UIInterfaceOrientationPortrait:
-            return AVCaptureVideoOrientationPortrait;
-        default:
-            return AVCaptureVideoOrientationPortraitUpsideDown;
-    }
-}
-
 #pragma mark - Managing the Block
 
 - (void)setCompletionWithBlock:(void (^) (NSString *resultAsString))completionBlock

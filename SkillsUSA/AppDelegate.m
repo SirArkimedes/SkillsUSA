@@ -27,6 +27,11 @@
     self.officerColor = [[NSMutableArray alloc] init];
     self.officerRole = [[NSMutableArray alloc] init];
     
+    self.committeeName = [[NSMutableArray alloc] init];
+    self.committeeSchool = [[NSMutableArray alloc] init];
+    self.committeeColor = [[NSMutableArray alloc] init];
+    self.committeeGroup = [[NSMutableArray alloc] init];
+    
     self.indexPath = [[NSIndexPath alloc] init];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] != nil) {
@@ -40,6 +45,13 @@
         self.officersSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officersSchool"] mutableCopy];
         self.officerColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerColor"] mutableCopy];
         self.officerRole = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerRole"] mutableCopy];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"committeeName"] != nil) {
+        self.committeeName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeName"] mutableCopy];
+        self.committeeSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeSchool"] mutableCopy];
+        self.committeeColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeColor"] mutableCopy];
+        self.committeeGroup = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeGroup"] mutableCopy];
     }
     
     return YES;
@@ -62,6 +74,11 @@
     [userDefaults setObject:self.officersSchool forKey:@"officersSchool"];
     [userDefaults setObject:self.officerColor forKey:@"officerColor"];
     [userDefaults setObject:self.officerRole forKey:@"officerRole"];
+    
+    [userDefaults setObject:self.committeeName forKey:@"committeeName"];
+    [userDefaults setObject:self.committeeSchool forKey:@"committeeSchool"];
+    [userDefaults setObject:self.committeeColor forKey:@"committeeColor"];
+    [userDefaults setObject:self.committeeGroup forKey:@"committeeGroup"];
     
     [userDefaults synchronize];
 }

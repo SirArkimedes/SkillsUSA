@@ -26,6 +26,11 @@
 @property (strong, nonatomic) NSMutableArray *officerColor;
 @property (strong, nonatomic) NSMutableArray *officerRole;
 
+@property (strong, nonatomic) NSMutableArray *committeeName;
+@property (strong, nonatomic) NSMutableArray *committeeSchool;
+@property (strong, nonatomic) NSMutableArray *committeeColor;
+@property (strong, nonatomic) NSMutableArray *committeeGroup;
+
 @property (strong, nonatomic) NSIndexPath *indexPath;
 
 - (void)saveContext;
