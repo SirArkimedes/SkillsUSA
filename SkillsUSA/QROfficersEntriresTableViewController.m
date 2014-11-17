@@ -11,6 +11,7 @@
 #import "OfficersTableViewCell.h"
 #import "DetailViewController.h"
 #import "AppDelegate.h"
+#import <MessageUI/MessageUI.h>
 
 @interface QROfficersEntriresTableViewController ()
 
@@ -128,10 +129,11 @@
 
 - (IBAction)sharePress:(id)sender {
     
-    NSString *textToShare = @"My dad is a loser.";
-    NSArray *itemsToShare = @[textToShare, @"imageToShare"];
+    NSString *textToShare = @"<html><body><!--Andrew Table--><style>#andrew-table, tr, td{border: 1px solid black;padding: 0px;margin: 0px;border-collapse: collapse;}.text {padding: 5px;}td {width: 100px;height: 25px;}</style><table><tr><td class='text'>Name</td><td class='text'>School</td><td class='text'>Color</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>";
+    NSArray *itemsToShare = @[textToShare];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
     activityVC.excludedActivityTypes = @[UIActivityTypePrint,
+                                         UIActivityTypeMessage,
                                          UIActivityTypeCopyToPasteboard,
                                          UIActivityTypeAssignToContact,
                                          UIActivityTypeSaveToCameraRoll,
@@ -142,7 +144,18 @@
                                          UIActivityTypePostToVimeo,
                                          UIActivityTypePostToWeibo,
                                          UIActivityTypePostToTencentWeibo]; //or whichever you don't need
+    
+    [activityVC setValue:@"Officers Data" forKey:@"subject"];
     [self presentViewController:activityVC animated:YES completion:nil];
+    
+//    MFMailComposeViewController *mailComposeViewController = [[MFMailComposeViewController alloc] init];
+//    [mailComposeViewController setToRecipients:@[@"mattt@nshipster.com"]];
+//    [mailComposeViewController setSubject:@"Hello"];
+//    [mailComposeViewController setMessageBody:@"Lorem ipsum dolor sit amet"
+//                                       isHTML:NO];
+//    [self presentViewController:mailComposeViewController animated:YES completion:^{
+//        // ...
+//    }];
     
 }
 

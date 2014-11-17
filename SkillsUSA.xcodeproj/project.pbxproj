@@ -20,6 +20,7 @@
 		4D45E46319F8370A004DAB2D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45E46119F8370A004DAB2D /* LaunchScreen.xib */; };
 		4D45E46F19F8370A004DAB2D /* SkillsUSATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E46E19F8370A004DAB2D /* SkillsUSATests.m */; };
 		4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */; };
+		4D7DC6C11A151486007F7E3B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7DC6C01A151486007F7E3B /* MessageUI.framework */; };
 		4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */; };
 		4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */; };
 		4DDEA3A319FEB30B00E699A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA3A119FEB30B00E699A2 /* Main.storyboard */; };
@@ -62,6 +63,7 @@
 		4D45E47819F83865004DAB2D /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
 		4D45E47919F83865004DAB2D /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
 		4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		4D7DC6C01A151486007F7E3B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "582px-SkillsUSALogo.png"; sourceTree = SOURCE_ROOT; };
 		4DDEA39E19FEB29200E699A2 /* QREntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QREntriesTableViewController.h; sourceTree = "<group>"; };
 		4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QREntriesTableViewController.m; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7DC6C11A151486007F7E3B /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +127,7 @@
 		4D45E44319F8370A004DAB2D = {
 			isa = PBXGroup;
 			children = (
+				4D7DC6C01A151486007F7E3B /* MessageUI.framework */,
 				4D45E44E19F8370A004DAB2D /* SkillsUSA */,
 				4D45E46B19F8370A004DAB2D /* SkillsUSATests */,
 				4D45E44D19F8370A004DAB2D /* Products */,
@@ -444,6 +448,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,6 +463,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
