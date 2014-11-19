@@ -57,8 +57,8 @@
     
     self.schoolLabel.text = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
     
-    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
-    self.colorImage.clipsToBounds = YES;
+//    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
+//    self.colorImage.clipsToBounds = YES;
     
     if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor redColor];

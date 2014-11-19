@@ -56,8 +56,8 @@
         self.committeeLabel.text = @"Chaplain";
     }
     
-    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
-    self.colorImage.clipsToBounds = YES;
+//    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
+//    self.colorImage.clipsToBounds = YES;
     
     if ([[appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor redColor];
