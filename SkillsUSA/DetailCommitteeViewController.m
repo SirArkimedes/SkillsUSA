@@ -78,6 +78,10 @@
     } else {
         self.colorImage.backgroundColor = [UIColor whiteColor];
     }
+    
+    // Set navigation bar title to Name
+    self.navigationItem.title = [appDelegate.committeeName objectAtIndex:appDelegate.indexPath.row];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
