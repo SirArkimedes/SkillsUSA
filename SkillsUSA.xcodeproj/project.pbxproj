@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */; };
 		4D2D1EB31A03EC7500F9BE28 /* DetailCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */; };
-		4D352F9C1A1A5D1C00CD5203 /* iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D352F9A1A1A5D1C00CD5203 /* iPad.storyboard */; };
 		4D352F9F1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D352F9E1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m */; };
 		4D352FA21A1A613900CD5203 /* AddCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D352FA11A1A613900CD5203 /* AddCommitteeViewController.m */; };
 		4D3654301A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D36542F1A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m */; };
@@ -28,7 +27,7 @@
 		4D7DC6C11A151486007F7E3B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7DC6C01A151486007F7E3B /* MessageUI.framework */; };
 		4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */; };
 		4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */; };
-		4DDEA3A319FEB30B00E699A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA3A119FEB30B00E699A2 /* Main.storyboard */; };
+		4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA3A119FEB30B00E699A2 /* MainStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +45,6 @@
 		4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrantsTableViewCell.m; sourceTree = "<group>"; };
 		4D2D1EB11A03EC7500F9BE28 /* DetailCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCellViewController.h; sourceTree = "<group>"; };
 		4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCellViewController.m; sourceTree = "<group>"; };
-		4D352F9B1A1A5D1C00CD5203 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/iPad.storyboard; sourceTree = "<group>"; };
 		4D352F9D1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QREntriesCommitteeTableViewController.h; sourceTree = "<group>"; };
 		4D352F9E1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QREntriesCommitteeTableViewController.m; sourceTree = "<group>"; };
 		4D352FA01A1A613900CD5203 /* AddCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommitteeViewController.h; sourceTree = "<group>"; };
@@ -81,7 +79,7 @@
 		4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "582px-SkillsUSALogo.png"; sourceTree = SOURCE_ROOT; };
 		4DDEA39E19FEB29200E699A2 /* QREntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QREntriesTableViewController.h; sourceTree = "<group>"; };
 		4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QREntriesTableViewController.m; sourceTree = "<group>"; };
-		4DDEA3A219FEB30B00E699A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SkillsUSA/Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4DDEA3A219FEB30B00E699A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SkillsUSA/Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,8 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */,
-				4DDEA3A119FEB30B00E699A2 /* Main.storyboard */,
-				4D352F9A1A1A5D1C00CD5203 /* iPad.storyboard */,
+				4DDEA3A119FEB30B00E699A2 /* MainStoryboard.storyboard */,
 				4D45E46119F8370A004DAB2D /* LaunchScreen.xib */,
 				4D45E47C19F83882004DAB2D /* QRCodeReader */,
 				4DDEA39A19FEB20A00E699A2 /* Files */,
@@ -313,8 +310,7 @@
 				4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */,
 				4D45E46319F8370A004DAB2D /* LaunchScreen.xib in Resources */,
 				4D45E46019F8370A004DAB2D /* Images.xcassets in Resources */,
-				4DDEA3A319FEB30B00E699A2 /* Main.storyboard in Resources */,
-				4D352F9C1A1A5D1C00CD5203 /* iPad.storyboard in Resources */,
+				4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,14 +365,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4D352F9A1A1A5D1C00CD5203 /* iPad.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4D352F9B1A1A5D1C00CD5203 /* Base */,
-			);
-			name = iPad.storyboard;
-			sourceTree = "<group>";
-		};
 		4D45E46119F8370A004DAB2D /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -385,12 +373,12 @@
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
-		4DDEA3A119FEB30B00E699A2 /* Main.storyboard */ = {
+		4DDEA3A119FEB30B00E699A2 /* MainStoryboard.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				4DDEA3A219FEB30B00E699A2 /* Base */,
 			);
-			name = Main.storyboard;
+			name = MainStoryboard.storyboard;
 			path = ..;
 			sourceTree = "<group>";
 		};

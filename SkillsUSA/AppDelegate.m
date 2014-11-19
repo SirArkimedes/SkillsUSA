@@ -54,6 +54,8 @@
         self.committeeGroup = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeGroup"] mutableCopy];
     }
     
+    [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
+    
     return YES;
 }
 
