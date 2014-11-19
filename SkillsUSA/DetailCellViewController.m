@@ -14,7 +14,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *schoolLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *colorImage;
-@property (weak, nonatomic) IBOutlet UILabel *officerLabel;
 
 @end
 
@@ -57,8 +56,10 @@
     
     self.schoolLabel.text = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
     
-//    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
-//    self.colorImage.clipsToBounds = YES;
+    self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
+    self.colorImage.clipsToBounds = YES;
+    self.colorImage.layer.borderWidth = 5.0;
+    self.colorImage.layer.borderColor = [[UIColor whiteColor] CGColor];
     
     if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor redColor];
@@ -78,6 +79,7 @@
         self.colorImage.backgroundColor = [UIColor whiteColor];
     }
 }
+
 
 - (void)viewWillDisappear:(BOOL)animated {
     
