@@ -414,7 +414,7 @@
         <scene sceneID="srg-Ge-QHC">
             <objects>
                 <navigationController id="DyS-ta-FyY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Officers" id="Koj-rU-6ni"/>
+                    <tabBarItem key="tabBarItem" title="Officers" image="Officer 2.png" id="Koj-rU-6ni"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lod-9Q-dKb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -904,4 +904,7 @@
             <point key="canvasLocation" x="1445" y="1746"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Officer 2.png" width="35" height="35"/>
+    </resources>
 </document>

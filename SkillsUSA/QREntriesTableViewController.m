@@ -11,8 +11,9 @@
 #import "QRCodeReaderViewController.h"
 #import "DetailCellViewController.h"
 #import "AppDelegate.h"
+#import <MessageUI/MessageUI.h>
 
-@interface QREntriesTableViewController ()
+@interface QREntriesTableViewController () <MFMailComposeViewControllerDelegate>
 
 @end
 
@@ -179,29 +180,98 @@
 
 #pragma mark - Share
 
+-(NSString *)dataFilePath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"Registrants Data.csv"];
+}
+
+
 - (IBAction)sharePress:(id)sender {
-    
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+//        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
+//        NSLog(@"Route creato");
+//    }
+    [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
     
-    NSString *textToShare = [NSString stringWithFormat:@"<html><body><!--Andrew Table--><style>#andrew-table, tr, td{border: 1px solid black;padding: 0px;margin: 0px;border-collapse: collapse;}.text {padding: 5px;}td {width: 100px;height: 25px;}</style><table><tr><td class='text'>Name</td><td class='text'>School</td><td class='text'>Color</td></tr><tr><td>%@</td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>", appDelegate.scanName];
-    NSArray *itemsToShare = @[textToShare];
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-    activityVC.excludedActivityTypes = @[UIActivityTypePrint,
-                                         UIActivityTypeMessage,
-                                         UIActivityTypeCopyToPasteboard,
-                                         UIActivityTypeAssignToContact,
-                                         UIActivityTypeSaveToCameraRoll,
-                                         UIActivityTypeAirDrop,
-                                         UIActivityTypePostToTwitter,
-                                         UIActivityTypePostToFacebook,
-                                         UIActivityTypePostToFlickr,
-                                         UIActivityTypePostToVimeo,
-                                         UIActivityTypePostToWeibo,
-                                         UIActivityTypePostToTencentWeibo]; //or whichever you don't need
+    NSMutableString *writeString = [NSMutableString stringWithCapacity:0]; //don't worry about the capacity, it will expand as necessary
     
-    [activityVC setValue:@"Officers Data" forKey:@"subject"];
-    [self presentViewController:activityVC animated:YES completion:nil];
+    for (int i = 0; i < [appDelegate.scanName count]; i++) {
+        if ([writeString containsString:@"Name,School,Color"]) {
+            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@ \n",[appDelegate.scanName objectAtIndex:i], [appDelegate.scanSchool objectAtIndex:i], [appDelegate.scanColor objectAtIndex:i]]];
+        } else {
+            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color, \n%@,%@,%@ \n",[appDelegate.scanName objectAtIndex:i], [appDelegate.scanSchool objectAtIndex:i], [appDelegate.scanColor objectAtIndex:i]]];
+        }
+}
+
+    //Moved this stuff out of the loop so that you write the complete string once and only once.
+    NSLog(@"writeString: %@", writeString);
+
+    NSFileHandle *handle;
+    handle = [NSFileHandle fileHandleForWritingAtPath: [self dataFilePath]];
+    //say to handle where's the file fo write
+    [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+    //position handle cursor to the end of file
+    [handle writeData:[writeString dataUsingEncoding:NSUTF8StringEncoding]];
     
+    
+    MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+    mailViewController.mailComposeDelegate = self;
+    [mailViewController setSubject:@"Registrants Data"];
+    [mailViewController setMessageBody:@"" isHTML:NO];
+//    mailViewController.navigationBar.tintColor = [UIColor blackColor];
+    NSString *csvFilePath = [self dataFilePath];
+    
+    [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:csvFilePath]
+                                 mimeType:@"text/csv"
+                                 fileName:@"Registrants Data"];
+    
+    [self presentViewController:mailViewController animated:YES completion:nil];
+    
+//    NSString *textToShare = [NSString stringWithFormat:@"<html><body><!--Andrew Table--><style>#andrew-table, tr, td{border: 1px solid black;padding: 0px;margin: 0px;border-collapse: collapse;}.text {padding: 5px;}td {width: 100px;height: 25px;}</style><table><tr><td class='text'>Name</td><td class='text'>School</td><td class='text'>Color</td></tr><tr><td>%@</td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>", appDelegate.scanName];
+//    NSArray *itemsToShare = @[writeString];
+//    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+//    activityVC.excludedActivityTypes = @[UIActivityTypePrint,
+//                                         UIActivityTypeMessage,
+//                                         UIActivityTypeCopyToPasteboard,
+//                                         UIActivityTypeAssignToContact,
+//                                         UIActivityTypeSaveToCameraRoll,
+//                                         UIActivityTypeAirDrop,
+//                                         UIActivityTypePostToTwitter,
+//                                         UIActivityTypePostToFacebook,
+//                                         UIActivityTypePostToFlickr,
+//                                         UIActivityTypePostToVimeo,
+//                                         UIActivityTypePostToWeibo,
+//                                         UIActivityTypePostToTencentWeibo]; //or whichever you don't need
+//    
+//    [activityVC setValue:@"Officers Data" forKey:@"subject"];
+//    [self presentViewController:activityVC animated:YES completion:nil];
+    
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+            break;
+        default:
+            NSLog(@"Mail not sent.");
+            break;
+    }
+    // Remove the mail view
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - Cell Movement

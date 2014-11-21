@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D0C64321A1D258000AE8E23 /* Officer.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D0C64311A1D258000AE8E23 /* Officer.png */; };
+		4D0C64351A1D2B3E00AE8E23 /* Officer 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D0C64341A1D2B3E00AE8E23 /* Officer 2.png */; };
 		4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */; };
 		4D2D1EB31A03EC7500F9BE28 /* DetailCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */; };
 		4D352F9F1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D352F9E1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m */; };
@@ -41,6 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D0C64311A1D258000AE8E23 /* Officer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Officer.png; path = ../../../../Desktop/Officer.png; sourceTree = "<group>"; };
+		4D0C64341A1D2B3E00AE8E23 /* Officer 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Officer 2.png"; path = "../../../../Desktop/Officer 2.png"; sourceTree = "<group>"; };
 		4D1F9DCD1A013BAD00298F20 /* RegistrantsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegistrantsTableViewCell.h; sourceTree = "<group>"; };
 		4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrantsTableViewCell.m; sourceTree = "<group>"; };
 		4D2D1EB11A03EC7500F9BE28 /* DetailCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCellViewController.h; sourceTree = "<group>"; };
@@ -101,6 +105,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D0C64331A1D258A00AE8E23 /* Assests */ = {
+			isa = PBXGroup;
+			children = (
+				4D0C64341A1D2B3E00AE8E23 /* Officer 2.png */,
+				4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */,
+				4D0C64311A1D258000AE8E23 /* Officer.png */,
+			);
+			name = Assests;
+			sourceTree = "<group>";
+		};
 		4D0DB2701A013341005FB007 /* Registrants */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,10 +180,10 @@
 		4D45E44E19F8370A004DAB2D /* SkillsUSA */ = {
 			isa = PBXGroup;
 			children = (
-				4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */,
 				4DDEA3A119FEB30B00E699A2 /* MainStoryboard.storyboard */,
 				4D45E46119F8370A004DAB2D /* LaunchScreen.xib */,
 				4D45E47C19F83882004DAB2D /* QRCodeReader */,
+				4D0C64331A1D258A00AE8E23 /* Assests */,
 				4DDEA39A19FEB20A00E699A2 /* Files */,
 				4D45E45F19F8370A004DAB2D /* Images.xcassets */,
 				4D45E45619F8370A004DAB2D /* SkillsUSA.xcdatamodeld */,
@@ -310,6 +324,8 @@
 				4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */,
 				4D45E46319F8370A004DAB2D /* LaunchScreen.xib in Resources */,
 				4D45E46019F8370A004DAB2D /* Images.xcassets in Resources */,
+				4D0C64321A1D258000AE8E23 /* Officer.png in Resources */,
+				4D0C64351A1D2B3E00AE8E23 /* Officer 2.png in Resources */,
 				4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
