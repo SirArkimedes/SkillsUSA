@@ -159,26 +159,6 @@
     
 }
 
-#pragma mark - Cell Movement
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    NSString *stringToMove = appDelegate.committeeName[sourceIndexPath.row];
-    [appDelegate.committeeName removeObjectAtIndex:sourceIndexPath.row];
-    [appDelegate.committeeName insertObject:stringToMove atIndex:destinationIndexPath.row];
-    
-    NSString *stringToMove2 = appDelegate.committeeSchool[sourceIndexPath.row];
-    [appDelegate.committeeSchool removeObjectAtIndex:sourceIndexPath.row];
-    [appDelegate.committeeSchool insertObject:stringToMove2 atIndex:destinationIndexPath.row];
-}
-
 /*
  #pragma mark - Navigation
  

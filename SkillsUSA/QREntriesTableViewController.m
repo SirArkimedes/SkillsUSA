@@ -194,6 +194,7 @@
 //        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
 //        NSLog(@"Route creato");
 //    }
+    
     [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
     
     NSMutableString *writeString = [NSMutableString stringWithCapacity:0]; //don't worry about the capacity, it will expand as necessary
@@ -272,26 +273,6 @@
     }
     // Remove the mail view
     [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-#pragma mark - Cell Movement
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return YES;
-}
-
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    NSString *stringToMove = appDelegate.scanName[sourceIndexPath.row];
-    [appDelegate.scanName removeObjectAtIndex:sourceIndexPath.row];
-    [appDelegate.scanName insertObject:stringToMove atIndex:destinationIndexPath.row];
-    
-    NSString *stringToMove2 = appDelegate.scanSchool[sourceIndexPath.row];
-    [appDelegate.scanSchool removeObjectAtIndex:sourceIndexPath.row];
-    [appDelegate.scanSchool insertObject:stringToMove2 atIndex:destinationIndexPath.row];
 }
 
 /*
