@@ -32,6 +32,10 @@
     self.committeeColor = [[NSMutableArray alloc] init];
     self.committeeGroup = [[NSMutableArray alloc] init];
     
+    self.entries = [[NSMutableArray alloc] init];
+    self.officerIndex = [[NSMutableArray alloc] init];
+    self.committee = [[NSMutableArray alloc] init];
+    
     self.indexPath = [[NSIndexPath alloc] init];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] != nil) {

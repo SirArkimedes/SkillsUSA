@@ -7,6 +7,7 @@
 //
 
 #import "DetailCellViewController.h"
+#import "Person.h"
 #import "AppDelegate.h"
 
 @interface DetailCellViewController ()
@@ -52,35 +53,37 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    self.nameLabel.text = [appDelegate.scanName objectAtIndex:appDelegate.indexPath.row];
+    Person *returnedObject = [appDelegate.entries objectAtIndex:appDelegate.indexPath.row];
     
-    self.schoolLabel.text = [appDelegate.scanSchool objectAtIndex:appDelegate.indexPath.row];
+    self.nameLabel.text = returnedObject.name;
+    
+    self.schoolLabel.text = returnedObject.school;
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;
     self.colorImage.layer.borderWidth = 5.0;
     self.colorImage.layer.borderColor = [[UIColor whiteColor] CGColor];
     
-    if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
+    if ([returnedObject.color caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor redColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor blueColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor yellowColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"black"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor blackColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor orangeColor];
-    } else if ([appDelegate.scanColor objectAtIndex:appDelegate.indexPath.row] == nil) {
+    } else if (returnedObject.color == nil) {
         NSLog(@"scanColor is nil");
     } else {
         self.colorImage.backgroundColor = [UIColor whiteColor];
     }
     
     // Set navigation bar title to Name
-    self.navigationItem.title = [appDelegate.scanName objectAtIndex:appDelegate.indexPath.row];
+    self.navigationItem.title = returnedObject.name;
     
 }
 

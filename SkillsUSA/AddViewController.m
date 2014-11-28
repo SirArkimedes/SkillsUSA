@@ -9,6 +9,34 @@
 #import "AddViewController.h"
 #import "QRCodeReaderViewController.h"
 #import "AppDelegate.h"
+#import "Person.h"
+
+#define OFFICER_NO_EXIST 0xFFFFFFFF
+
+/*
+ 0-F
+ 0-9, normal digits
+ 10, A
+ 11, B
+ 12, C
+ 13, D
+ 14, E
+ 15, F
+ 
+ 0000b, 0x0
+ 0001b, 0x1
+    |
+    |
+ 1010b, 0xA
+ 1011b, 0xB
+ 1100b, 0xC
+ 1101b, 0xD
+ 1110b, 0xE
+ 1111b, 0xF
+ 
+ 0xFF -> 1111 1111b
+ 0xAF -> 1010 1111b
+ */
 
 @interface AddViewController ()
 
@@ -129,6 +157,8 @@
         [self dismissViewControllerAnimated:YES completion:^{
             //            NSLog(@"String: %@", resultAsString);
             
+            NSString *officerRoleString = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
+            
             if (resultAsString == nil) {
                 NSLog(@"resultAsString = %@", resultAsString);
             } else {
@@ -139,39 +169,56 @@
                 NSLog(@"%@", data);
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                NSString *str1 = [data objectAtIndex:0];
-                [appDelegate.officersName addObject:str1];
-                //                NSLog(@"scanName: %@", appDelegate.scanName);
+
+                NSUInteger indexOfTheObject = [self isOfficerSelected:officerRoleString];
                 
-                NSString *str2 = [data objectAtIndex:1];
-                [appDelegate.officersSchool addObject:str2];
-                //                NSLog(@"scanSchool: %@", appDelegate.scanSchool);
+                NSString *namestr = [data objectAtIndex:0];
+                NSString *schoolstr = [data objectAtIndex:1];
+                NSString *colorstr = [data objectAtIndex:2];
                 
-                NSString *str3 = [data objectAtIndex:2];
-                [appDelegate.officerColor addObject:str3];
-                //                NSLog(@"scanColor: %@", appDelegate.scanColor);
+                Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:@""];
                 
-//                [appDelegate.officerRole addObject:[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]];
+                NSUInteger existing = [self doesPersonExist:personObject];
+                if (existing != OFFICER_NO_EXIST) {
+                    indexOfTheObject = existing;
+                }
+                NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
                 
-                if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"President"]) {
-                    [appDelegate.officerRole addObject:@"Pres."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Vice President"]) {
-                    [appDelegate.officerRole addObject:@"V.P."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Treasurer"]) {
-                    [appDelegate.officerRole addObject:@"Treas."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Secratary"]) {
-                    [appDelegate.officerRole addObject:@"Sec."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Reporter"]) {
-                    [appDelegate.officerRole addObject:@"Rep."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Historian"]) {
-                    [appDelegate.officerRole addObject:@"Hist."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Parlimentarian"]) {
-                    [appDelegate.officerRole addObject:@"Par."];
-                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Chaplain"]) {
-                    [appDelegate.officerRole addObject:@"Chap."];
+                if ([officerRoleString isEqual: @"President"]) {
+                    personObject.role = @"Pres.";
+                } else if ([officerRoleString isEqual: @"Vice President"]) {
+                    personObject.role = @"V.P.";
+                } else if ([officerRoleString isEqual: @"Treasurer"]) {
+                    personObject.role = @"Treas.";
+                } else if ([officerRoleString isEqual: @"Secratary"]) {
+                    personObject.role = @"Sec.";
+                } else if ([officerRoleString isEqual: @"Reporter"]) {
+                    personObject.role = @"Rep.";
+                } else if ([officerRoleString isEqual: @"Historian"]) {
+                    personObject.role = @"Hist.";
+                } else if ([officerRoleString isEqual: @"Parlimentarian"]) {
+                    personObject.role = @"Par.";
+                } else if ([officerRoleString isEqual: @"Chaplain"]) {
+                    personObject.role = @"Chap.";
                 }
                 
-//                NSString *str4 = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
+                if (OFFICER_NO_EXIST != indexOfTheObject) {
+                    // officer previously selected
+                    // OFFICER EXISTS
+                    
+                    [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
+                    [appDelegate.officerIndex addObject:index];
+                    
+                } else {
+                    // new officer not in array
+                    // OFFICER NO EXIST
+                    
+                    NSNumber *entryCount = [NSNumber numberWithInteger:[appDelegate.entries count]];
+                    [appDelegate.entries addObject:personObject];
+                    [appDelegate.officerIndex addObject:entryCount];
+                }
+                
+//                NSString *str4 = officerRoleString;
 //                [appDelegate.officerRole addObject:str4];
 //                NSLog(@"%@", appDelegate.officerRole);
                 
@@ -183,6 +230,53 @@
     }];
     
     [self presentViewController:reader animated:YES completion:NULL];
+}
+
+- (NSUInteger)isOfficerSelected:(NSString *)off {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSArray* per_arr = appDelegate.entries;
+    
+    NSString *role;
+    if ([off isEqual: @"President"]) {
+        role = @"Pres.";
+    } else if ([off isEqual: @"Vice President"]) {
+        role = @"V.P.";
+    } else if ([off isEqual: @"Treasurer"]) {
+        role = @"Treas.";
+    } else if ([off isEqual: @"Secratary"]) {
+        role = @"Sec.";
+    } else if ([off isEqual: @"Reporter"]) {
+        role = @"Rep.";
+    } else if ([off isEqual: @"Historian"]) {
+        role = @"Hist.";
+    } else if ([off isEqual: @"Parlimentarian"]) {
+        role = @"Par.";
+    } else if ([off isEqual: @"Chaplain"]) {
+        role = @"Chap.";
+    } else {
+        role = nil;
+    }
+    
+    for (int i = 0; i < [appDelegate.entries count]; i++) {
+        Person *per = per_arr[i];
+        if([per.role isEqualToString:role]) {
+            return i;
+        }
+    }
+    return OFFICER_NO_EXIST;
+}
+
+- (NSUInteger)doesPersonExist:(Person *)person {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSArray* per_arr = appDelegate.entries;
+    
+    for (int i = 0; i < [appDelegate.entries count]; i++) {
+        Person *per = per_arr[i];
+        if([person.name isEqual:per.name] && [person.school isEqual:per.school] && [person.color isEqual:per.color]) {
+            return i;
+        }
+    }
+    return OFFICER_NO_EXIST;
 }
 
 #pragma mark - QRCodeReader Delegate Methods

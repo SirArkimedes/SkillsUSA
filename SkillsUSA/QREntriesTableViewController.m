@@ -11,6 +11,7 @@
 #import "QRCodeReaderViewController.h"
 #import "DetailCellViewController.h"
 #import "AppDelegate.h"
+#import "Person.h"
 #import <MessageUI/MessageUI.h>
 
 @interface QREntriesTableViewController () <MFMailComposeViewControllerDelegate>
@@ -60,7 +61,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    return [appDelegate.scanName count];
+    return [appDelegate.entries count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,34 +69,35 @@
     
     // Configure the cell...
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Person *returnedObject = [appDelegate.entries objectAtIndex:indexPath.row];
     
     // Rounds the edges of the imageview
     cell.colorCell.layer.cornerRadius = cell.colorCell.frame.size.width / 2;
     cell.colorCell.clipsToBounds = YES;
     
     // Checks for color type, not case sensitive.
-    if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
+    if ([returnedObject.color caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor redColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor blueColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor yellowColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"black"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor blackColor];
-    } else if ([[appDelegate.scanColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor orangeColor];
-    } else if ([appDelegate.scanColor objectAtIndex:indexPath.row] == nil) {
+    } else if (returnedObject.color == nil) {
         NSLog(@"scanColor is nil");
     } else {
         cell.colorCell.backgroundColor = [UIColor whiteColor];
     }
     
-    cell.nameCell.text = [appDelegate.scanName objectAtIndex:indexPath.row];
+    cell.nameCell.text = returnedObject.name;
 //    NSLog(@"nameCell: %@", cell.nameCell.text);
     
-    cell.schoolCell.text = [appDelegate.scanSchool objectAtIndex:indexPath.row];
+    cell.schoolCell.text = returnedObject.school;
 //    NSLog(@"schoolCell: %@", cell.schoolCell.text);
     
     return cell;
@@ -113,9 +115,17 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [appDelegate.scanName removeObjectAtIndex:indexPath.row];
-        [appDelegate.scanSchool removeObjectAtIndex:indexPath.row];
-        [appDelegate.scanColor removeObjectAtIndex:indexPath.row];
+//        [appDelegate.scanName removeObjectAtIndex:indexPath.row];
+//        [appDelegate.scanSchool removeObjectAtIndex:indexPath.row];
+//        [appDelegate.scanColor removeObjectAtIndex:indexPath.row];
+        Person *returnedObject = [appDelegate.entries objectAtIndex:indexPath.row];
+        if (returnedObject.role != nil) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You are about to delete an entry that is also defined as an officer." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+            [alert show];
+            [appDelegate.entries removeObjectAtIndex:indexPath.row];
+        } else {
+            [appDelegate.entries removeObjectAtIndex:indexPath.row];
+        }
         [tableView reloadData]; // tell table to refresh now
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -142,17 +152,20 @@
                 NSLog(@"%@", data);
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                NSString *str1 = [data objectAtIndex:0];
-                [appDelegate.scanName addObject:str1];
+                NSString *namestr = [data objectAtIndex:0];
+//                [appDelegate.scanName addObject:str1];
 //                NSLog(@"scanName: %@", appDelegate.scanName);
                 
-                NSString *str2 = [data objectAtIndex:1];
-                [appDelegate.scanSchool addObject:str2];
+                NSString *schoolstr = [data objectAtIndex:1];
+//                [appDelegate.scanSchool addObject:str2];
 //                NSLog(@"scanSchool: %@", appDelegate.scanSchool);
                 
-                NSString *str3 = [data objectAtIndex:2];
-                [appDelegate.scanColor addObject:str3];
+                NSString *colorstr = [data objectAtIndex:2];
+//                [appDelegate.scanColor addObject:str3];
 //                NSLog(@"scanColor: %@", appDelegate.scanColor);
+                
+                Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:nil];
+                [appDelegate.entries addObject:personObject];
                 
                 [self.tableView reloadData];
             }
@@ -199,15 +212,15 @@
     
     NSMutableString *writeString = [NSMutableString stringWithCapacity:0]; //don't worry about the capacity, it will expand as necessary
     
-    for (int i = 0; i < [appDelegate.scanName count]; i++) {
+    for (int i = 0; i < [appDelegate.entries count]; i++) {
+        Person *returnedObject = [appDelegate.entries objectAtIndex:i];
         if ([writeString containsString:@"Name,School,Color"]) {
-            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@ \n",[appDelegate.scanName objectAtIndex:i], [appDelegate.scanSchool objectAtIndex:i], [appDelegate.scanColor objectAtIndex:i]]];
+            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@ \n", returnedObject.name, returnedObject.school, returnedObject.color]];
         } else {
-            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color, \n%@,%@,%@ \n",[appDelegate.scanName objectAtIndex:i], [appDelegate.scanSchool objectAtIndex:i], [appDelegate.scanColor objectAtIndex:i]]];
+            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color, \n%@,%@,%@ \n", returnedObject.name, returnedObject.school, returnedObject.color]];
         }
-}
+    }
 
-    //Moved this stuff out of the loop so that you write the complete string once and only once.
     NSLog(@"writeString: %@", writeString);
 
     NSFileHandle *handle;
@@ -227,7 +240,7 @@
     
     [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:csvFilePath]
                                  mimeType:@"text/csv"
-                                 fileName:@"Registrants Data"];
+                                 fileName:@"Registrants Data.csv"];
     
     [self presentViewController:mailViewController animated:YES completion:nil];
     

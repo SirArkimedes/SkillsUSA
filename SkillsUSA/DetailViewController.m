@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "Person.h"
 #import "AppDelegate.h"
 
 @interface DetailViewController ()
@@ -32,27 +33,28 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Person *returnedObject = [appDelegate.entries objectAtIndex:appDelegate.indexPath.row];
     
-    self.nameLabel.text = [appDelegate.officersName objectAtIndex:appDelegate.indexPath.row];
+    self.nameLabel.text = returnedObject.name;
     
-    self.schoolLabel.text = [appDelegate.officersSchool objectAtIndex:appDelegate.indexPath.row];
+    self.schoolLabel.text = returnedObject.school;
     
 //    self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
-    if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Pres."]) {
+    if ([returnedObject.role isEqual: @"Pres."]) {
         self.officerLabel.text = @"President";
-    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"V.P."]) {
+    } else if ([returnedObject.role  isEqual: @"V.P."]) {
         self.officerLabel.text = @"Vice President";
-    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Treas."]) {
+    } else if ([returnedObject.role  isEqual: @"Treas."]) {
         self.officerLabel.text = @"Treasurer";
-    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Sec."]) {
+    } else if ([returnedObject.role  isEqual: @"Sec."]) {
         self.officerLabel.text = @"Secratary";
-    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Rep."]) {
+    } else if ([returnedObject.role  isEqual: @"Rep."]) {
         self.officerLabel.text = @"Reporter";
-    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Hist."]) {
+    } else if ([returnedObject.role  isEqual: @"Hist."]) {
         self.officerLabel.text = @"Historian";
-    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Par."]) {
+    } else if ([returnedObject.role  isEqual: @"Par."]) {
         self.officerLabel.text = @"Parlimentarian";
-    } else if ([[appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Chap."]) {
+    } else if ([returnedObject.role  isEqual: @"Chap."]) {
         self.officerLabel.text = @"Chaplain";
     }
     
@@ -61,26 +63,26 @@
     self.colorImage.layer.borderWidth = 5.0;
     self.colorImage.layer.borderColor = [[UIColor whiteColor] CGColor];
     
-    if ([[appDelegate.officerColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
+    if ([returnedObject.color caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor redColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor blueColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor yellowColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"black"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor blackColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor orangeColor];
-    } else if ([appDelegate.officerColor objectAtIndex:appDelegate.indexPath.row] == nil) {
+    } else if (returnedObject.color == nil) {
         NSLog(@"scanColor is nil");
     } else {
         self.colorImage.backgroundColor = [UIColor whiteColor];
     }
     
     // Set navigation bar title to Name
-    self.navigationItem.title = [appDelegate.officersName objectAtIndex:appDelegate.indexPath.row];
+    self.navigationItem.title = returnedObject.name;
     
 }
 

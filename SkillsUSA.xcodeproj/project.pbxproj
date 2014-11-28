@@ -11,6 +11,7 @@
 		4D0C64351A1D2B3E00AE8E23 /* Officer 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D0C64341A1D2B3E00AE8E23 /* Officer 2.png */; };
 		4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */; };
 		4D2D1EB31A03EC7500F9BE28 /* DetailCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */; };
+		4D2E75B71A27B2C100A027D2 /* Committee.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2E75B61A27B2C100A027D2 /* Committee.m */; };
 		4D352F9F1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D352F9E1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m */; };
 		4D352FA21A1A613900CD5203 /* AddCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D352FA11A1A613900CD5203 /* AddCommitteeViewController.m */; };
 		4D3654301A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D36542F1A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m */; };
@@ -27,6 +28,7 @@
 		4D611D311A1A6BEF00484687 /* CommitteeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D301A1A6BEF00484687 /* CommitteeTableViewCell.m */; };
 		4D611D341A1A6DC400484687 /* DetailCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D331A1A6DC400484687 /* DetailCommitteeViewController.m */; };
 		4D7DC6C11A151486007F7E3B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7DC6C01A151486007F7E3B /* MessageUI.framework */; };
+		4DC1D5931A26498100A179F9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1D5921A26498100A179F9 /* Person.m */; };
 		4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */; };
 		4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */; };
 		4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA3A119FEB30B00E699A2 /* MainStoryboard.storyboard */; };
@@ -49,6 +51,8 @@
 		4D1F9DCE1A013BAD00298F20 /* RegistrantsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrantsTableViewCell.m; sourceTree = "<group>"; };
 		4D2D1EB11A03EC7500F9BE28 /* DetailCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCellViewController.h; sourceTree = "<group>"; };
 		4D2D1EB21A03EC7500F9BE28 /* DetailCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCellViewController.m; sourceTree = "<group>"; };
+		4D2E75B51A27B2C100A027D2 /* Committee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Committee.h; sourceTree = "<group>"; };
+		4D2E75B61A27B2C100A027D2 /* Committee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Committee.m; sourceTree = "<group>"; };
 		4D352F9D1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QREntriesCommitteeTableViewController.h; sourceTree = "<group>"; };
 		4D352F9E1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QREntriesCommitteeTableViewController.m; sourceTree = "<group>"; };
 		4D352FA01A1A613900CD5203 /* AddCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddCommitteeViewController.h; sourceTree = "<group>"; };
@@ -80,6 +84,8 @@
 		4D611D321A1A6DC400484687 /* DetailCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCommitteeViewController.h; sourceTree = "<group>"; };
 		4D611D331A1A6DC400484687 /* DetailCommitteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCommitteeViewController.m; sourceTree = "<group>"; };
 		4D7DC6C01A151486007F7E3B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		4DC1D5911A26498100A179F9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		4DC1D5921A26498100A179F9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "582px-SkillsUSALogo.png"; sourceTree = SOURCE_ROOT; };
 		4DDEA39E19FEB29200E699A2 /* QREntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QREntriesTableViewController.h; sourceTree = "<group>"; };
 		4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QREntriesTableViewController.m; sourceTree = "<group>"; };
@@ -233,6 +239,10 @@
 			children = (
 				4D45E45319F8370A004DAB2D /* AppDelegate.h */,
 				4D45E45419F8370A004DAB2D /* AppDelegate.m */,
+				4DC1D5911A26498100A179F9 /* Person.h */,
+				4DC1D5921A26498100A179F9 /* Person.m */,
+				4D2E75B51A27B2C100A027D2 /* Committee.h */,
+				4D2E75B61A27B2C100A027D2 /* Committee.m */,
 				4D0DB2701A013341005FB007 /* Registrants */,
 				4D0DB2711A01334A005FB007 /* Officers */,
 				4D0DB2721A01334F005FB007 /* Committees */,
@@ -345,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D45E45519F8370A004DAB2D /* AppDelegate.m in Sources */,
+				4D2E75B71A27B2C100A027D2 /* Committee.m in Sources */,
 				4D352F9F1A1A5E4100CD5203 /* QREntriesCommitteeTableViewController.m in Sources */,
 				4D3654301A0D2EEA001ED6B6 /* QROfficersEntriresTableViewController.m in Sources */,
 				4D611D341A1A6DC400484687 /* DetailCommitteeViewController.m in Sources */,
@@ -354,6 +365,7 @@
 				4D45E45819F8370A004DAB2D /* SkillsUSA.xcdatamodeld in Sources */,
 				4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */,
 				4D3654361A0D356A001ED6B6 /* DetailViewController.m in Sources */,
+				4DC1D5931A26498100A179F9 /* Person.m in Sources */,
 				4D45E45219F8370A004DAB2D /* main.m in Sources */,
 				4D1F9DCF1A013BAD00298F20 /* RegistrantsTableViewCell.m in Sources */,
 				4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */,

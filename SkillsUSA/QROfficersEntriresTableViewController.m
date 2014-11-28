@@ -10,6 +10,7 @@
 #import "QRCodeReaderViewController.h"
 #import "OfficersTableViewCell.h"
 #import "DetailViewController.h"
+#import "Person.h"
 #import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
 
@@ -59,7 +60,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    return [appDelegate.officersName count];
+    return [appDelegate.officerIndex count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -68,38 +69,41 @@
     // Configure the cell...
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    NSNumber *index = [appDelegate.officerIndex objectAtIndex:indexPath.row];
+    NSUInteger integer = [index integerValue];
+    Person *returnedObject = [appDelegate.entries objectAtIndex:integer];
+    
     // Rounds the edges of the imageview
     cell.colorCell.layer.cornerRadius = cell.colorCell.frame.size.width / 2;
     cell.colorCell.clipsToBounds = YES;
     
     // Checks for color type, not case sensitive.
-    if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
+    if ([returnedObject.color caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor redColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor blueColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor yellowColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"black"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor blackColor];
-    } else if ([[appDelegate.officerColor objectAtIndex:indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
         cell.colorCell.backgroundColor = [UIColor orangeColor];
-    } else if ([appDelegate.officerColor objectAtIndex:indexPath.row] == nil) {
+    } else if (returnedObject.color == nil) {
         NSLog(@"officerColor is nil");
     } else {
         cell.colorCell.backgroundColor = [UIColor whiteColor];
     }
     
-    cell.nameCell.text = [appDelegate.officersName objectAtIndex:indexPath.row];
+    cell.nameCell.text = returnedObject.name;
     //    NSLog(@"nameCell: %@", cell.nameCell.text);
     
-    cell.schoolCell.text = [appDelegate.officersSchool objectAtIndex:indexPath.row];
+    cell.schoolCell.text = returnedObject.school;
     //    NSLog(@"schoolCell: %@", cell.schoolCell.text);
     
-    cell.roleCell.text = [appDelegate.officerRole objectAtIndex:indexPath.row];
+    cell.roleCell.text = returnedObject.role;
     //    NSLog (@"officerRole: %@", clel.roleCell.text);
-    
     return cell;
 }
 
@@ -115,11 +119,16 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [appDelegate.officersName removeObjectAtIndex:indexPath.row];
-        [appDelegate.officersSchool removeObjectAtIndex:indexPath.row];
-        [appDelegate.officerColor removeObjectAtIndex:indexPath.row];
-        [appDelegate.officerRole removeObjectAtIndex:indexPath.row];
-        [tableView reloadData]; // tell table to refresh now
+//        [appDelegate.officersName removeObjectAtIndex:indexPath.row];
+//        [appDelegate.officersSchool removeObjectAtIndex:indexPath.row];
+//        [appDelegate.officerColor removeObjectAtIndex:indexPath.row];
+//        [appDelegate.officerRole removeObjectAtIndex:indexPath.row];
+        NSNumber *index = [appDelegate.officerIndex objectAtIndex:indexPath.row];
+        NSUInteger integer = [index integerValue];
+        Person *returnedObject = [appDelegate.entries objectAtIndex:integer];
+        returnedObject.role = nil;
+        [appDelegate.officerIndex removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }
