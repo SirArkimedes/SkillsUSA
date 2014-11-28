@@ -27,14 +27,15 @@
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"entries"] != nil) {
         
         NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-        NSData *data = [def objectForKey:@"MyData"];
-        NSArray *retrievedDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        self.entries = [[NSMutableArray alloc] initWithArray:retrievedDictionary];
+        NSData *entriesData = [def objectForKey:@"entries"];
+        NSArray *retrievedEntries = [NSKeyedUnarchiver unarchiveObjectWithData:entriesData];
+        self.entries = [[NSMutableArray alloc] initWithArray:retrievedEntries];
         
+        NSData *committeeData = [def objectForKey:@"committee"];
+        NSArray *retrievedOfficerIndex = [NSKeyedUnarchiver unarchiveObjectWithData:committeeData];
+        self.committee = [[NSMutableArray alloc] initWithArray:retrievedOfficerIndex];
         
-        //        self.entries = [[[NSUserDefaults standardUserDefaults] objectForKey:@"entries"] mutableCopy];
-        //        self.officerIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerIndex"] mutableCopy];
-        //        self.committee = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committee"] mutableCopy];
+        self.officerIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerIndex"] mutableCopy];
     }
     
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
@@ -53,8 +54,9 @@
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
     [userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.entries] forKey:@"entries"];
-    //    [userDefaults setObject:self.officerIndex forKey:@"officerIndex"];
-    //    [userDefaults setObject:self.committee forKey:@"committee"];
+    [userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.committee] forKey:@"committee"];
+    
+    [userDefaults setObject:self.officerIndex forKey:@"officerIndex"];
     
     [userDefaults synchronize];
 }

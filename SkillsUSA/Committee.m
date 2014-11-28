@@ -20,4 +20,23 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)coder;
+{
+    [coder encodeObject:self.committeeName forKey:@"name"];
+    [coder encodeInteger:self.personIndex forKey:@"index"];
+}
+
+- (id)initWithCoder:(NSCoder *)coder;
+{
+    self = [super init];
+    if (self != nil)
+    {
+        self.committeeName = [coder decodeObjectForKey:@"name"];
+        self.personIndex = [coder decodeIntegerForKey:@"index"];
+        
+    }
+    return self;
+}
+
+
 @end
