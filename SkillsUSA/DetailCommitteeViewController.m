@@ -7,7 +7,11 @@
 //
 
 #import "DetailCommitteeViewController.h"
+#import "Person.h"
+#import "Committee.h"
 #import "AppDelegate.h"
+
+#define PERSON_NO_EXIST 0xFFFFFFFF
 
 @interface DetailCommitteeViewController ()
 
@@ -15,6 +19,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *schoolLabel;
 @property (weak, nonatomic) IBOutlet UILabel *committeeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *committeeLabel2;
+@property (weak, nonatomic) IBOutlet UIView *secondLabel;
 
 @end
 
@@ -32,61 +38,120 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    Committee *returnedCommittee = [appDelegate.committee objectAtIndex:appDelegate.indexPath.row];
+    Person *returnedObject = [appDelegate.entries objectAtIndex:returnedCommittee.personIndex];
     
-    self.nameLabel.text = [appDelegate.committeeName objectAtIndex:appDelegate.indexPath.row];
+    self.nameLabel.text = returnedObject.name;
     
-    self.schoolLabel.text = [appDelegate.committeeSchool objectAtIndex:appDelegate.indexPath.row];
+    self.schoolLabel.text = returnedObject.school;
     
     //    self.committeeLabel.text = [appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row];
-    if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Pres."]) {
-        self.committeeLabel.text = @"President";
-    } else if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"V.P."]) {
-        self.committeeLabel.text = @"Vice President";
-    } else if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Treas."]) {
-        self.committeeLabel.text = @"Treasurer";
-    } else if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Sec."]) {
-        self.committeeLabel.text = @"Secratary";
-    } else if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Rep."]) {
-        self.committeeLabel.text = @"Reporter";
-    } else if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Hist."]) {
-        self.committeeLabel.text = @"Historian";
-    } else if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Par."]) {
-        self.committeeLabel.text = @"Parlimentarian";
-    } else if ([[appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row]  isEqual: @"Chap."]) {
-        self.committeeLabel.text = @"Chaplain";
-    }
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;
     self.colorImage.layer.borderWidth = 5.0;
     self.colorImage.layer.borderColor = [[UIColor whiteColor] CGColor];
     
-    if ([[appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"red"] == NSOrderedSame) {
+    int counter = 0;
+    if (returnedObject.professionalDev == YES) {
+        if (counter == 1) {
+            self.committeeLabel2.text = @"Professional Development";
+            self.secondLabel.hidden = NO;
+        } else {
+            self.committeeLabel.text = @"Professional Development";
+            self.secondLabel.hidden = YES;
+        }
+        counter++;
+    }
+    if (returnedObject.communityService == YES) {
+        if (counter == 1) {
+            self.committeeLabel2.text = @"Community Service";
+            self.secondLabel.hidden = NO;
+        } else {
+            self.committeeLabel.text = @"Community Service";
+            self.secondLabel.hidden = YES;
+        }
+        counter++;
+    }
+    if (returnedObject.employment == YES) {
+        if (counter == 1) {
+            self.committeeLabel2.text = @"Employment";
+            self.secondLabel.hidden = NO;
+        } else {
+            self.committeeLabel.text = @"Employment";
+            self.secondLabel.hidden = YES;
+        }
+        counter++;
+    }
+    if (returnedObject.waysAndMeans == YES) {
+        if (counter == 1) {
+            self.committeeLabel2.text = @"Ways and Means";
+            self.secondLabel.hidden = NO;
+        } else {
+            self.committeeLabel.text = @"Ways and Means";
+            self.secondLabel.hidden = YES;
+        }
+        counter++;
+    }
+    if (returnedObject.skillsUSAChamps == YES) {
+        if (counter == 1) {
+            self.committeeLabel2.text = @"SkillsUSA Championships";
+            self.secondLabel.hidden = NO;
+        } else {
+            self.committeeLabel.text = @"SkillsUSA Championships";
+            self.secondLabel.hidden = YES;
+        }
+        counter++;
+    }
+    if (returnedObject.publicRelations == YES) {
+        if (counter == 1) {
+            self.committeeLabel2.text = @"Public Relations";
+            self.secondLabel.hidden = NO;
+        } else {
+            self.committeeLabel.text = @"Public Relations";
+            self.secondLabel.hidden = YES;
+        }
+        counter++;
+    }
+    if (returnedObject.socialActivites == YES) {
+        if (counter == 1) {
+            self.committeeLabel2.text = @"Social Activities";
+            self.secondLabel.hidden = NO;
+        } else {
+            self.committeeLabel.text = @"Social Activities";
+            self.secondLabel.hidden = YES;
+        }
+        counter++;
+    }
+    
+    
+    if ([returnedObject.color caseInsensitiveCompare: @"red"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor redColor];
-    } else if ([[appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"blue"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor blueColor];
-    } else if ([[appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"yellow"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor yellowColor];
-    } else if ([[appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"green"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"green"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor greenColor];
-    } else if ([[appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"black"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"black"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor blackColor];
-    } else if ([[appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
+    } else if ([returnedObject.color caseInsensitiveCompare: @"orange"] == NSOrderedSame) {
         self.colorImage.backgroundColor = [UIColor orangeColor];
-    } else if ([appDelegate.committeeColor objectAtIndex:appDelegate.indexPath.row] == nil) {
+    } else if (returnedObject.color == nil) {
         NSLog(@"scanColor is nil");
     } else {
         self.colorImage.backgroundColor = [UIColor whiteColor];
     }
     
     // Set navigation bar title to Name
-    self.navigationItem.title = [appDelegate.committeeName objectAtIndex:appDelegate.indexPath.row];
+    self.navigationItem.title = returnedObject.name;
     
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     
 }
+
 
 /*
  #pragma mark - Navigation

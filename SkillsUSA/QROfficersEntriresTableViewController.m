@@ -123,11 +123,14 @@
 //        [appDelegate.officersSchool removeObjectAtIndex:indexPath.row];
 //        [appDelegate.officerColor removeObjectAtIndex:indexPath.row];
 //        [appDelegate.officerRole removeObjectAtIndex:indexPath.row];
+        
         NSNumber *index = [appDelegate.officerIndex objectAtIndex:indexPath.row];
         NSUInteger integer = [index integerValue];
         Person *returnedObject = [appDelegate.entries objectAtIndex:integer];
         returnedObject.role = nil;
+        
         [appDelegate.officerIndex removeObjectAtIndex:indexPath.row];
+        
         [tableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view

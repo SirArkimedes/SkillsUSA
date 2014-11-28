@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ugn-qb-ga3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ugn-qb-ga3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -749,6 +749,23 @@
                                     <constraint firstAttribute="height" constant="125" id="ohx-te-J2T"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lx9-vd-9RN">
+                                <rect key="frame" x="0.0" y="376" width="600" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="President" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SgQ-CN-UBZ">
+                                        <rect key="frame" x="0.0" y="6" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="SgQ-CN-UBZ" secondAttribute="trailing" id="Rp2-2M-ZfL"/>
+                                    <constraint firstItem="SgQ-CN-UBZ" firstAttribute="top" secondItem="Lx9-vd-9RN" secondAttribute="top" constant="6" id="ZLh-PR-5M2"/>
+                                    <constraint firstItem="SgQ-CN-UBZ" firstAttribute="leading" secondItem="Lx9-vd-9RN" secondAttribute="leading" id="rYe-ap-Mio"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -760,12 +777,16 @@
                             <constraint firstItem="sqg-V5-tm0" firstAttribute="leading" secondItem="bKc-H8-O9N" secondAttribute="leadingMargin" constant="40" id="DP4-9b-Cwr"/>
                             <constraint firstItem="TjE-Im-CqY" firstAttribute="centerX" secondItem="xNA-JJ-NjT" secondAttribute="centerX" id="KHk-Fz-7GS"/>
                             <constraint firstItem="xNA-JJ-NjT" firstAttribute="top" secondItem="sqg-V5-tm0" secondAttribute="bottom" constant="8" symbolic="YES" id="L31-Tz-let"/>
+                            <constraint firstItem="Lx9-vd-9RN" firstAttribute="top" secondItem="VU8-vm-Ppr" secondAttribute="bottom" constant="8" symbolic="YES" id="L66-5h-sZJ"/>
+                            <constraint firstItem="Lx9-vd-9RN" firstAttribute="leading" secondItem="VU8-vm-Ppr" secondAttribute="leading" id="WtL-K0-aoM"/>
                             <constraint firstItem="yd5-9n-UUO" firstAttribute="top" secondItem="TjE-Im-CqY" secondAttribute="bottom" constant="8" symbolic="YES" id="b5O-p3-OR2"/>
+                            <constraint firstItem="VU8-vm-Ppr" firstAttribute="height" secondItem="Lx9-vd-9RN" secondAttribute="height" id="drc-rj-XkE"/>
                             <constraint firstItem="yd5-9n-UUO" firstAttribute="leading" secondItem="cLE-Fe-pP6" secondAttribute="leading" id="l4C-NC-ei9"/>
                             <constraint firstItem="TjE-Im-CqY" firstAttribute="top" secondItem="cLE-Fe-pP6" secondAttribute="bottom" constant="8" symbolic="YES" id="npx-SO-lPi"/>
                             <constraint firstItem="sqg-V5-tm0" firstAttribute="centerX" secondItem="xNA-JJ-NjT" secondAttribute="centerX" id="ozh-tc-mQr"/>
                             <constraint firstItem="TjE-Im-CqY" firstAttribute="leading" secondItem="bKc-H8-O9N" secondAttribute="leading" id="svH-Fr-8KW"/>
                             <constraint firstItem="TjE-Im-CqY" firstAttribute="top" secondItem="xNA-JJ-NjT" secondAttribute="bottom" constant="37" id="tCs-uW-c7k"/>
+                            <constraint firstItem="Lx9-vd-9RN" firstAttribute="trailing" secondItem="VU8-vm-Ppr" secondAttribute="trailing" id="u9w-xr-sw1"/>
                             <constraint firstItem="VU8-vm-Ppr" firstAttribute="top" secondItem="bKc-H8-O9N" secondAttribute="top" constant="334" id="wCh-bP-YJK"/>
                             <constraint firstItem="VU8-vm-Ppr" firstAttribute="trailing" secondItem="TjE-Im-CqY" secondAttribute="trailing" id="yUh-78-iNX"/>
                         </constraints>
@@ -774,8 +795,10 @@
                     <connections>
                         <outlet property="colorImage" destination="xNA-JJ-NjT" id="yMQ-V1-27l"/>
                         <outlet property="committeeLabel" destination="W1y-kF-JS9" id="vwr-i3-5bu"/>
+                        <outlet property="committeeLabel2" destination="SgQ-CN-UBZ" id="bHO-Mq-hDt"/>
                         <outlet property="nameLabel" destination="sqg-V5-tm0" id="rqb-GK-kJn"/>
                         <outlet property="schoolLabel" destination="EbI-FR-3wt" id="0nY-yW-3nj"/>
+                        <outlet property="secondLabel" destination="Lx9-vd-9RN" id="tjX-zp-Sb9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EPu-pP-gko" userLabel="First Responder" sceneMemberID="firstResponder"/>

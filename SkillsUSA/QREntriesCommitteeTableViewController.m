@@ -120,11 +120,32 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [appDelegate.committeeName removeObjectAtIndex:indexPath.row];
-        [appDelegate.committeeSchool removeObjectAtIndex:indexPath.row];
-        [appDelegate.committeeColor removeObjectAtIndex:indexPath.row];
-        [appDelegate.committeeGroup removeObjectAtIndex:indexPath.row];
-        [tableView reloadData]; // tell table to refresh now
+        
+        Committee *returnedCommittee = [appDelegate.committee objectAtIndex:indexPath.row];
+        Person *returnedObject = [appDelegate.entries objectAtIndex:returnedCommittee.personIndex];
+        
+        NSString *committee = returnedCommittee.committeeName;
+        
+        if ([committee  isEqual: @"Prof. Dev."]) {
+            returnedObject.professionalDev = NO;
+        } else if ([committee isEqual: @"Com. Ser."]) {
+            returnedObject.communityService = NO;
+        } else if ([committee isEqual: @"Employ"]) {
+            returnedObject.employment = NO;
+        } else if ([committee isEqual: @"WaM"]) {
+            returnedObject.waysAndMeans = NO;
+        } else if ([committee isEqual: @"Ski. Cha."]) {
+            returnedObject.skillsUSAChamps = NO;
+        } else if ([committee isEqual: @"Pub. Rel."]) {
+            returnedObject.publicRelations = NO;
+        } else if ([committee isEqual: @"Soc. Act."]) {
+            returnedObject.socialActivites = NO;
+        }
+        
+        
+        [appDelegate.committee removeObjectAtIndex:indexPath.row];
+        
+        [tableView reloadData];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }

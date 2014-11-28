@@ -18,44 +18,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.scanName = [[NSMutableArray alloc] init];
-    self.scanSchool = [[NSMutableArray alloc] init];
-    self.scanColor = [[NSMutableArray alloc] init];
-    
-    self.officersName = [[NSMutableArray alloc] init];
-    self.officersSchool = [[NSMutableArray alloc] init];
-    self.officerColor = [[NSMutableArray alloc] init];
-    self.officerRole = [[NSMutableArray alloc] init];
-    
-    self.committeeName = [[NSMutableArray alloc] init];
-    self.committeeSchool = [[NSMutableArray alloc] init];
-    self.committeeColor = [[NSMutableArray alloc] init];
-    self.committeeGroup = [[NSMutableArray alloc] init];
-    
     self.entries = [[NSMutableArray alloc] init];
     self.officerIndex = [[NSMutableArray alloc] init];
     self.committee = [[NSMutableArray alloc] init];
     
     self.indexPath = [[NSIndexPath alloc] init];
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] != nil) {
-        self.scanName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanName"] mutableCopy];
-        self.scanSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanSchool"] mutableCopy];
-        self.scanColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"scanColor"] mutableCopy];
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"officersName"] != nil) {
-        self.officersName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officersName"] mutableCopy];
-        self.officersSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officersSchool"] mutableCopy];
-        self.officerColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerColor"] mutableCopy];
-        self.officerRole = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerRole"] mutableCopy];
-    }
-    
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"committeeName"] != nil) {
-        self.committeeName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeName"] mutableCopy];
-        self.committeeSchool = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeSchool"] mutableCopy];
-        self.committeeColor = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeColor"] mutableCopy];
-        self.committeeGroup = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committeeGroup"] mutableCopy];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"entries"] != nil) {
+        
+        NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+        NSData *data = [def objectForKey:@"MyData"];
+        NSArray *retrievedDictionary = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        self.entries = [[NSMutableArray alloc] initWithArray:retrievedDictionary];
+        
+        
+        //        self.entries = [[[NSUserDefaults standardUserDefaults] objectForKey:@"entries"] mutableCopy];
+        //        self.officerIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerIndex"] mutableCopy];
+        //        self.committee = [[[NSUserDefaults standardUserDefaults] objectForKey:@"committee"] mutableCopy];
     }
     
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];
@@ -72,19 +51,10 @@
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:self.scanName forKey:@"scanName"];
-    [userDefaults setObject:self.scanSchool forKey:@"scanSchool"];
-    [userDefaults setObject:self.scanColor forKey:@"scanColor"];
     
-    [userDefaults setObject:self.officersName forKey:@"officersName"];
-    [userDefaults setObject:self.officersSchool forKey:@"officersSchool"];
-    [userDefaults setObject:self.officerColor forKey:@"officerColor"];
-    [userDefaults setObject:self.officerRole forKey:@"officerRole"];
-    
-    [userDefaults setObject:self.committeeName forKey:@"committeeName"];
-    [userDefaults setObject:self.committeeSchool forKey:@"committeeSchool"];
-    [userDefaults setObject:self.committeeColor forKey:@"committeeColor"];
-    [userDefaults setObject:self.committeeGroup forKey:@"committeeGroup"];
+    [userDefaults setObject:[NSKeyedArchiver archivedDataWithRootObject:self.entries] forKey:@"entries"];
+    //    [userDefaults setObject:self.officerIndex forKey:@"officerIndex"];
+    //    [userDefaults setObject:self.committee forKey:@"committee"];
     
     [userDefaults synchronize];
 }
