@@ -376,6 +376,9 @@
                     <navigationItem key="navigationItem" title="Committee Members" id="t6C-hA-Q6r">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="6rc-bd-IZH">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="sharePress:" destination="6R2-q3-tPM" id="jlN-50-6w0"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Pev-R3-ccT">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
