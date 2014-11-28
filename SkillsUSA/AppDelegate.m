@@ -36,7 +36,7 @@
         self.committee = [[NSMutableArray alloc] initWithArray:retrievedOfficerIndex];
     }
     
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"committee"] != nil) {
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"officerIndex"] != nil) {
         
         self.officerIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerIndex"] mutableCopy];
     }

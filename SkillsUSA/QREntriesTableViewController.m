@@ -215,9 +215,9 @@
     for (int i = 0; i < [appDelegate.entries count]; i++) {
         Person *returnedObject = [appDelegate.entries objectAtIndex:i];
         if ([writeString containsString:@"Name,School,Color"]) {
-            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@ \n", returnedObject.name, returnedObject.school, returnedObject.color]];
+            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
         } else {
-            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color, \n%@,%@,%@ \n", returnedObject.name, returnedObject.school, returnedObject.color]];
+            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
         }
     }
 

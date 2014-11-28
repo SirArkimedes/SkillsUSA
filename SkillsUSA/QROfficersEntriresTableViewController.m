@@ -160,10 +160,30 @@
     
     for (int i = 0; i < [appDelegate.entries count]; i++) {
         Person *returnedObject = [appDelegate.entries objectAtIndex:i];
+        
+        NSString *officerRole;
+        if ([returnedObject.role isEqual: @"Pres."]) {
+            officerRole = @"President";
+        } else if ([returnedObject.role isEqual: @"V.P."]) {
+            officerRole = @"Vice President";
+        } else if ([returnedObject.role isEqual: @"Treas."]) {
+            officerRole = @"Treasurer";
+        } else if ([returnedObject.role isEqual: @"Sec."]) {
+            officerRole = @"Secratary";
+        } else if ([returnedObject.role isEqual: @"Rep."]) {
+            officerRole = @"Reporter";
+        } else if ([returnedObject.role isEqual: @"Hist."]) {
+            officerRole = @"Historian";
+        } else if ([returnedObject.role isEqual: @"Par."]) {
+            officerRole = @"Parlimentarian";
+        } else if ([returnedObject.role isEqual: @"Chap."]) {
+            officerRole = @"Chaplain";
+        }
+        
         if ([writeString containsString:@"Name,School,Color"]) {
-            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@,%@ \n", returnedObject.name, returnedObject.school, returnedObject.color, returnedObject.role]];
+            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, officerRole]];
         } else {
-            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,Role, \n%@,%@,%@,%@ \n", returnedObject.name, returnedObject.school, returnedObject.color, returnedObject.role]];
+            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,Role,\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, officerRole]];
         }
     }
     
