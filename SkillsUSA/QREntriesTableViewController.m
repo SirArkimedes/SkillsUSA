@@ -210,7 +210,7 @@
     
     [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
     
-    NSMutableString *writeString = [NSMutableString stringWithCapacity:0]; //don't worry about the capacity, it will expand as necessary
+    NSMutableString *writeString = [NSMutableString stringWithCapacity:0];
     
     for (int i = 0; i < [appDelegate.entries count]; i++) {
         Person *returnedObject = [appDelegate.entries objectAtIndex:i];

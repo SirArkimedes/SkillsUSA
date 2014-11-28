@@ -18,10 +18,6 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    self.entries = [[NSMutableArray alloc] init];
-    self.officerIndex = [[NSMutableArray alloc] init];
-    self.committee = [[NSMutableArray alloc] init];
-    
     self.indexPath = [[NSIndexPath alloc] init];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"entries"] != nil) {
@@ -30,12 +26,29 @@
         NSData *entriesData = [def objectForKey:@"entries"];
         NSArray *retrievedEntries = [NSKeyedUnarchiver unarchiveObjectWithData:entriesData];
         self.entries = [[NSMutableArray alloc] initWithArray:retrievedEntries];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"committee"] != nil) {
         
+        NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
         NSData *committeeData = [def objectForKey:@"committee"];
         NSArray *retrievedOfficerIndex = [NSKeyedUnarchiver unarchiveObjectWithData:committeeData];
         self.committee = [[NSMutableArray alloc] initWithArray:retrievedOfficerIndex];
+    }
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"committee"] != nil) {
         
         self.officerIndex = [[[NSUserDefaults standardUserDefaults] objectForKey:@"officerIndex"] mutableCopy];
+    }
+    
+    if (!self.entries) {
+        self.entries = [[NSMutableArray alloc] init];
+    }
+    if (!self.committee) {
+        self.committee = [[NSMutableArray alloc] init];
+    }
+    if (!self.officerIndex) {
+        self.officerIndex = [[NSMutableArray alloc] init];
     }
     
     [[UITableViewCell appearance] setBackgroundColor:[UIColor clearColor]];

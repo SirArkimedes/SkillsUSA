@@ -17,20 +17,6 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (strong, nonatomic) NSMutableArray *scanName;
-@property (strong, nonatomic) NSMutableArray *scanSchool;
-@property (strong, nonatomic) NSMutableArray *scanColor;
-
-@property (strong, nonatomic) NSMutableArray *officersName;
-@property (strong, nonatomic) NSMutableArray *officersSchool;
-@property (strong, nonatomic) NSMutableArray *officerColor;
-@property (strong, nonatomic) NSMutableArray *officerRole;
-
-@property (strong, nonatomic) NSMutableArray *committeeName;
-@property (strong, nonatomic) NSMutableArray *committeeSchool;
-@property (strong, nonatomic) NSMutableArray *committeeColor;
-@property (strong, nonatomic) NSMutableArray *committeeGroup;
-
 @property (strong, nonatomic) NSMutableArray *entries;
 @property (strong, nonatomic) NSMutableArray *officerIndex;
 @property (strong, nonatomic) NSMutableArray *committee;
@@ -39,7 +25,6 @@
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
-
 
 @end
 
