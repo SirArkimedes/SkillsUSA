@@ -33,7 +33,10 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    Person *returnedObject = [appDelegate.entries objectAtIndex:appDelegate.indexPath.row];
+    
+    NSNumber *index = [appDelegate.officerIndex objectAtIndex:appDelegate.indexPath.row];
+    NSUInteger integer = [index integerValue];
+    Person *returnedObject = [appDelegate.entries objectAtIndex:integer];
     
     self.nameLabel.text = returnedObject.name;
     
