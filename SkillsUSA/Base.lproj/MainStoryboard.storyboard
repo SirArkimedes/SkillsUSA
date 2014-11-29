@@ -549,10 +549,10 @@
             </objects>
             <point key="canvasLocation" x="1445" y="1069"/>
         </scene>
-        <!--Add-->
+        <!--Add Officer-->
         <scene sceneID="5uQ-0L-tCg">
             <objects>
-                <viewController title="Add" id="8Kn-JC-cYp" customClass="AddViewController" sceneMemberID="viewController">
+                <viewController title="Add Officer" id="8Kn-JC-cYp" userLabel="Add Officer" customClass="AddViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JxQ-mF-ddn"/>
                         <viewControllerLayoutGuide type="bottom" id="eQo-ep-4Cs"/>
@@ -808,10 +808,10 @@
             </objects>
             <point key="canvasLocation" x="1445" y="2414"/>
         </scene>
-        <!--Add-->
+        <!--Add Committee-->
         <scene sceneID="8F4-Qe-1V5">
             <objects>
-                <viewController title="Add" id="TXL-ec-EID" customClass="AddCommitteeViewController" sceneMemberID="viewController">
+                <viewController title="Add Committee" id="TXL-ec-EID" userLabel="Add Committee" customClass="AddCommitteeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hLX-Nc-Zkv"/>
                         <viewControllerLayoutGuide type="bottom" id="b6w-gH-uj8"/>

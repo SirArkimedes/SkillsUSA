@@ -201,48 +201,56 @@
 
 
 - (IBAction)sharePress:(id)sender {
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    if ([MFMailComposeViewController canSendMail]) {
+    
+        AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-//    if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
-//        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
-//        NSLog(@"Route creato");
-//    }
-    
-    [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
-    
-    NSMutableString *writeString = [NSMutableString stringWithCapacity:0];
-    
-    for (int i = 0; i < [appDelegate.entries count]; i++) {
-        Person *returnedObject = [appDelegate.entries objectAtIndex:i];
-        if ([writeString containsString:@"Name,School,Color"]) {
-            [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
-        } else {
-            [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+    //    if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+    //        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
+    //        NSLog(@"Route creato");
+    //    }
+        
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
+        
+        NSMutableString *writeString = [NSMutableString stringWithCapacity:0];
+        
+        for (int i = 0; i < [appDelegate.entries count]; i++) {
+            Person *returnedObject = [appDelegate.entries objectAtIndex:i];
+            if ([writeString containsString:@"Name,School,Color"]) {
+                [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+            } else {
+                [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+            }
         }
+
+        NSLog(@"writeString: %@", writeString);
+
+        NSFileHandle *handle;
+        handle = [NSFileHandle fileHandleForWritingAtPath: [self dataFilePath]];
+        //say to handle where's the file fo write
+        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+        //position handle cursor to the end of file
+        [handle writeData:[writeString dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        
+        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+        mailViewController.mailComposeDelegate = self;
+        [mailViewController setSubject:@"Registrants Data"];
+        [mailViewController setMessageBody:@"" isHTML:NO];
+    //    mailViewController.navigationBar.tintColor = [UIColor blackColor];
+        NSString *csvFilePath = [self dataFilePath];
+        
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:csvFilePath]
+                                     mimeType:@"text/csv"
+                                     fileName:@"Registrants Data.csv"];
+        
+        [self presentViewController:mailViewController animated:YES completion:nil];
+        
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!" message:@"Sending mail is not configured or is disabled on this device." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        [alert show];
     }
-
-    NSLog(@"writeString: %@", writeString);
-
-    NSFileHandle *handle;
-    handle = [NSFileHandle fileHandleForWritingAtPath: [self dataFilePath]];
-    //say to handle where's the file fo write
-    [handle truncateFileAtOffset:[handle seekToEndOfFile]];
-    //position handle cursor to the end of file
-    [handle writeData:[writeString dataUsingEncoding:NSUTF8StringEncoding]];
-    
-    
-    MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
-    mailViewController.mailComposeDelegate = self;
-    [mailViewController setSubject:@"Registrants Data"];
-    [mailViewController setMessageBody:@"" isHTML:NO];
-//    mailViewController.navigationBar.tintColor = [UIColor blackColor];
-    NSString *csvFilePath = [self dataFilePath];
-    
-    [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:csvFilePath]
-                                 mimeType:@"text/csv"
-                                 fileName:@"Registrants Data.csv"];
-    
-    [self presentViewController:mailViewController animated:YES completion:nil];
     
 //    NSString *textToShare = [NSString stringWithFormat:@"<html><body><!--Andrew Table--><style>#andrew-table, tr, td{border: 1px solid black;padding: 0px;margin: 0px;border-collapse: collapse;}.text {padding: 5px;}td {width: 100px;height: 25px;}</style><table><tr><td class='text'>Name</td><td class='text'>School</td><td class='text'>Color</td></tr><tr><td>%@</td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>", appDelegate.scanName];
 //    NSArray *itemsToShare = @[writeString];
