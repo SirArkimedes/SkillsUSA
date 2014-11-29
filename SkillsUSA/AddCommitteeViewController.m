@@ -135,110 +135,117 @@
                 //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
                 //                [alert show];
                 
-                NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
-                NSLog(@"%@", data);
-                
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                
-                NSString *selected = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
-
-                
-//                NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
-                
-//                Person *returnedObject = [appDelegate.entries objectAtIndex:indexOfTheObject];
-                
-                NSString *namestr = [data objectAtIndex:0];
-                NSString *schoolstr = [data objectAtIndex:1];
-                NSString *colorstr = [data objectAtIndex:2];
-                
-                Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr];
-                Committee *committee = [[Committee alloc] init];
-                
-                NSUInteger indexOfTheObject;
-                indexOfTheObject = [self doesPersonExist:personObject];
-                if(indexOfTheObject != COMMITTEE_NO_EXIST) {
-                    personObject = [appDelegate.entries objectAtIndex:indexOfTheObject];
-                }
-//                if( indexOfTheObject = [self doesPersonExist:personObject] ) {
-//                    // person exists
-//                    indexOfTheObject = [self doesPersonBelongToCommittee:indexOfPerson];
-//                }
-//                indexOfTheObject = [self isCommitteeSelected:YES];
-                
-                NSString *shortenedName;
-                if ([selected  isEqual: @"Professional Development"]) {
-                    shortenedName = @"Prof. Dev.";
-                    personObject.professionalDev = YES;
-                } else if ([selected isEqual: @"Community Service"]) {
-                    shortenedName = @"Com. Ser.";
-                    personObject.communityService = YES;
-                } else if ([selected isEqual: @"Employment"]) {
-                    shortenedName = @"Employ";
-                    personObject.employment = YES;
-                } else if ([selected isEqual: @"Ways and Means"]) {
-                    shortenedName = @"WaM";
-                    personObject.waysAndMeans = YES;
-                } else if ([selected isEqual: @"SkillsUSA Championships"]) {
-                    shortenedName = @"Ski. Cha.";
-                    personObject.skillsUSAChamps = YES;
-                } else if ([selected isEqual: @"Public Relations"]) {
-                    shortenedName = @"Pub. Rel.";
-                    personObject.publicRelations = YES;
-                } else if ([selected isEqual: @"Social Activities"]) {
-                    shortenedName = @"Soc. Act.";
-                    personObject.socialActivites = YES;
-                }
-//                [appDelegate.committeeGroup addObject:[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]];
-                
-                if (COMMITTEE_NO_EXIST != indexOfTheObject) {
-                    // officer previously selected
-                    // OFFICER EXISTS
-                    [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
-
-                    committee.committeeName = [NSString stringWithFormat:@"%@", shortenedName];
-                    committee.personIndex = indexOfTheObject;
-                    [appDelegate.committee addObject:committee];
+                if ([resultAsString containsString:@"\n"]) {
+                    NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
+                    NSLog(@"%@", data);
                     
-                    NSLog(@"%@", appDelegate.committee);
+                    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                     
+                    NSString *selected = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
+
+                    
+    //                NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
+                    
+    //                Person *returnedObject = [appDelegate.entries objectAtIndex:indexOfTheObject];
+                    
+                    NSString *namestr = [data objectAtIndex:0];
+                    NSString *schoolstr = [data objectAtIndex:1];
+                    NSString *colorstr = [data objectAtIndex:2];
+                    
+                    Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr];
+                    Committee *committee = [[Committee alloc] init];
+                    
+                    NSUInteger indexOfTheObject;
+                    indexOfTheObject = [self doesPersonExist:personObject];
+                    if(indexOfTheObject != COMMITTEE_NO_EXIST) {
+                        personObject = [appDelegate.entries objectAtIndex:indexOfTheObject];
+                    }
+    //                if( indexOfTheObject = [self doesPersonExist:personObject] ) {
+    //                    // person exists
+    //                    indexOfTheObject = [self doesPersonBelongToCommittee:indexOfPerson];
+    //                }
+    //                indexOfTheObject = [self isCommitteeSelected:YES];
+                    
+                    NSString *shortenedName;
+                    if ([selected  isEqual: @"Professional Development"]) {
+                        shortenedName = @"Prof. Dev.";
+                        personObject.professionalDev = YES;
+                    } else if ([selected isEqual: @"Community Service"]) {
+                        shortenedName = @"Com. Ser.";
+                        personObject.communityService = YES;
+                    } else if ([selected isEqual: @"Employment"]) {
+                        shortenedName = @"Employ";
+                        personObject.employment = YES;
+                    } else if ([selected isEqual: @"Ways and Means"]) {
+                        shortenedName = @"WaM";
+                        personObject.waysAndMeans = YES;
+                    } else if ([selected isEqual: @"SkillsUSA Championships"]) {
+                        shortenedName = @"Ski. Cha.";
+                        personObject.skillsUSAChamps = YES;
+                    } else if ([selected isEqual: @"Public Relations"]) {
+                        shortenedName = @"Pub. Rel.";
+                        personObject.publicRelations = YES;
+                    } else if ([selected isEqual: @"Social Activities"]) {
+                        shortenedName = @"Soc. Act.";
+                        personObject.socialActivites = YES;
+                    }
+    //                [appDelegate.committeeGroup addObject:[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]];
+                    
+                    if (COMMITTEE_NO_EXIST != indexOfTheObject) {
+                        // officer previously selected
+                        // OFFICER EXISTS
+                        [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
+
+                        committee.committeeName = [NSString stringWithFormat:@"%@", shortenedName];
+                        committee.personIndex = indexOfTheObject;
+                        [appDelegate.committee addObject:committee];
+                        
+                        NSLog(@"%@", appDelegate.committee);
+                        
+                    } else {
+                        // new officer not in array
+                        // OFFICER NO EXIST
+                        NSUInteger arrayCount = [appDelegate.entries count];
+                        [appDelegate.entries addObject:personObject];
+                        
+                        committee.committeeName = [NSString stringWithFormat:@"%@", shortenedName];
+                        committee.personIndex = arrayCount;
+    //                    committee = [[Committee alloc] initWithName:shortenedName withIndex:arrayCount];
+                        [appDelegate.committee addObject:committee];
+                        
+                        NSLog(@"%@", appDelegate.committee);
+                    }
+                    
+    //                if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"President"]) {
+    //                    [appDelegate.committeeGroup addObject:@"Pres."];
+    //                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Vice President"]) {
+    //                    [appDelegate.committeeGroup addObject:@"V.P."];
+    //                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Treasurer"]) {
+    //                    [appDelegate.committeeGroup addObject:@"Treas."];
+    //                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Secratary"]) {
+    //                    [appDelegate.committeeGroup addObject:@"Sec."];
+    //                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Reporter"]) {
+    //                    [appDelegate.committeeGroup addObject:@"Rep."];
+    //                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Historian"]) {
+    //                    [appDelegate.committeeGroup addObject:@"Hist."];
+    //                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Parlimentarian"]) {
+    //                    [appDelegate.committeeGroup addObject:@"Par."];
+    //                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Chaplain"]) {
+    //                    [appDelegate.committeeGroup addObject:@"Chap."];
+    //                }
+                    
+                    //                NSString *str4 = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
+                    //                [appDelegate.committeeGroup addObject:str4];
+                    //                NSLog(@"%@", appDelegate.committeeGroup);
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
                 } else {
-                    // new officer not in array
-                    // OFFICER NO EXIST
-                    NSUInteger arrayCount = [appDelegate.entries count];
-                    [appDelegate.entries addObject:personObject];
-                    
-                    committee.committeeName = [NSString stringWithFormat:@"%@", shortenedName];
-                    committee.personIndex = arrayCount;
-//                    committee = [[Committee alloc] initWithName:shortenedName withIndex:arrayCount];
-                    [appDelegate.committee addObject:committee];
-                    
-                    NSLog(@"%@", appDelegate.committee);
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+                                                                    message:[NSString stringWithFormat:@"QR Code needs a format of:\nAndrew Robinson\nCarthage High\nBlue\n\nScanned: %@", resultAsString]
+                                                                   delegate:self cancelButtonTitle:@"Okay"
+                                                          otherButtonTitles:nil, nil];
+                    [alert show];
                 }
-                
-//                if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"President"]) {
-//                    [appDelegate.committeeGroup addObject:@"Pres."];
-//                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Vice President"]) {
-//                    [appDelegate.committeeGroup addObject:@"V.P."];
-//                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Treasurer"]) {
-//                    [appDelegate.committeeGroup addObject:@"Treas."];
-//                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Secratary"]) {
-//                    [appDelegate.committeeGroup addObject:@"Sec."];
-//                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Reporter"]) {
-//                    [appDelegate.committeeGroup addObject:@"Rep."];
-//                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Historian"]) {
-//                    [appDelegate.committeeGroup addObject:@"Hist."];
-//                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Parlimentarian"]) {
-//                    [appDelegate.committeeGroup addObject:@"Par."];
-//                } else if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]] isEqual: @"Chaplain"]) {
-//                    [appDelegate.committeeGroup addObject:@"Chap."];
-//                }
-                
-                //                NSString *str4 = [self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]];
-                //                [appDelegate.committeeGroup addObject:str4];
-                //                NSLog(@"%@", appDelegate.committeeGroup);
-                
-                [self.navigationController popViewControllerAnimated:YES];
-                
             }
             
         }];

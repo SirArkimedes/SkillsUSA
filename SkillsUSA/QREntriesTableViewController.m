@@ -149,27 +149,25 @@
             } else {
 //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
 //                [alert show];
-                
-                NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
-//                NSLog(@"%@", data);
-                
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-                NSString *namestr = [data objectAtIndex:0];
-//                [appDelegate.scanName addObject:str1];
-//                NSLog(@"scanName: %@", appDelegate.scanName);
-                
-                NSString *schoolstr = [data objectAtIndex:1];
-//                [appDelegate.scanSchool addObject:str2];
-//                NSLog(@"scanSchool: %@", appDelegate.scanSchool);
-                
-                NSString *colorstr = [data objectAtIndex:2];
-//                [appDelegate.scanColor addObject:str3];
-//                NSLog(@"scanColor: %@", appDelegate.scanColor);
-                
-                Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:nil];
-                [appDelegate.entries addObject:personObject];
-                
-                [self.tableView reloadData];
+                if ([resultAsString containsString:@"\n"]) {
+                    NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
+                    
+                    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                    NSString *namestr = [data objectAtIndex:0];
+                    NSString *schoolstr = [data objectAtIndex:1];
+                    NSString *colorstr = [data objectAtIndex:2];
+                    
+                    Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:nil];
+                    [appDelegate.entries addObject:personObject];
+                    
+                    [self.tableView reloadData];
+                } else {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+                                                                    message:[NSString stringWithFormat:@"QR Code needs a format of:\nAndrew Robinson\nCarthage High\nBlue\n\nScanned: %@", resultAsString]
+                                                                   delegate:self cancelButtonTitle:@"Okay"
+                                                          otherButtonTitles:nil, nil];
+                    [alert show];
+                }
             }
             
         }];

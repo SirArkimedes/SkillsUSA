@@ -167,64 +167,73 @@
                 //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
                 //                [alert show];
                 
-                NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
-                NSLog(@"%@", data);
-                
-                AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+                if ([resultAsString containsString:@"\n"]) {
+                    NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
+                    NSLog(@"%@", data);
+                    
+                    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-                NSUInteger indexOfTheObject = [self isOfficerSelected:officerRoleString];
-                
-                NSString *namestr = [data objectAtIndex:0];
-                NSString *schoolstr = [data objectAtIndex:1];
-                NSString *colorstr = [data objectAtIndex:2];
-                
-                Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:@""];
-                
-                NSUInteger existing = [self doesPersonExist:personObject];
-                if (existing != OFFICER_NO_EXIST) {
-                    indexOfTheObject = existing;
-                }
-                NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
-                
-                if ([officerRoleString isEqual: @"President"]) {
-                    personObject.role = @"Pres.";
-                } else if ([officerRoleString isEqual: @"Vice President"]) {
-                    personObject.role = @"V.P.";
-                } else if ([officerRoleString isEqual: @"Treasurer"]) {
-                    personObject.role = @"Treas.";
-                } else if ([officerRoleString isEqual: @"Secratary"]) {
-                    personObject.role = @"Sec.";
-                } else if ([officerRoleString isEqual: @"Reporter"]) {
-                    personObject.role = @"Rep.";
-                } else if ([officerRoleString isEqual: @"Historian"]) {
-                    personObject.role = @"Hist.";
-                } else if ([officerRoleString isEqual: @"Parlimentarian"]) {
-                    personObject.role = @"Par.";
-                } else if ([officerRoleString isEqual: @"Chaplain"]) {
-                    personObject.role = @"Chap.";
-                }
-                
-                if (OFFICER_NO_EXIST != indexOfTheObject) {
-                    // officer previously selected
-                    // OFFICER EXISTS
+                    NSUInteger indexOfTheObject = [self isOfficerSelected:officerRoleString];
                     
-                    [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
-                    [appDelegate.officerIndex addObject:index];
+                    NSString *namestr = [data objectAtIndex:0];
+                    NSString *schoolstr = [data objectAtIndex:1];
+                    NSString *colorstr = [data objectAtIndex:2];
                     
+                    Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:@""];
+                    
+                    NSUInteger existing = [self doesPersonExist:personObject];
+                    if (existing != OFFICER_NO_EXIST) {
+                        indexOfTheObject = existing;
+                    }
+                    NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
+                    
+                    if ([officerRoleString isEqual: @"President"]) {
+                        personObject.role = @"Pres.";
+                    } else if ([officerRoleString isEqual: @"Vice President"]) {
+                        personObject.role = @"V.P.";
+                    } else if ([officerRoleString isEqual: @"Treasurer"]) {
+                        personObject.role = @"Treas.";
+                    } else if ([officerRoleString isEqual: @"Secratary"]) {
+                        personObject.role = @"Sec.";
+                    } else if ([officerRoleString isEqual: @"Reporter"]) {
+                        personObject.role = @"Rep.";
+                    } else if ([officerRoleString isEqual: @"Historian"]) {
+                        personObject.role = @"Hist.";
+                    } else if ([officerRoleString isEqual: @"Parlimentarian"]) {
+                        personObject.role = @"Par.";
+                    } else if ([officerRoleString isEqual: @"Chaplain"]) {
+                        personObject.role = @"Chap.";
+                    }
+                    
+                    if (OFFICER_NO_EXIST != indexOfTheObject) {
+                        // officer previously selected
+                        // OFFICER EXISTS
+                        
+                        [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
+                        [appDelegate.officerIndex addObject:index];
+                        
+                    } else {
+                        // new officer not in array
+                        // OFFICER NO EXIST
+                        
+                        NSNumber *entryCount = [NSNumber numberWithInteger:[appDelegate.entries count]];
+                        [appDelegate.entries addObject:personObject];
+                        [appDelegate.officerIndex addObject:entryCount];
+                    }
+                    
+    //                NSString *str4 = officerRoleString;
+    //                [appDelegate.officerRole addObject:str4];
+    //                NSLog(@"%@", appDelegate.officerRole);
+                    
+                    [self.navigationController popViewControllerAnimated:YES];
                 } else {
-                    // new officer not in array
-                    // OFFICER NO EXIST
-                    
-                    NSNumber *entryCount = [NSNumber numberWithInteger:[appDelegate.entries count]];
-                    [appDelegate.entries addObject:personObject];
-                    [appDelegate.officerIndex addObject:entryCount];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+                                                                    message:[NSString stringWithFormat:@"QR Code needs a format of:\nAndrew Robinson\nCarthage High\nBlue\n\nScanned: %@", resultAsString]
+                                                                   delegate:self cancelButtonTitle:@"Okay"
+                                                          otherButtonTitles:nil, nil];
+                    [alert show];
+
                 }
-                
-//                NSString *str4 = officerRoleString;
-//                [appDelegate.officerRole addObject:str4];
-//                NSLog(@"%@", appDelegate.officerRole);
-                
-                [self.navigationController popViewControllerAnimated:YES];
                 
             }
             
