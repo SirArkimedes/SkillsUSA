@@ -283,9 +283,7 @@
 
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
 {
-    NSLog(@"Testing: %@", result);
     [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"Result: %@", result);
     }];
 }
 

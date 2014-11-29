@@ -149,7 +149,7 @@
 //                [alert show];
                 
                 NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
-                NSLog(@"%@", data);
+//                NSLog(@"%@", data);
                 
                 AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                 NSString *namestr = [data objectAtIndex:0];
@@ -180,9 +180,7 @@
 
 - (void)reader:(QRCodeReaderViewController *)reader didScanResult:(NSString *)result
 {
-    NSLog(@"Testing: %@", result);
     [self dismissViewControllerAnimated:YES completion:^{
-        NSLog(@"Result: %@", result);
     }];
 }
 
