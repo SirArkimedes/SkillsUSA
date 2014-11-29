@@ -24,7 +24,6 @@
 		4D45E46019F8370A004DAB2D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D45E45F19F8370A004DAB2D /* Images.xcassets */; };
 		4D45E46319F8370A004DAB2D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D45E46119F8370A004DAB2D /* LaunchScreen.xib */; };
 		4D45E46F19F8370A004DAB2D /* SkillsUSATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E46E19F8370A004DAB2D /* SkillsUSATests.m */; };
-		4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */; };
 		4D611D311A1A6BEF00484687 /* CommitteeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D301A1A6BEF00484687 /* CommitteeTableViewCell.m */; };
 		4D611D341A1A6DC400484687 /* DetailCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D331A1A6DC400484687 /* DetailCommitteeViewController.m */; };
 		4D7DC6C11A151486007F7E3B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7DC6C01A151486007F7E3B /* MessageUI.framework */; };
@@ -32,6 +31,9 @@
 		4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */; };
 		4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */; };
 		4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA3A119FEB30B00E699A2 /* MainStoryboard.storyboard */; };
+		4DF2540F1A2981000073A0A4 /* QRCameraSwitchButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF254091A2981000073A0A4 /* QRCameraSwitchButton.m */; };
+		4DF254101A2981000073A0A4 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2540C1A2981000073A0A4 /* QRCodeReaderView.m */; };
+		4DF254111A2981000073A0A4 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2540E1A2981000073A0A4 /* QRCodeReaderViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,9 +78,6 @@
 		4D45E46819F8370A004DAB2D /* SkillsUSATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SkillsUSATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D45E46D19F8370A004DAB2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D45E46E19F8370A004DAB2D /* SkillsUSATests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SkillsUSATests.m; sourceTree = "<group>"; };
-		4D45E47819F83865004DAB2D /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderDelegate.h; sourceTree = "<group>"; };
-		4D45E47919F83865004DAB2D /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
-		4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
 		4D611D2F1A1A6BEF00484687 /* CommitteeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitteeTableViewCell.h; sourceTree = "<group>"; };
 		4D611D301A1A6BEF00484687 /* CommitteeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitteeTableViewCell.m; sourceTree = "<group>"; };
 		4D611D321A1A6DC400484687 /* DetailCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCommitteeViewController.h; sourceTree = "<group>"; };
@@ -90,6 +89,13 @@
 		4DDEA39E19FEB29200E699A2 /* QREntriesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QREntriesTableViewController.h; sourceTree = "<group>"; };
 		4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QREntriesTableViewController.m; sourceTree = "<group>"; };
 		4DDEA3A219FEB30B00E699A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = SkillsUSA/Base.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		4DF254081A2981000073A0A4 /* QRCameraSwitchButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCameraSwitchButton.h; path = "../../../../Desktop/QRCodeReaderViewController-master/QRCodeReaderViewController/QRCameraSwitchButton.h"; sourceTree = "<group>"; };
+		4DF254091A2981000073A0A4 /* QRCameraSwitchButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCameraSwitchButton.m; path = "../../../../Desktop/QRCodeReaderViewController-master/QRCodeReaderViewController/QRCameraSwitchButton.m"; sourceTree = "<group>"; };
+		4DF2540A1A2981000073A0A4 /* QRCodeReaderDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderDelegate.h; path = "../../../../Desktop/QRCodeReaderViewController-master/QRCodeReaderViewController/QRCodeReaderDelegate.h"; sourceTree = "<group>"; };
+		4DF2540B1A2981000073A0A4 /* QRCodeReaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderView.h; path = "../../../../Desktop/QRCodeReaderViewController-master/QRCodeReaderViewController/QRCodeReaderView.h"; sourceTree = "<group>"; };
+		4DF2540C1A2981000073A0A4 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderView.m; path = "../../../../Desktop/QRCodeReaderViewController-master/QRCodeReaderViewController/QRCodeReaderView.m"; sourceTree = "<group>"; };
+		4DF2540D1A2981000073A0A4 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QRCodeReaderViewController.h; path = "../../../../Desktop/QRCodeReaderViewController-master/QRCodeReaderViewController/QRCodeReaderViewController.h"; sourceTree = "<group>"; };
+		4DF2540E1A2981000073A0A4 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QRCodeReaderViewController.m; path = "../../../../Desktop/QRCodeReaderViewController-master/QRCodeReaderViewController/QRCodeReaderViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,9 +233,13 @@
 		4D45E47C19F83882004DAB2D /* QRCodeReader */ = {
 			isa = PBXGroup;
 			children = (
-				4D45E47819F83865004DAB2D /* QRCodeReaderDelegate.h */,
-				4D45E47919F83865004DAB2D /* QRCodeReaderViewController.h */,
-				4D45E47A19F83865004DAB2D /* QRCodeReaderViewController.m */,
+				4DF254081A2981000073A0A4 /* QRCameraSwitchButton.h */,
+				4DF254091A2981000073A0A4 /* QRCameraSwitchButton.m */,
+				4DF2540A1A2981000073A0A4 /* QRCodeReaderDelegate.h */,
+				4DF2540B1A2981000073A0A4 /* QRCodeReaderView.h */,
+				4DF2540C1A2981000073A0A4 /* QRCodeReaderView.m */,
+				4DF2540D1A2981000073A0A4 /* QRCodeReaderViewController.h */,
+				4DF2540E1A2981000073A0A4 /* QRCodeReaderViewController.m */,
 			);
 			name = QRCodeReader;
 			sourceTree = "<group>";
@@ -361,9 +371,11 @@
 				4D611D341A1A6DC400484687 /* DetailCommitteeViewController.m in Sources */,
 				4D3654391A0D4DE6001ED6B6 /* AddViewController.m in Sources */,
 				4D3654331A0D2F4C001ED6B6 /* OfficersTableViewCell.m in Sources */,
+				4DF254111A2981000073A0A4 /* QRCodeReaderViewController.m in Sources */,
+				4DF2540F1A2981000073A0A4 /* QRCameraSwitchButton.m in Sources */,
+				4DF254101A2981000073A0A4 /* QRCodeReaderView.m in Sources */,
 				4D611D311A1A6BEF00484687 /* CommitteeTableViewCell.m in Sources */,
 				4D45E45819F8370A004DAB2D /* SkillsUSA.xcdatamodeld in Sources */,
-				4D45E47B19F83865004DAB2D /* QRCodeReaderViewController.m in Sources */,
 				4D3654361A0D356A001ED6B6 /* DetailViewController.m in Sources */,
 				4DC1D5931A26498100A179F9 /* Person.m in Sources */,
 				4D45E45219F8370A004DAB2D /* main.m in Sources */,

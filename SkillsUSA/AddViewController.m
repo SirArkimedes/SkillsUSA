@@ -153,6 +153,8 @@
     QRCodeReaderViewController *reader = [QRCodeReaderViewController new];
     reader.modalPresentationStyle      = UIModalPresentationFormSheet;
     
+    reader.delegate = self;
+    
     [reader setCompletionWithBlock:^(NSString *resultAsString) {
         [self dismissViewControllerAnimated:YES completion:^{
             //            NSLog(@"String: %@", resultAsString);

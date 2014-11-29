@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QRCodeReaderDelegate.h"
 
-@interface AddViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AddViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, QRCodeReaderDelegate>
 
 @end
