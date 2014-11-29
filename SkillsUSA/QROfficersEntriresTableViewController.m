@@ -119,10 +119,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [appDelegate.officersName removeObjectAtIndex:indexPath.row];
-//        [appDelegate.officersSchool removeObjectAtIndex:indexPath.row];
-//        [appDelegate.officerColor removeObjectAtIndex:indexPath.row];
-//        [appDelegate.officerRole removeObjectAtIndex:indexPath.row];
         
         NSNumber *index = [appDelegate.officerIndex objectAtIndex:indexPath.row];
         NSUInteger integer = [index integerValue];
