@@ -14,7 +14,12 @@
 #import "Person.h"
 #import <MessageUI/MessageUI.h>
 
+#define REGISTRANT_NO_EXIST 0xFFFFFFFF
+
 @interface QREntriesTableViewController () <MFMailComposeViewControllerDelegate>
+
+@property BOOL shouldAnimate;
+@property NSUInteger indexOfTheObject;
 
 @end
 
@@ -158,9 +163,17 @@
                     NSString *colorstr = [data objectAtIndex:2];
                     
                     Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:nil];
-                    [appDelegate.entries addObject:personObject];
                     
-                    [self.tableView reloadData];
+                    NSUInteger indexOfTheObject;
+                    indexOfTheObject = [self doesPersonExist:personObject];
+                    if(indexOfTheObject != REGISTRANT_NO_EXIST) {
+//                        personObject = [appDelegate.entries objectAtIndex:indexOfTheObject];
+                        self.shouldAnimate = YES;
+                        self.indexOfTheObject = indexOfTheObject;
+                    } else {
+                        [appDelegate.entries addObject:personObject];
+                        [self.tableView reloadData];
+                    }
                 } else {
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
                                                                     message:[NSString stringWithFormat:@"QR Code needs a format of:\nAndrew Robinson\nCarthage High\nBlue\n\nScanned: %@", resultAsString]
@@ -170,10 +183,30 @@
                 }
             }
             
+            if (self.shouldAnimate == YES) {
+                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:self.indexOfTheObject inSection:0];
+                NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+                [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
+                self.shouldAnimate = NO;
+            }
+            
         }];
     }];
     
     [self presentViewController:reader animated:YES completion:NULL];
+}
+
+- (NSUInteger)doesPersonExist:(Person *)person {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSArray* per_arr = appDelegate.entries;
+    
+    for (int i = 0; i < [appDelegate.entries count]; i++) {
+        Person *per = per_arr[i];
+        if([person.name isEqual:per.name] && [person.school isEqual:per.school] && [person.color isEqual:per.color]) {
+            return i;
+        }
+    }
+    return REGISTRANT_NO_EXIST;
 }
 
 #pragma mark - QRCodeReader Delegate Methods
