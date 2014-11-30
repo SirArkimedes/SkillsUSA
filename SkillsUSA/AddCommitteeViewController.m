@@ -62,21 +62,8 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    if ([[_pickerData objectAtIndex:row] isEqual: @"Professional Development"]) {
-        self.groupLabel.text = @"Prof. Dev.";
-    } else if ([[_pickerData objectAtIndex:row] isEqual: @"Community Service"]) {
-        self.groupLabel.text = @"Com. Ser.";
-    } else if ([[_pickerData objectAtIndex:row] isEqual: @"Employment"]) {
-        self.groupLabel.text = @"Employ";
-    } else if ([[_pickerData objectAtIndex:row] isEqual: @"Ways and Means"]) {
-        self.groupLabel.text = @"WaM";
-    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"SkillsUSA Championships"]) {
-        self.groupLabel.text = @"Ski. Cha.";
-    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Public Relations"]) {
-        self.groupLabel.text = @"Pub. Rel.";
-    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Social Activities"]) {
-        self.groupLabel.text = @"Soc. Act.";
-    }
+    
+    self.groupLabel.text = [_pickerData objectAtIndex:row];
 }
 
 #pragma mark - Title Color Change
@@ -166,27 +153,19 @@
     //                }
     //                indexOfTheObject = [self isCommitteeSelected:YES];
                     
-                    NSString *shortenedName;
                     if ([selected  isEqual: @"Professional Development"]) {
-                        shortenedName = @"Prof. Dev.";
                         personObject.professionalDev = YES;
                     } else if ([selected isEqual: @"Community Service"]) {
-                        shortenedName = @"Com. Ser.";
                         personObject.communityService = YES;
                     } else if ([selected isEqual: @"Employment"]) {
-                        shortenedName = @"Employ";
                         personObject.employment = YES;
                     } else if ([selected isEqual: @"Ways and Means"]) {
-                        shortenedName = @"WaM";
                         personObject.waysAndMeans = YES;
                     } else if ([selected isEqual: @"SkillsUSA Championships"]) {
-                        shortenedName = @"Ski. Cha.";
                         personObject.skillsUSAChamps = YES;
                     } else if ([selected isEqual: @"Public Relations"]) {
-                        shortenedName = @"Pub. Rel.";
                         personObject.publicRelations = YES;
                     } else if ([selected isEqual: @"Social Activities"]) {
-                        shortenedName = @"Soc. Act.";
                         personObject.socialActivites = YES;
                     }
     //                [appDelegate.committeeGroup addObject:[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]];
@@ -196,7 +175,7 @@
                         // OFFICER EXISTS
                         [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
 
-                        committee.committeeName = [NSString stringWithFormat:@"%@", shortenedName];
+                        committee.committeeName = [NSString stringWithFormat:@"%@", selected];
                         committee.personIndex = indexOfTheObject;
                         [appDelegate.committee addObject:committee];
                         
@@ -208,7 +187,7 @@
                         NSUInteger arrayCount = [appDelegate.entries count];
                         [appDelegate.entries addObject:personObject];
                         
-                        committee.committeeName = [NSString stringWithFormat:@"%@", shortenedName];
+                        committee.committeeName = [NSString stringWithFormat:@"%@", selected];
                         committee.personIndex = arrayCount;
     //                    committee = [[Committee alloc] initWithName:shortenedName withIndex:arrayCount];
                         [appDelegate.committee addObject:committee];

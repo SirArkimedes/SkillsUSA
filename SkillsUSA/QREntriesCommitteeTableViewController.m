@@ -125,19 +125,19 @@
         
         NSString *committee = returnedCommittee.committeeName;
         
-        if ([committee  isEqual: @"Prof. Dev."]) {
+        if ([committee isEqual: @"Professional Development"]) {
             returnedObject.professionalDev = NO;
-        } else if ([committee isEqual: @"Com. Ser."]) {
+        } else if ([committee isEqual: @"Community Service"]) {
             returnedObject.communityService = NO;
-        } else if ([committee isEqual: @"Employ"]) {
+        } else if ([committee isEqual: @"Employment"]) {
             returnedObject.employment = NO;
-        } else if ([committee isEqual: @"WaM"]) {
+        } else if ([committee isEqual: @"Ways and Means"]) {
             returnedObject.waysAndMeans = NO;
-        } else if ([committee isEqual: @"Ski. Cha."]) {
+        } else if ([committee isEqual: @"SkillsUSA Championships"]) {
             returnedObject.skillsUSAChamps = NO;
-        } else if ([committee isEqual: @"Pub. Rel."]) {
+        } else if ([committee isEqual: @"Public Relations"]) {
             returnedObject.publicRelations = NO;
-        } else if ([committee isEqual: @"Soc. Act."]) {
+        } else if ([committee isEqual: @"Social Activities"]) {
             returnedObject.socialActivites = NO;
         }
         

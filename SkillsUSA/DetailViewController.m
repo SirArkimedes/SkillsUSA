@@ -42,24 +42,7 @@
     
     self.schoolLabel.text = returnedObject.school;
     
-//    self.officerLabel.text = [appDelegate.officerRole objectAtIndex:appDelegate.indexPath.row];
-    if ([returnedObject.role isEqual: @"Pres."]) {
-        self.officerLabel.text = @"President";
-    } else if ([returnedObject.role  isEqual: @"V.P."]) {
-        self.officerLabel.text = @"Vice President";
-    } else if ([returnedObject.role  isEqual: @"Treas."]) {
-        self.officerLabel.text = @"Treasurer";
-    } else if ([returnedObject.role  isEqual: @"Sec."]) {
-        self.officerLabel.text = @"Secratary";
-    } else if ([returnedObject.role  isEqual: @"Rep."]) {
-        self.officerLabel.text = @"Reporter";
-    } else if ([returnedObject.role  isEqual: @"Hist."]) {
-        self.officerLabel.text = @"Historian";
-    } else if ([returnedObject.role  isEqual: @"Par."]) {
-        self.officerLabel.text = @"Parlimentarian";
-    } else if ([returnedObject.role  isEqual: @"Chap."]) {
-        self.officerLabel.text = @"Chaplain";
-    }
+    self.officerLabel.text = returnedObject.role;
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;

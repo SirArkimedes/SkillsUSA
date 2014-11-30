@@ -126,13 +126,13 @@
 //        [appDelegate.scanColor removeObjectAtIndex:indexPath.row];
         Person *returnedObject = [appDelegate.entries objectAtIndex:indexPath.row];
         
-        if (returnedObject.professionalDev ||
-            returnedObject.communityService ||
-            returnedObject.employment ||
-            returnedObject.waysAndMeans ||
-            returnedObject.skillsUSAChamps ||
-            returnedObject.publicRelations ||
-            returnedObject.socialActivites) {
+        if (returnedObject.professionalDev == YES ||
+            returnedObject.communityService == YES ||
+            returnedObject.employment == YES ||
+            returnedObject.waysAndMeans == YES ||
+            returnedObject.skillsUSAChamps == YES ||
+            returnedObject.publicRelations == YES ||
+            returnedObject.socialActivites == YES) {
             
             // Deletes from the committee table
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"

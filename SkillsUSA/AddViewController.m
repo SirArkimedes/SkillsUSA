@@ -88,23 +88,8 @@
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    if ([[_pickerData objectAtIndex:row]  isEqual: @"President"]) {
-        self.roleLabel.text = @"Pres.";
-    } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Vice President"]) {
-        self.roleLabel.text = @"V.P.";
-    } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Treasurer"]) {
-        self.roleLabel.text = @"Treas.";
-    } else if ([[_pickerData objectAtIndex:row]  isEqual: @"Secratary"]) {
-        self.roleLabel.text = @"Sec.";
-    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Reporter"]) {
-        self.roleLabel.text = @"Rep.";
-    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Historian"]) {
-        self.roleLabel.text = @"Hist.";
-    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Parlimentarian"]) {
-        self.roleLabel.text = @"Par.";
-    } else if ([[self.pickerData objectAtIndex:row] isEqual: @"Chaplain"]) {
-        self.roleLabel.text = @"Chap.";
-    }
+    
+    self.roleLabel.text = [_pickerData objectAtIndex:row];
 }
 
 #pragma mark - Title Color Change
@@ -183,41 +168,35 @@
                     
                     Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:@""];
                     
+//                    NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
+                    
                     NSUInteger existing = [self doesPersonExist:personObject];
                     if (existing != OFFICER_NO_EXIST) {
                         indexOfTheObject = existing;
-                    }
-//                    NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
-                    
-                    if ([officerRoleString isEqual: @"President"]) {
-                        personObject.role = @"Pres.";
-                    } else if ([officerRoleString isEqual: @"Vice President"]) {
-                        personObject.role = @"V.P.";
-                    } else if ([officerRoleString isEqual: @"Treasurer"]) {
-                        personObject.role = @"Treas.";
-                    } else if ([officerRoleString isEqual: @"Secratary"]) {
-                        personObject.role = @"Sec.";
-                    } else if ([officerRoleString isEqual: @"Reporter"]) {
-                        personObject.role = @"Rep.";
-                    } else if ([officerRoleString isEqual: @"Historian"]) {
-                        personObject.role = @"Hist.";
-                    } else if ([officerRoleString isEqual: @"Parlimentarian"]) {
-                        personObject.role = @"Par.";
-                    } else if ([officerRoleString isEqual: @"Chaplain"]) {
-                        personObject.role = @"Chap.";
+                        
                     }
                     
                     if (OFFICER_NO_EXIST != indexOfTheObject) {
                         // officer previously selected
                         // OFFICER EXISTS
                         
+                        Person *returnedObject = [appDelegate.entries objectAtIndex:indexOfTheObject];
+                        personObject = returnedObject;
+                        
+                        // Officer Assign
+                        personObject.role = officerRoleString;
+                        
                         [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
 //                        [appDelegate.officerIndex addObject:index];
 //                        NSUInteger offIndex = [self doesOfficerExist:];
-                        self.shouldAnimate = YES;
-                        
                         NSUInteger officer = [self doesOfficerExist:indexOfTheObject];
-                        appDelegate.gottenOfficer = [NSNumber numberWithInteger:officer];
+                        if (officer != OFFICER_NO_EXIST) {
+                            self.shouldAnimate = YES;
+                            appDelegate.gottenOfficer = [NSNumber numberWithInteger:officer];
+                        } else {
+                            NSNumber *num = [NSNumber numberWithInteger:indexOfTheObject];
+                            [appDelegate.officerIndex addObject:num];
+                        }
                         
                     } else {
                         // new officer not in array
@@ -265,30 +244,9 @@
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSArray* per_arr = appDelegate.entries;
     
-    NSString *role;
-    if ([off isEqual: @"President"]) {
-        role = @"Pres.";
-    } else if ([off isEqual: @"Vice President"]) {
-        role = @"V.P.";
-    } else if ([off isEqual: @"Treasurer"]) {
-        role = @"Treas.";
-    } else if ([off isEqual: @"Secratary"]) {
-        role = @"Sec.";
-    } else if ([off isEqual: @"Reporter"]) {
-        role = @"Rep.";
-    } else if ([off isEqual: @"Historian"]) {
-        role = @"Hist.";
-    } else if ([off isEqual: @"Parlimentarian"]) {
-        role = @"Par.";
-    } else if ([off isEqual: @"Chaplain"]) {
-        role = @"Chap.";
-    } else {
-        role = nil;
-    }
-    
     for (int i = 0; i < [appDelegate.entries count]; i++) {
         Person *per = per_arr[i];
-        if([per.role isEqualToString:role]) {
+        if([per.role isEqualToString:off]) {
             return i;
         }
     }

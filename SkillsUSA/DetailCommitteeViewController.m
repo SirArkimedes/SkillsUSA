@@ -45,7 +45,7 @@
     
     self.schoolLabel.text = returnedObject.school;
     
-    //    self.committeeLabel.text = [appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row];
+//        self.committeeLabel.text = [appDelegate.committeeGroup objectAtIndex:appDelegate.indexPath.row];
     
     self.colorImage.layer.cornerRadius = self.colorImage.frame.size.width / 2;
     self.colorImage.clipsToBounds = YES;
