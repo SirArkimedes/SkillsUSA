@@ -17,7 +17,6 @@
 
 #define REGISTRANT_NO_EXIST 0xFFFFFFFF
 #define OFFICER_NO_EXIST 0xFFFFFFFF
-#define COMMITTEE_NO_EXIST 0xFFFFFFFF
 
 @interface QREntriesTableViewController () <MFMailComposeViewControllerDelegate>
 
