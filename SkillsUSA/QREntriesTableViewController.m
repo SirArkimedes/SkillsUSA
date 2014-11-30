@@ -9,7 +9,6 @@
 #import "QREntriesTableViewController.h"
 #import "RegistrantsTableViewCell.h"
 #import "QRCodeReaderViewController.h"
-#import "DetailCellViewController.h"
 #import "AppDelegate.h"
 #import "Person.h"
 #import "Committee.h"

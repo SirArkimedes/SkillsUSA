@@ -9,8 +9,6 @@
 #import "QROfficersEntriresTableViewController.h"
 #import "QRCodeReaderViewController.h"
 #import "OfficersTableViewCell.h"
-//#import "DetailViewController.h"
-#import "AddViewController.h"
 #import "Person.h"
 #import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
