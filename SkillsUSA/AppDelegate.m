@@ -19,6 +19,7 @@
     // Override point for customization after application launch.
     
     self.indexPath = [[NSIndexPath alloc] init];
+    self.gottenOfficer = [[NSNumber alloc] init];
     
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"entries"] != nil) {
         

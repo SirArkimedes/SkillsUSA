@@ -200,7 +200,7 @@
                         committee.personIndex = indexOfTheObject;
                         [appDelegate.committee addObject:committee];
                         
-                        NSLog(@"%@", appDelegate.committee);
+//                        NSLog(@"%@", appDelegate.committee);
                         
                     } else {
                         // new officer not in array
@@ -213,7 +213,7 @@
     //                    committee = [[Committee alloc] initWithName:shortenedName withIndex:arrayCount];
                         [appDelegate.committee addObject:committee];
                         
-                        NSLog(@"%@", appDelegate.committee);
+//                        NSLog(@"%@", appDelegate.committee);
                     }
                     
     //                if ([[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]  isEqual: @"President"]) {

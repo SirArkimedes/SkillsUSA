@@ -9,7 +9,8 @@
 #import "QROfficersEntriresTableViewController.h"
 #import "QRCodeReaderViewController.h"
 #import "OfficersTableViewCell.h"
-#import "DetailViewController.h"
+//#import "DetailViewController.h"
+#import "AddViewController.h"
 #import "Person.h"
 #import "AppDelegate.h"
 #import <MessageUI/MessageUI.h>
@@ -23,13 +24,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableCell) name:@"ReloadRootViewControllerTable" object:nil];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)reloadTableCell {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSUInteger officer = [appDelegate.gottenOfficer integerValue];
+    
+    NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:officer inSection:0];
+    NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+    [self.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
 }
 
 #pragma mark - Pass IndexPath to other views

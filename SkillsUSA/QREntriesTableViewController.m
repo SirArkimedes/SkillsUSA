@@ -297,10 +297,10 @@
     
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    //    if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
-    //        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
-    //        NSLog(@"Route creato");
-    //    }
+//        if (![[NSFileManager defaultManager] fileExistsAtPath:[self dataFilePath]]) {
+//            [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
+//            NSLog(@"Route creato");
+//        }
         
         [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
         

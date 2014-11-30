@@ -46,6 +46,8 @@
 
 @property (strong, nonatomic) NSArray *pickerData;
 
+@property BOOL shouldAnimate;
+
 @end
 
 @implementation AddViewController
@@ -63,7 +65,7 @@
     // Connect data
     self.rolePicker.dataSource = self;
     self.rolePicker.delegate = self;
-    
+        
 }
 
 - (void)didReceiveMemoryWarning {
@@ -185,7 +187,7 @@
                     if (existing != OFFICER_NO_EXIST) {
                         indexOfTheObject = existing;
                     }
-                    NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
+//                    NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
                     
                     if ([officerRoleString isEqual: @"President"]) {
                         personObject.role = @"Pres.";
@@ -210,7 +212,12 @@
                         // OFFICER EXISTS
                         
                         [appDelegate.entries setObject:personObject atIndexedSubscript:indexOfTheObject];
-                        [appDelegate.officerIndex addObject:index];
+//                        [appDelegate.officerIndex addObject:index];
+//                        NSUInteger offIndex = [self doesOfficerExist:];
+                        self.shouldAnimate = YES;
+                        
+                        NSUInteger officer = [self doesOfficerExist:indexOfTheObject];
+                        appDelegate.gottenOfficer = [NSNumber numberWithInteger:officer];
                         
                     } else {
                         // new officer not in array
@@ -235,6 +242,17 @@
 
                 }
                 
+            }
+            
+            if (self.shouldAnimate == YES) {
+//                NSIndexPath* rowToReload = [NSIndexPath indexPathForRow:self.indexOfTheObject inSection:0];
+//                NSArray* rowsToReload = [NSArray arrayWithObjects:rowToReload, nil];
+                
+                [[NSNotificationCenter defaultCenter] postNotificationName:@"ReloadRootViewControllerTable" object:nil];
+//                QROfficersEntriresTableViewController *officers = [[QROfficersEntriresTableViewController alloc] init];
+//                UITableView *table = [officers tableView];
+                self.shouldAnimate = NO;
+//                [table reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationTop];
             }
             
         }];
@@ -284,6 +302,19 @@
     for (int i = 0; i < [appDelegate.entries count]; i++) {
         Person *per = per_arr[i];
         if([person.name isEqual:per.name] && [person.school isEqual:per.school] && [person.color isEqual:per.color]) {
+            return i;
+        }
+    }
+    return OFFICER_NO_EXIST;
+}
+
+- (NSUInteger)doesOfficerExist:(NSUInteger)off {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    for (int i = 0; i < [appDelegate.officerIndex count]; i++) {
+        NSNumber *number = [appDelegate.officerIndex objectAtIndex:i];
+        NSUInteger integer = [number integerValue];
+        if (off == integer) {
             return i;
         }
     }

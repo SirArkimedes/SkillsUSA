@@ -22,6 +22,7 @@
 @property (strong, nonatomic) NSMutableArray *committee;
 
 @property (strong, nonatomic) NSIndexPath *indexPath;
+@property (strong, nonatomic) NSNumber *gottenOfficer;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
