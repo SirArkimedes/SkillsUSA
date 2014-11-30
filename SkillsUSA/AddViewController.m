@@ -170,12 +170,14 @@
                     
 //                    NSNumber *index = [NSNumber numberWithInteger:indexOfTheObject];
                     
+                    // Person exist in Registrants table
                     NSUInteger existing = [self doesPersonExist:personObject];
                     if (existing != OFFICER_NO_EXIST) {
                         indexOfTheObject = existing;
                         
                     }
                     
+                    // Person does exist, does the officer already exist?
                     if (OFFICER_NO_EXIST != indexOfTheObject) {
                         // officer previously selected
                         // OFFICER EXISTS
@@ -203,6 +205,10 @@
                         // OFFICER NO EXIST
                         
                         NSNumber *entryCount = [NSNumber numberWithInteger:[appDelegate.entries count]];
+                        
+                        // Officer Assign
+                        personObject.role = officerRoleString;
+                        
                         [appDelegate.entries addObject:personObject];
                         [appDelegate.officerIndex addObject:entryCount];
                     }

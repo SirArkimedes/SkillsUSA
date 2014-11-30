@@ -220,15 +220,12 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zrJ-f3-Hyx" id="418-D0-WY1">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="President" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zal-fB-c4z">
-                                            <rect key="frame" x="61" y="25" width="165" height="23"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s4l-b9-iCW">
+                                            <rect key="frame" x="8" y="14" width="45" height="45"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="165" id="Jx6-sE-N6e"/>
+                                                <constraint firstAttribute="width" constant="45" id="GQP-p4-SFz"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carthage Senior High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57o-L3-Iur">
                                             <rect key="frame" x="61" y="43" width="506" height="23"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -244,12 +241,15 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="s4l-b9-iCW">
-                                            <rect key="frame" x="8" y="14" width="45" height="45"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="President" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zal-fB-c4z">
+                                            <rect key="frame" x="61" y="25" width="165" height="23"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="45" id="GQP-p4-SFz"/>
+                                                <constraint firstAttribute="width" constant="165" id="Jx6-sE-N6e"/>
                                             </constraints>
-                                        </imageView>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="s4l-b9-iCW" firstAttribute="leading" secondItem="418-D0-WY1" secondAttribute="leadingMargin" id="AmA-T7-NVe"/>
