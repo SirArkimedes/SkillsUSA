@@ -267,7 +267,7 @@ static inline NSString* NSStringFromBOOL(BOOL aBool) {
             break;
         case MFMailComposeResultSent: {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mail"
-                                                            message:@"Mail send: the email message is queued in the outbox. It is ready to send."
+                                                            message:@"Mail send: the email message is queued in the outbox."
                                                            delegate:self
                                                   cancelButtonTitle:@"Okay"
                                                   otherButtonTitles:nil, nil];
