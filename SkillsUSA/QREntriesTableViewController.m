@@ -12,9 +12,12 @@
 #import "DetailCellViewController.h"
 #import "AppDelegate.h"
 #import "Person.h"
+#import "Committee.h"
 #import <MessageUI/MessageUI.h>
 
 #define REGISTRANT_NO_EXIST 0xFFFFFFFF
+#define OFFICER_NO_EXIST 0xFFFFFFFF
+#define COMMITTEE_NO_EXIST 0xFFFFFFFF
 
 @interface QREntriesTableViewController () <MFMailComposeViewControllerDelegate>
 
@@ -124,14 +127,41 @@
 //        [appDelegate.scanSchool removeObjectAtIndex:indexPath.row];
 //        [appDelegate.scanColor removeObjectAtIndex:indexPath.row];
         Person *returnedObject = [appDelegate.entries objectAtIndex:indexPath.row];
-        if (returnedObject.role != nil) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert" message:@"You are about to delete an entry that is also defined as an officer." delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
+        
+        if (returnedObject.professionalDev ||
+            returnedObject.communityService ||
+            returnedObject.employment ||
+            returnedObject.waysAndMeans ||
+            returnedObject.skillsUSAChamps ||
+            returnedObject.publicRelations ||
+            returnedObject.socialActivites) {
+            
+            // Deletes from the committee table
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                            message:@"You are about to delete an entry that is also in committees."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil, nil];
             [alert show];
             
-            // Deletes from the officer table
-            NSUInteger entriesIndex = indexPath.row;
-            NSUInteger returnedIndex = [self whereIsOfficer:entriesIndex];
-            [appDelegate.officerIndex removeObjectAtIndex:returnedIndex];
+            [self deleteCommitteeValue:indexPath.row];
+        }
+        
+        if (returnedObject.role != nil) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Alert"
+                                                            message:@"You are about to delete an entry that is also defined as an officer."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            
+            if (indexPath.row != OFFICER_NO_EXIST) {
+                // Deletes from the officer table
+                NSUInteger entriesIndex = indexPath.row;
+                NSUInteger returnedIndex = [self whereIsOfficer:entriesIndex];
+                [appDelegate.officerIndex removeObjectAtIndex:returnedIndex];
+            }
+            
             
             [appDelegate.entries removeObjectAtIndex:indexPath.row];
         } else {
@@ -145,17 +175,27 @@
 
 - (NSUInteger)whereIsOfficer:(NSUInteger)theIndex {
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-//    NSArray* per_arr = appDelegate.officerIndex;
     
     for (int i = 0; i < [appDelegate.officerIndex count]; i++) {
-//        Person *per = per_arr[i];
         NSNumber *number = [appDelegate.officerIndex objectAtIndex:i];
         NSUInteger integer = [number integerValue];
         if (theIndex == integer) {
             return i;
         }
     }
-    return REGISTRANT_NO_EXIST;
+    return OFFICER_NO_EXIST;
+}
+
+- (void)deleteCommitteeValue:(NSUInteger)theIndex {
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    for (int i = 0; i < [appDelegate.committee count]; i++) {
+        Committee *returnedCommittee = [appDelegate.committee objectAtIndex:i];
+        if (returnedCommittee.personIndex == theIndex) {
+            [appDelegate.committee removeObjectAtIndex:i];
+            i--;
+        }
+    }
 }
 
 #pragma mark - IBAction Camera Selection
