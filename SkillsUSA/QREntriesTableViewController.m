@@ -210,7 +210,7 @@
 //            NSLog(@"String: %@", resultAsString);
             
             if (resultAsString == nil) {
-                NSLog(@"resultAsString = %@", resultAsString);
+//                NSLog(@"resultAsString = %@", resultAsString);
             } else {
 //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
 //                [alert show];
@@ -315,7 +315,7 @@
             }
         }
 
-        NSLog(@"writeString: %@", writeString);
+//        NSLog(@"writeString: %@", writeString);
 
         NSFileHandle *handle;
         handle = [NSFileHandle fileHandleForWritingAtPath: [self dataFilePath]];
@@ -368,20 +368,36 @@
     switch (result)
     {
         case MFMailComposeResultCancelled:
-            NSLog(@"Mail cancelled: you cancelled the operation and no email message was queued.");
             break;
         case MFMailComposeResultSaved:
-            NSLog(@"Mail saved: you saved the email message in the drafts folder.");
             break;
-        case MFMailComposeResultSent:
-            NSLog(@"Mail send: the email message is queued in the outbox. It is ready to send.");
+        case MFMailComposeResultSent: {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mail"
+                                                            message:@"Mail send: the email message is queued in the outbox. It is ready to send."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
             break;
-        case MFMailComposeResultFailed:
-            NSLog(@"Mail failed: the email message was not saved or queued, possibly due to an error.");
+        }
+        case MFMailComposeResultFailed: {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oh no!"
+                                                            message:@"Mail failed: the email message was not saved or queued, possibly due to an error."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
             break;
-        default:
-            NSLog(@"Mail not sent.");
+        }
+        default:{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Mail"
+                                                            message:@"Mail not sent."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Okay"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
             break;
+        }
     }
     // Remove the mail view
     [self dismissViewControllerAnimated:YES completion:nil];

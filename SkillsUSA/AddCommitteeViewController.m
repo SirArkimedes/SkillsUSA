@@ -130,14 +130,14 @@
             //            NSLog(@"String: %@", resultAsString);
             
             if (resultAsString == nil) {
-                NSLog(@"resultAsString = %@", resultAsString);
+//                NSLog(@"resultAsString = %@", resultAsString);
             } else {
                 //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"QRCode" message:resultAsString delegate:self cancelButtonTitle:@"Okay" otherButtonTitles:nil, nil];
                 //                [alert show];
                 
                 if ([resultAsString containsString:@"\n"]) {
                     NSArray *data = [resultAsString componentsSeparatedByString:@"\n"];
-                    NSLog(@"%@", data);
+//                    NSLog(@"%@", data);
                     
                     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
                     
