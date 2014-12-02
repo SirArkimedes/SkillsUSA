@@ -159,10 +159,46 @@
 
 #pragma mark - Share
 
--(NSString *)dataFilePath {
+-(NSString *)dataFilePathPro {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:@"Committees Data.csv"];
+    return [documentsDirectory stringByAppendingPathComponent:@"Professional Development.csv"];
+}
+
+-(NSString *)dataFilePathCom{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"Community Service.csv"];
+}
+
+-(NSString *)dataFilePathEmp {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"Employment.csv"];
+}
+
+-(NSString *)dataFilePathWay {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"Ways and Means.csv"];
+}
+
+-(NSString *)dataFilePathSki {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"SkillsUSA Championships.csv"];
+}
+
+-(NSString *)dataFilePathPub {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"Public Relations.csv"];
+}
+
+-(NSString *)dataFilePathSoc {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    return [documentsDirectory stringByAppendingPathComponent:@"Social Activities.csv"];
 }
 
 - (IBAction)sharePress:(id)sender {
@@ -176,62 +212,195 @@
         //        NSLog(@"Route creato");
         //    }
         
-        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePathPro] contents:nil attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePathCom] contents:nil attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePathEmp] contents:nil attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePathWay] contents:nil attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePathSki] contents:nil attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePathPub] contents:nil attributes:nil];
+        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePathSoc] contents:nil attributes:nil];
         
-        NSMutableString *writeString = [NSMutableString stringWithCapacity:0];
+        NSMutableString *writeStringPro = [NSMutableString stringWithCapacity:0];
+        NSMutableString *writeStringCom = [NSMutableString stringWithCapacity:0];
+        NSMutableString *writeStringEmp = [NSMutableString stringWithCapacity:0];
+        NSMutableString *writeStringWay = [NSMutableString stringWithCapacity:0];
+        NSMutableString *writeStringSki = [NSMutableString stringWithCapacity:0];
+        NSMutableString *writeStringPub = [NSMutableString stringWithCapacity:0];
+        NSMutableString *writeStringSoc = [NSMutableString stringWithCapacity:0];
         
         for (int i = 0; i < [appDelegate.entries count]; i++) {
             Person *returnedObject = [appDelegate.entries objectAtIndex:i];
             
-            if ([writeString containsString:@"Name,School,Color"]) {
-                [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@\n",
-                                           returnedObject.name,
-                                           returnedObject.school,
-                                           returnedObject.color,
-                                           NSStringChairFromBOOL(returnedObject.chair),
-                                           NSStringFromBOOL(returnedObject.professionalDev),
-                                           NSStringFromBOOL(returnedObject.communityService),
-                                           NSStringFromBOOL(returnedObject.employment),
-                                           NSStringFromBOOL(returnedObject.waysAndMeans),
-                                           NSStringFromBOOL(returnedObject.skillsUSAChamps),
-                                           NSStringFromBOOL(returnedObject.publicRelations),
-                                           NSStringFromBOOL(returnedObject.socialActivites)]];
-            } else {
-                [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,Chair,Professional Development,Community Service,Employment,Ways and Means,SkillsUSA Championships,Public Relations,Social Activities\n%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@\n",
-                                           returnedObject.name,
-                                           returnedObject.school,
-                                           returnedObject.color,
-                                           NSStringChairFromBOOL(returnedObject.chair),
-                                           NSStringFromBOOL(returnedObject.professionalDev),
-                                           NSStringFromBOOL(returnedObject.communityService),
-                                           NSStringFromBOOL(returnedObject.employment),
-                                           NSStringFromBOOL(returnedObject.waysAndMeans),
-                                           NSStringFromBOOL(returnedObject.skillsUSAChamps),
-                                           NSStringFromBOOL(returnedObject.publicRelations),
-                                           NSStringFromBOOL(returnedObject.socialActivites)]];
-
+            if (returnedObject.professionalDev == YES) {
+                if ([writeStringPro containsString:@"Name,School,Color"]) {
+                    [writeStringPro appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                } else {
+                    [writeStringPro appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                }
+            }
+            if (returnedObject.communityService == YES) {
+                if ([writeStringCom containsString:@"Name,School,Color"]) {
+                    [writeStringCom appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                } else {
+                    [writeStringCom appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                }
+            }
+            if (returnedObject.employment == YES) {
+                if ([writeStringEmp containsString:@"Name,School,Color"]) {
+                    [writeStringEmp appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                } else {
+                    [writeStringEmp appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                }
+            }
+            if (returnedObject.waysAndMeans == YES) {
+                if ([writeStringWay containsString:@"Name,School,Color"]) {
+                    [writeStringWay appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                } else {
+                    [writeStringWay appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                }
+            }
+            if (returnedObject.skillsUSAChamps == YES) {
+                if ([writeStringSki containsString:@"Name,School,Color"]) {
+                    [writeStringSki appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                } else {
+                    [writeStringSki appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                }
+            }
+            if (returnedObject.publicRelations == YES) {
+                if ([writeStringPub containsString:@"Name,School,Color"]) {
+                    [writeStringPub appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                } else {
+                    [writeStringPub appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                }
+            }
+            if (returnedObject.socialActivites == YES) {
+                if ([writeStringSoc containsString:@"Name,School,Color"]) {
+                    [writeStringSoc appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                } else {
+                    [writeStringSoc appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                }
             }
         }
-        
-        NSLog(@"writeString: %@", writeString);
-        
+
         NSFileHandle *handle;
-        handle = [NSFileHandle fileHandleForWritingAtPath: [self dataFilePath]];
-        //say to handle where's the file fo write
+        handle = [NSFileHandle fileHandleForWritingAtPath:[self dataFilePathPro]];
         [handle truncateFileAtOffset:[handle seekToEndOfFile]];
-        //position handle cursor to the end of file
-        [handle writeData:[writeString dataUsingEncoding:NSUTF8StringEncoding]];
+        [handle writeData:[writeStringPro dataUsingEncoding:NSUTF8StringEncoding]];
         
+        handle = [NSFileHandle fileHandleForWritingAtPath:[self dataFilePathCom]];
+        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+        [handle writeData:[writeStringCom dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        handle = [NSFileHandle fileHandleForWritingAtPath:[self dataFilePathEmp]];
+        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+        [handle writeData:[writeStringEmp dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        handle = [NSFileHandle fileHandleForWritingAtPath:[self dataFilePathWay]];
+        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+        [handle writeData:[writeStringWay dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        handle = [NSFileHandle fileHandleForWritingAtPath:[self dataFilePathSki]];
+        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+        [handle writeData:[writeStringSki dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        handle = [NSFileHandle fileHandleForWritingAtPath:[self dataFilePathPub]];
+        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+        [handle writeData:[writeStringPub dataUsingEncoding:NSUTF8StringEncoding]];
+        
+        handle = [NSFileHandle fileHandleForWritingAtPath:[self dataFilePathSoc]];
+        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+        [handle writeData:[writeStringSoc dataUsingEncoding:NSUTF8StringEncoding]];
+
         MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
         mailViewController.mailComposeDelegate = self;
         [mailViewController setSubject:@"Committees Data"];
         [mailViewController setMessageBody:@"" isHTML:NO];
         //    mailViewController.navigationBar.tintColor = [UIColor blackColor];
-        NSString *csvFilePath = [self dataFilePath];
-        
-        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:csvFilePath]
+
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[self dataFilePathPro]]
                                      mimeType:@"text/csv"
-                                     fileName:@"Committees Data.csv"];
+                                     fileName:@"Professional Development.csv"];
+        
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[self dataFilePathCom]]
+                                     mimeType:@"text/csv"
+                                     fileName:@"Community Service.csv"];
+        
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[self dataFilePathEmp]]
+                                     mimeType:@"text/csv"
+                                     fileName:@"Employment.csv"];
+        
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[self dataFilePathWay]]
+                                     mimeType:@"text/csv"
+                                     fileName:@"Ways and Means.csv"];
+        
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[self dataFilePathSki]]
+                                     mimeType:@"text/csv"
+                                     fileName:@"SkillsUSA Championships.csv"];
+        
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[self dataFilePathPub]]
+                                     mimeType:@"text/csv"
+                                     fileName:@"Public Relations.csv"];
+        
+        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:[self dataFilePathSoc]]
+                                     mimeType:@"text/csv"
+                                     fileName:@"Social Activities.csv"];
+
+//        [[NSFileManager defaultManager] createFileAtPath:[self dataFilePath] contents:nil attributes:nil];
+//        
+//        NSMutableString *writeString = [NSMutableString stringWithCapacity:0];
+//        
+//        for (int i = 0; i < [appDelegate.entries count]; i++) {
+//            Person *returnedObject = [appDelegate.entries objectAtIndex:i];
+//            
+//            if ([writeString containsString:@"Name,School,Color"]) {
+//                [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@\n",
+//                                           returnedObject.name,
+//                                           returnedObject.school,
+//                                           returnedObject.color,
+//                                           NSStringChairFromBOOL(returnedObject.chair),
+//                                           NSStringFromBOOL(returnedObject.professionalDev),
+//                                           NSStringFromBOOL(returnedObject.communityService),
+//                                           NSStringFromBOOL(returnedObject.employment),
+//                                           NSStringFromBOOL(returnedObject.waysAndMeans),
+//                                           NSStringFromBOOL(returnedObject.skillsUSAChamps),
+//                                           NSStringFromBOOL(returnedObject.publicRelations),
+//                                           NSStringFromBOOL(returnedObject.socialActivites)]];
+//            } else {
+//                [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,Chair,Professional Development,Community Service,Employment,Ways and Means,SkillsUSA Championships,Public Relations,Social Activities\n%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@\n",
+//                                           returnedObject.name,
+//                                           returnedObject.school,
+//                                           returnedObject.color,
+//                                           NSStringChairFromBOOL(returnedObject.chair),
+//                                           NSStringFromBOOL(returnedObject.professionalDev),
+//                                           NSStringFromBOOL(returnedObject.communityService),
+//                                           NSStringFromBOOL(returnedObject.employment),
+//                                           NSStringFromBOOL(returnedObject.waysAndMeans),
+//                                           NSStringFromBOOL(returnedObject.skillsUSAChamps),
+//                                           NSStringFromBOOL(returnedObject.publicRelations),
+//                                           NSStringFromBOOL(returnedObject.socialActivites)]];
+//
+//            }
+//        }
+//        
+////        NSLog(@"writeString: %@", writeString);
+//        
+//        NSFileHandle *handle;
+//        handle = [NSFileHandle fileHandleForWritingAtPath: [self dataFilePath]];
+//        //say to handle where's the file fo write
+//        [handle truncateFileAtOffset:[handle seekToEndOfFile]];
+//        //position handle cursor to the end of file
+//        [handle writeData:[writeString dataUsingEncoding:NSUTF8StringEncoding]];
+//        
+//        MFMailComposeViewController *mailViewController = [[MFMailComposeViewController alloc] init];
+//        mailViewController.mailComposeDelegate = self;
+//        [mailViewController setSubject:@"Committees Data"];
+//        [mailViewController setMessageBody:@"" isHTML:NO];
+//        //    mailViewController.navigationBar.tintColor = [UIColor blackColor];
+//        NSString *csvFilePath = [self dataFilePath];
+//        
+//        [mailViewController addAttachmentData:[NSData dataWithContentsOfFile:csvFilePath]
+//                                     mimeType:@"text/csv"
+//                                     fileName:@"Committees Data.csv"];
         
         [self presentViewController:mailViewController animated:YES completion:nil];
     } else {
@@ -242,32 +411,13 @@
                                               otherButtonTitles:nil, nil];
         [alert show];
     }
-//    NSString *textToShare = @"<html><body><!--Andrew Table--><style>#andrew-table, tr, td{border: 1px solid black;padding: 0px;margin: 0px;border-collapse: collapse;}.text {padding: 5px;}td {width: 100px;height: 25px;}</style><table><tr><td class='text'>Name</td><td class='text'>School</td><td class='text'>Color</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>";
-//    NSArray *itemsToShare = @[textToShare];
-//    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-//    activityVC.excludedActivityTypes = @[UIActivityTypePrint,
-//                                         UIActivityTypeMessage,
-//                                         UIActivityTypeCopyToPasteboard,
-//                                         UIActivityTypeAssignToContact,
-//                                         UIActivityTypeSaveToCameraRoll,
-//                                         UIActivityTypeAirDrop,
-//                                         UIActivityTypePostToTwitter,
-//                                         UIActivityTypePostToFacebook,
-//                                         UIActivityTypePostToFlickr,
-//                                         UIActivityTypePostToVimeo,
-//                                         UIActivityTypePostToWeibo,
-//                                         UIActivityTypePostToTencentWeibo]; //or whichever you don't need
-//    
-//    [activityVC setValue:@"Officers Data" forKey:@"subject"];
-//    [self presentViewController:activityVC animated:YES completion:nil];
-    
 }
 
-static inline NSString* NSStringFromBOOL(BOOL aBool) {
-    return aBool? @"Member" : @"-"; }
-
-static inline NSString* NSStringChairFromBOOL(BOOL aBool) {
-    return aBool? @"Chair" : @"-"; }
+//static inline NSString* NSStringFromBOOL(BOOL aBool) {
+//    return aBool? @"Member" : @""; }
+//
+//static inline NSString* NSStringChairFromBOOL(BOOL aBool) {
+//    return aBool? @"Chair" : @""; }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     switch (result)
