@@ -95,7 +95,14 @@
         cell.colorCell.backgroundColor = [UIColor whiteColor];
     }
     
-    cell.nameCell.text = returnedObject.name;
+    NSString *nameMod;
+    if (returnedObject.chair == YES) {
+        nameMod = [NSString stringWithFormat:@"%@ - Chair", returnedObject.name];
+    } else {
+        nameMod = returnedObject.name;
+    }
+    
+    cell.nameCell.text = nameMod;
     //    NSLog(@"nameCell: %@", cell.nameCell.text);
     
     cell.schoolCell.text = returnedObject.school;
@@ -177,10 +184,11 @@
             Person *returnedObject = [appDelegate.entries objectAtIndex:i];
             
             if ([writeString containsString:@"Name,School,Color"]) {
-                [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,\n",
+                [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@\n",
                                            returnedObject.name,
                                            returnedObject.school,
                                            returnedObject.color,
+                                           NSStringChairFromBOOL(returnedObject.chair),
                                            NSStringFromBOOL(returnedObject.professionalDev),
                                            NSStringFromBOOL(returnedObject.communityService),
                                            NSStringFromBOOL(returnedObject.employment),
@@ -189,10 +197,11 @@
                                            NSStringFromBOOL(returnedObject.publicRelations),
                                            NSStringFromBOOL(returnedObject.socialActivites)]];
             } else {
-                [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,Professional Development,Community Service,Employment,Ways and Means,SkillsUSA Championships,Public Relations,Social Activities\n%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,\n",
+                [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,Chair,Professional Development,Community Service,Employment,Ways and Means,SkillsUSA Championships,Public Relations,Social Activities\n%@,%@,%@,%@,%@,%@,%@,%@,%@,%@,%@\n",
                                            returnedObject.name,
                                            returnedObject.school,
                                            returnedObject.color,
+                                           NSStringChairFromBOOL(returnedObject.chair),
                                            NSStringFromBOOL(returnedObject.professionalDev),
                                            NSStringFromBOOL(returnedObject.communityService),
                                            NSStringFromBOOL(returnedObject.employment),
@@ -256,6 +265,9 @@
 
 static inline NSString* NSStringFromBOOL(BOOL aBool) {
     return aBool? @"Member" : @"-"; }
+
+static inline NSString* NSStringChairFromBOOL(BOOL aBool) {
+    return aBool? @"Chair" : @"-"; }
 
 - (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
     switch (result)

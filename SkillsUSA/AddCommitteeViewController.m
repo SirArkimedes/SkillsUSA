@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *colorImage;
 @property (weak, nonatomic) IBOutlet UIPickerView *rolePicker;
 @property (weak, nonatomic) IBOutlet UILabel *groupLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *chairSwitch;
 
 @property (strong, nonatomic) NSArray *pickerData;
 
@@ -169,6 +170,12 @@
                         personObject.socialActivites = YES;
                     }
     //                [appDelegate.committeeGroup addObject:[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]];
+                    
+                    if (self.chairSwitch.isOn == YES) {
+                        personObject.chair = YES;
+                    } else {
+                        personObject.chair = NO;
+                    }
                     
                     if (COMMITTEE_NO_EXIST != indexOfTheObject) {
                         // officer previously selected

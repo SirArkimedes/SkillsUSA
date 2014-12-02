@@ -886,6 +886,20 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="tQi-N8-JNN">
+                                <rect key="frame" x="535" y="162" width="51" height="31"/>
+                                <color key="onTintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHAIR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYI-zc-fsf">
+                                <rect key="frame" x="482" y="133" width="102" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="102" id="qlW-DM-lWq"/>
+                                    <constraint firstAttribute="height" constant="21" id="wfP-bd-oSb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -899,6 +913,7 @@
                             <constraint firstItem="zr4-Lz-MYw" firstAttribute="leading" secondItem="NNT-bL-x3l" secondAttribute="leading" id="MYM-iK-kxS"/>
                             <constraint firstAttribute="trailingMargin" secondItem="UAd-GT-NAP" secondAttribute="trailing" constant="9" id="Nb1-TA-FwB"/>
                             <constraint firstItem="UAd-GT-NAP" firstAttribute="top" secondItem="jd8-1u-jDA" secondAttribute="bottom" constant="8" symbolic="YES" id="NyT-ag-WyU"/>
+                            <constraint firstItem="tQi-N8-JNN" firstAttribute="top" secondItem="OYI-zc-fsf" secondAttribute="bottom" constant="8" symbolic="YES" id="O32-vF-VuG"/>
                             <constraint firstItem="oZR-B6-rS2" firstAttribute="leading" secondItem="UAd-GT-NAP" secondAttribute="leading" id="Vrw-dy-shj"/>
                             <constraint firstItem="jd8-1u-jDA" firstAttribute="top" secondItem="hLX-Nc-Zkv" secondAttribute="bottom" constant="8" symbolic="YES" id="X5V-yj-Kim"/>
                             <constraint firstItem="oZR-B6-rS2" firstAttribute="leading" secondItem="Pbo-pi-rgN" secondAttribute="leading" id="cLe-5P-xAU"/>
@@ -908,11 +923,15 @@
                             <constraint firstItem="UAd-GT-NAP" firstAttribute="leading" secondItem="zr4-Lz-MYw" secondAttribute="trailing" constant="8" symbolic="YES" id="h0y-FR-47R"/>
                             <constraint firstItem="NNT-bL-x3l" firstAttribute="top" secondItem="zr4-Lz-MYw" secondAttribute="bottom" constant="15" id="mzA-Pe-Tqh"/>
                             <constraint firstItem="MYL-PF-Mfz" firstAttribute="top" secondItem="0HP-LN-1Rb" secondAttribute="bottom" constant="8" symbolic="YES" id="nPG-pV-Kz0"/>
+                            <constraint firstItem="OYI-zc-fsf" firstAttribute="trailing" secondItem="tQi-N8-JNN" secondAttribute="trailing" id="nXd-mk-68B"/>
+                            <constraint firstItem="OYI-zc-fsf" firstAttribute="trailing" secondItem="yAM-bf-StC" secondAttribute="trailingMargin" id="nvd-RE-VcI"/>
                             <constraint firstItem="jd8-1u-jDA" firstAttribute="leading" secondItem="zr4-Lz-MYw" secondAttribute="leading" id="o8E-vd-aYJ"/>
                             <constraint firstItem="oZR-B6-rS2" firstAttribute="centerY" secondItem="zr4-Lz-MYw" secondAttribute="centerY" id="qmA-fa-ENJ"/>
+                            <constraint firstItem="OYI-zc-fsf" firstAttribute="top" secondItem="UAd-GT-NAP" secondAttribute="bottom" constant="10" id="voe-34-7kl"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chairSwitch" destination="tQi-N8-JNN" id="rTy-Hu-bJ5"/>
                         <outlet property="colorImage" destination="zr4-Lz-MYw" id="Aw1-RI-mLF"/>
                         <outlet property="groupLabel" destination="oZR-B6-rS2" id="xnP-jS-Ysy"/>
                         <outlet property="rolePicker" destination="0HP-LN-1Rb" id="DWF-G5-ua1"/>

@@ -52,6 +52,9 @@
     [coder encodeObject:_name forKey:@"name"];
     [coder encodeObject:_school forKey:@"school"];
     [coder encodeObject:_color forKey:@"color"];
+    
+    [coder encodeBool:_chair forKey:@"chair"];
+    
     [coder encodeObject:_role forKey:@"role"];
     
     [coder encodeBool:_professionalDev forKey:@"professionalDev"];
@@ -71,6 +74,9 @@
         _name = [coder decodeObjectForKey:@"name"];
         _school = [coder decodeObjectForKey:@"school"];
         _color = [coder decodeObjectForKey:@"color"];
+        
+        _chair = [coder decodeBoolForKey:@"chair"];
+        
         _role = [coder decodeObjectForKey:@"role"];
         
         _professionalDev = [coder decodeBoolForKey:@"professionalDev"];
