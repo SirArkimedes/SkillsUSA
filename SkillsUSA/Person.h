@@ -14,7 +14,7 @@
 @property (strong, nonatomic) NSString *school;
 @property (strong, nonatomic) NSString *color;
 
-@property BOOL chair;
+@property (strong, nonatomic) NSString *chair;
 
 @property (strong, nonatomic) NSString *role;
 

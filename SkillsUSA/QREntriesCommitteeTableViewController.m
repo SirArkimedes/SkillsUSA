@@ -96,7 +96,7 @@
     }
     
     NSString *nameMod;
-    if (returnedObject.chair == YES) {
+    if ([returnedObject.chair isEqualToString: returnedCommittee.committeeName]) {
         nameMod = [NSString stringWithFormat:@"%@ - Chair", returnedObject.name];
     } else {
         nameMod = returnedObject.name;
@@ -231,53 +231,90 @@
         for (int i = 0; i < [appDelegate.entries count]; i++) {
             Person *returnedObject = [appDelegate.entries objectAtIndex:i];
             
+            NSString *isChair;
+            
             if (returnedObject.professionalDev == YES) {
-                if ([writeStringPro containsString:@"Name,School,Color"]) {
-                    [writeStringPro appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                if ([returnedObject.chair isEqual: @"Professional Development"]) {
+                    isChair = @"Yes";
                 } else {
-                    [writeStringPro appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                    isChair = @"";
+                }
+                if ([writeStringPro containsString:@"Name,School,Color,Chair"]) {
+                    [writeStringPro appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
+                } else {
+                    [writeStringPro appendString:[NSString stringWithFormat:@"Name,School,Color,Chair\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
                 }
             }
             if (returnedObject.communityService == YES) {
-                if ([writeStringCom containsString:@"Name,School,Color"]) {
-                    [writeStringCom appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                if ([returnedObject.chair isEqual: @"Community Service"]) {
+                    isChair = @"Yes";
                 } else {
-                    [writeStringCom appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                    isChair = @"";
+                }
+                if ([writeStringCom containsString:@"Name,School,Color,Chair"]) {
+                    [writeStringCom appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
+                } else {
+                    [writeStringCom appendString:[NSString stringWithFormat:@"Name,School,Color,Chair\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
                 }
             }
             if (returnedObject.employment == YES) {
-                if ([writeStringEmp containsString:@"Name,School,Color"]) {
-                    [writeStringEmp appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                if ([returnedObject.chair isEqual: @"Employment"]) {
+                    isChair = @"Yes";
                 } else {
-                    [writeStringEmp appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                    isChair = @"";
+                }
+                if ([writeStringEmp containsString:@"Name,School,Color,Chair"]) {
+                    [writeStringEmp appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
+                } else {
+                    [writeStringEmp appendString:[NSString stringWithFormat:@"Name,School,Color,Chair\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
                 }
             }
             if (returnedObject.waysAndMeans == YES) {
-                if ([writeStringWay containsString:@"Name,School,Color"]) {
-                    [writeStringWay appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                if ([returnedObject.chair isEqual: @"Ways and Means"]) {
+                    isChair = @"Yes";
                 } else {
-                    [writeStringWay appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                    isChair = @"";
+                }
+                if ([writeStringWay containsString:@"Name,School,Color,Chair"]) {
+                    [writeStringWay appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
+                } else {
+                    [writeStringWay appendString:[NSString stringWithFormat:@"Name,School,Color,Chair\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
                 }
             }
             if (returnedObject.skillsUSAChamps == YES) {
-                if ([writeStringSki containsString:@"Name,School,Color"]) {
-                    [writeStringSki appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                if ([returnedObject.chair isEqual: @"SkillsUSA Championships"]) {
+                    isChair = @"Yes";
                 } else {
-                    [writeStringSki appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                    isChair = @"";
+                }
+                if ([writeStringSki containsString:@"Name,School,Color,Chair"]) {
+                    [writeStringSki appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
+                } else {
+                    [writeStringSki appendString:[NSString stringWithFormat:@"Name,School,Color,Chair\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
                 }
             }
             if (returnedObject.publicRelations == YES) {
-                if ([writeStringPub containsString:@"Name,School,Color"]) {
-                    [writeStringPub appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                if ([returnedObject.chair isEqual: @"Public Relations"]) {
+                    isChair = @"Yes";
                 } else {
-                    [writeStringPub appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                    isChair = @"";
+                }
+                if ([writeStringPub containsString:@"Name,School,Color,Chair"]) {
+                    [writeStringPub appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
+                } else {
+                    [writeStringPub appendString:[NSString stringWithFormat:@"Name,School,Color,Chair\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
                 }
             }
             if (returnedObject.socialActivites == YES) {
-                if ([writeStringSoc containsString:@"Name,School,Color"]) {
-                    [writeStringSoc appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                if ([returnedObject.chair isEqual: @"Social Activities"]) {
+                    isChair = @"Yes";
                 } else {
-                    [writeStringSoc appendString:[NSString stringWithFormat:@"Name,School,Color\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                    isChair = @"";
+                }
+                if ([writeStringSoc containsString:@"Name,School,Color,Chair"]) {
+                    [writeStringSoc appendString:[NSString stringWithFormat:@"%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
+                } else {
+                    [writeStringSoc appendString:[NSString stringWithFormat:@"Name,School,Color,Chair\n%@,%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color, isChair]];
                 }
             }
         }

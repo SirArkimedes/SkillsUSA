@@ -53,7 +53,7 @@
     [coder encodeObject:_school forKey:@"school"];
     [coder encodeObject:_color forKey:@"color"];
     
-    [coder encodeBool:_chair forKey:@"chair"];
+    [coder encodeObject:_chair forKey:@"chair"];
     
     [coder encodeObject:_role forKey:@"role"];
     
@@ -75,7 +75,7 @@
         _school = [coder decodeObjectForKey:@"school"];
         _color = [coder decodeObjectForKey:@"color"];
         
-        _chair = [coder decodeBoolForKey:@"chair"];
+        _chair = [coder decodeObjectForKey:@"chair"];
         
         _role = [coder decodeObjectForKey:@"role"];
         

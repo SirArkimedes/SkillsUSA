@@ -172,9 +172,7 @@
     //                [appDelegate.committeeGroup addObject:[self.pickerData objectAtIndex:[self.rolePicker selectedRowInComponent:0]]];
                     
                     if (self.chairSwitch.isOn == YES) {
-                        personObject.chair = YES;
-                    } else {
-                        personObject.chair = NO;
+                        personObject.chair = selected;
                     }
                     
                     if (COMMITTEE_NO_EXIST != indexOfTheObject) {
