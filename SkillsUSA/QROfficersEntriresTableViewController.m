@@ -17,6 +17,8 @@
 
 @interface QROfficersEntriresTableViewController () <MFMailComposeViewControllerDelegate>
 
+@property (strong, nonatomic) NSIndexPath *savedSelectedIndexPath;
+
 @end
 
 @implementation QROfficersEntriresTableViewController
@@ -26,8 +28,32 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableCell) name:@"ReloadRootViewControllerTable" object:nil];
     
+    self.clearsSelectionOnViewWillAppear = NO;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.savedSelectedIndexPath = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.savedSelectedIndexPath = self.tableView.indexPathForSelectedRow;
+    
+    if (self.savedSelectedIndexPath) {
+        [self.tableView deselectRowAtIndexPath:self.savedSelectedIndexPath animated:YES];
+    }
 }
 
 - (void)dealloc {

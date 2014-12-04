@@ -16,6 +16,8 @@
 
 @interface QREntriesCommitteeTableViewController () <MFMailComposeViewControllerDelegate>
 
+@property (strong, nonatomic) NSIndexPath *savedSelectedIndexPath;
+
 @end
 
 @implementation QREntriesCommitteeTableViewController
@@ -23,8 +25,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.clearsSelectionOnViewWillAppear = NO;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    self.savedSelectedIndexPath = nil;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.savedSelectedIndexPath = self.tableView.indexPathForSelectedRow;
+    
+    if (self.savedSelectedIndexPath) {
+        [self.tableView deselectRowAtIndexPath:self.savedSelectedIndexPath animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
