@@ -54,7 +54,7 @@
     
     int counter = 0;
     if (returnedObject.professionalDev == YES) {
-        if (counter == 1) {
+        if (counter >= 1) {
             self.committeeLabel2.text = @"Professional Development";
             self.secondLabel.hidden = NO;
         } else {
@@ -64,7 +64,7 @@
         counter++;
     }
     if (returnedObject.communityService == YES) {
-        if (counter == 1) {
+        if (counter >= 1) {
             self.committeeLabel2.text = @"Community Service";
             self.secondLabel.hidden = NO;
         } else {
@@ -74,7 +74,7 @@
         counter++;
     }
     if (returnedObject.employment == YES) {
-        if (counter == 1) {
+        if (counter >= 1) {
             self.committeeLabel2.text = @"Employment";
             self.secondLabel.hidden = NO;
         } else {
@@ -84,7 +84,7 @@
         counter++;
     }
     if (returnedObject.waysAndMeans == YES) {
-        if (counter == 1) {
+        if (counter >= 1) {
             self.committeeLabel2.text = @"Ways and Means";
             self.secondLabel.hidden = NO;
         } else {
@@ -94,7 +94,7 @@
         counter++;
     }
     if (returnedObject.skillsUSAChamps == YES) {
-        if (counter == 1) {
+        if (counter >= 1) {
             self.committeeLabel2.text = @"SkillsUSA Championships";
             self.secondLabel.hidden = NO;
         } else {
@@ -104,7 +104,7 @@
         counter++;
     }
     if (returnedObject.publicRelations == YES) {
-        if (counter == 1) {
+        if (counter >= 1) {
             self.committeeLabel2.text = @"Public Relations";
             self.secondLabel.hidden = NO;
         } else {
@@ -114,7 +114,7 @@
         counter++;
     }
     if (returnedObject.socialActivites == YES) {
-        if (counter == 1) {
+        if (counter >= 1) {
             self.committeeLabel2.text = @"Social Activities";
             self.secondLabel.hidden = NO;
         } else {
