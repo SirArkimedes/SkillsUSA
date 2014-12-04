@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *committeeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *committeeLabel2;
 @property (weak, nonatomic) IBOutlet UIView *secondLabel;
+@property (weak, nonatomic) IBOutlet UIView *chairView;
+@property (weak, nonatomic) IBOutlet UILabel *chairLabel;
+@property (weak, nonatomic) IBOutlet UILabel *chairCat;
 
 @end
 
@@ -145,6 +148,15 @@
     
     // Set navigation bar title to Name
     self.navigationItem.title = returnedObject.name;
+    
+    if (returnedObject.chair) {
+        self.chairLabel.text = returnedObject.chair;
+        self.chairView.hidden = NO;
+        self.chairCat.hidden = NO;
+    } else {
+        self.chairView.hidden = YES;
+        self.chairCat.hidden = YES;
+    }
     
 }
 

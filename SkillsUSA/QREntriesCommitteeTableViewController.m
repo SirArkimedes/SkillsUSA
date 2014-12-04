@@ -174,6 +174,9 @@
             returnedObject.socialActivites = NO;
         }
         
+        if (returnedCommittee.chair == YES) {
+            returnedObject.chair = nil;
+        }
         
         [appDelegate.committee removeObjectAtIndex:indexPath.row];
         

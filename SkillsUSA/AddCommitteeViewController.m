@@ -173,6 +173,7 @@
                     
                     if (self.chairSwitch.isOn == YES) {
                         personObject.chair = selected;
+                        committee.chair = YES;
                     }
                     
                     if (COMMITTEE_NO_EXIST != indexOfTheObject) {

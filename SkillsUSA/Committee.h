@@ -12,6 +12,7 @@
 
 @property (strong, nonatomic) NSString *committeeName;
 @property NSUInteger personIndex;
+@property BOOL chair;
 
 - (id)initWithName:(NSString *)name withIndex:(NSUInteger)index;
 

@@ -24,6 +24,7 @@
 {
     [coder encodeObject:self.committeeName forKey:@"name"];
     [coder encodeInteger:self.personIndex forKey:@"index"];
+    [coder encodeBool:self.chair forKey:@"chair"];
 }
 
 - (id)initWithCoder:(NSCoder *)coder;
@@ -33,6 +34,7 @@
     {
         self.committeeName = [coder decodeObjectForKey:@"name"];
         self.personIndex = [coder decodeIntegerForKey:@"index"];
+        self.chair = [coder decodeBoolForKey:@"chair"];
         
     }
     return self;

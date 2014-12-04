@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ugn-qb-ga3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C68m" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ugn-qb-ga3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -732,6 +732,15 @@
                                 <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHAIR" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ajd-P0-UFk">
+                                <rect key="frame" x="16" y="418" width="84" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="5XK-xz-9Jb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCHOOL" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cLE-Fe-pP6">
                                 <rect key="frame" x="16" y="234" width="72" height="21"/>
                                 <constraints>
@@ -767,6 +776,23 @@
                                     <constraint firstItem="SgQ-CN-UBZ" firstAttribute="leading" secondItem="Lx9-vd-9RN" secondAttribute="leading" id="rYe-ap-Mio"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="05b-la-NEd">
+                                <rect key="frame" x="0.0" y="447" width="600" height="34"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="President" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65I-RH-Bjx">
+                                        <rect key="frame" x="0.0" y="6" width="600" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.27450980390000002" green="0.27450980390000002" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="65I-RH-Bjx" firstAttribute="top" secondItem="05b-la-NEd" secondAttribute="top" constant="6" id="JU8-pd-qQ2"/>
+                                    <constraint firstItem="65I-RH-Bjx" firstAttribute="leading" secondItem="05b-la-NEd" secondAttribute="leading" id="XKh-yx-oVn"/>
+                                    <constraint firstAttribute="trailing" secondItem="65I-RH-Bjx" secondAttribute="trailing" id="eiG-i9-2Nj"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -779,10 +805,17 @@
                             <constraint firstItem="TjE-Im-CqY" firstAttribute="centerX" secondItem="xNA-JJ-NjT" secondAttribute="centerX" id="KHk-Fz-7GS"/>
                             <constraint firstItem="xNA-JJ-NjT" firstAttribute="top" secondItem="sqg-V5-tm0" secondAttribute="bottom" constant="8" symbolic="YES" id="L31-Tz-let"/>
                             <constraint firstItem="Lx9-vd-9RN" firstAttribute="top" secondItem="VU8-vm-Ppr" secondAttribute="bottom" constant="8" symbolic="YES" id="L66-5h-sZJ"/>
+                            <constraint firstItem="ajd-P0-UFk" firstAttribute="trailing" secondItem="yd5-9n-UUO" secondAttribute="trailing" id="T7M-wV-JtW"/>
                             <constraint firstItem="Lx9-vd-9RN" firstAttribute="leading" secondItem="VU8-vm-Ppr" secondAttribute="leading" id="WtL-K0-aoM"/>
+                            <constraint firstItem="05b-la-NEd" firstAttribute="top" secondItem="ajd-P0-UFk" secondAttribute="bottom" constant="8" symbolic="YES" id="Xrp-fG-yJt"/>
+                            <constraint firstItem="05b-la-NEd" firstAttribute="trailing" secondItem="Lx9-vd-9RN" secondAttribute="trailing" id="Z5L-pY-VdD"/>
                             <constraint firstItem="yd5-9n-UUO" firstAttribute="top" secondItem="TjE-Im-CqY" secondAttribute="bottom" constant="8" symbolic="YES" id="b5O-p3-OR2"/>
+                            <constraint firstItem="ajd-P0-UFk" firstAttribute="leading" secondItem="yd5-9n-UUO" secondAttribute="leading" id="dAM-Ls-Bru"/>
                             <constraint firstItem="VU8-vm-Ppr" firstAttribute="height" secondItem="Lx9-vd-9RN" secondAttribute="height" id="drc-rj-XkE"/>
+                            <constraint firstItem="05b-la-NEd" firstAttribute="leading" secondItem="Lx9-vd-9RN" secondAttribute="leading" id="gCT-b0-arE"/>
+                            <constraint firstItem="ajd-P0-UFk" firstAttribute="top" secondItem="Lx9-vd-9RN" secondAttribute="bottom" constant="8" symbolic="YES" id="hNO-V6-4qq"/>
                             <constraint firstItem="yd5-9n-UUO" firstAttribute="leading" secondItem="cLE-Fe-pP6" secondAttribute="leading" id="l4C-NC-ei9"/>
+                            <constraint firstItem="Lx9-vd-9RN" firstAttribute="height" secondItem="05b-la-NEd" secondAttribute="height" id="mP4-lg-dSO"/>
                             <constraint firstItem="TjE-Im-CqY" firstAttribute="top" secondItem="cLE-Fe-pP6" secondAttribute="bottom" constant="8" symbolic="YES" id="npx-SO-lPi"/>
                             <constraint firstItem="sqg-V5-tm0" firstAttribute="centerX" secondItem="xNA-JJ-NjT" secondAttribute="centerX" id="ozh-tc-mQr"/>
                             <constraint firstItem="TjE-Im-CqY" firstAttribute="leading" secondItem="bKc-H8-O9N" secondAttribute="leading" id="svH-Fr-8KW"/>
@@ -794,6 +827,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="JZL-Tq-6qD"/>
                     <connections>
+                        <outlet property="chairCat" destination="ajd-P0-UFk" id="sVK-0V-o7O"/>
+                        <outlet property="chairLabel" destination="65I-RH-Bjx" id="mw6-eb-yCt"/>
+                        <outlet property="chairView" destination="05b-la-NEd" id="KvA-av-NQp"/>
                         <outlet property="colorImage" destination="xNA-JJ-NjT" id="yMQ-V1-27l"/>
                         <outlet property="committeeLabel" destination="W1y-kF-JS9" id="vwr-i3-5bu"/>
                         <outlet property="committeeLabel2" destination="SgQ-CN-UBZ" id="bHO-Mq-hDt"/>
