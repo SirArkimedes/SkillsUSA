@@ -310,7 +310,7 @@
             if ([writeString containsString:@"Name,School,Color"]) {
                 [writeString appendString:[NSString stringWithFormat:@"%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
             } else {
-                [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
+                [writeString appendString:[NSString stringWithFormat:@"Name,School,Color,Mtg. 1,Mtg. 2,Mtg. 3,Mtg. 4,Mtg. 5,Mtg. 6,Mtg. 7\n%@,%@,%@\n", returnedObject.name, returnedObject.school, returnedObject.color]];
             }
         }
 
