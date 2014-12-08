@@ -400,7 +400,7 @@
         <scene sceneID="BkM-8g-GpA">
             <objects>
                 <navigationController id="Zhp-hv-ebb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Committee" id="3Xo-co-0EH"/>
+                    <tabBarItem key="tabBarItem" title="Committee" image="group5S.png" id="3Xo-co-0EH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="nCe-eh-M2c">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -421,7 +421,7 @@
         <scene sceneID="srg-Ge-QHC">
             <objects>
                 <navigationController id="DyS-ta-FyY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Officers" image="Officer 2.png" id="Koj-rU-6ni"/>
+                    <tabBarItem key="tabBarItem" title="Officers" image="Officer5S.png" id="Koj-rU-6ni"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lod-9Q-dKb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -979,6 +979,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Officer 2.png" width="35" height="35"/>
+        <image name="Officer5S.png" width="35" height="35"/>
+        <image name="group5S.png" width="50" height="50"/>
     </resources>
 </document>

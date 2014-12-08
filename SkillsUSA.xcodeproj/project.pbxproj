@@ -24,9 +24,9 @@
 		4D45E46F19F8370A004DAB2D /* SkillsUSATests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D45E46E19F8370A004DAB2D /* SkillsUSATests.m */; };
 		4D611D311A1A6BEF00484687 /* CommitteeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D301A1A6BEF00484687 /* CommitteeTableViewCell.m */; };
 		4D611D341A1A6DC400484687 /* DetailCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D331A1A6DC400484687 /* DetailCommitteeViewController.m */; };
-		4D6C36FA1A2E17A10005F9AF /* Officer 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6C36F81A2E17A10005F9AF /* Officer 2.png */; };
-		4D6C36FB1A2E17A10005F9AF /* Officer.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D6C36F91A2E17A10005F9AF /* Officer.png */; };
 		4D7DC6C11A151486007F7E3B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7DC6C01A151486007F7E3B /* MessageUI.framework */; };
+		4DB1D0EF1A36477000D352E4 /* group5S.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB1D0ED1A36477000D352E4 /* group5S.png */; };
+		4DB1D0F01A36477000D352E4 /* Officer5S.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB1D0EE1A36477000D352E4 /* Officer5S.png */; };
 		4DC1D5931A26498100A179F9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1D5921A26498100A179F9 /* Person.m */; };
 		4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */; };
 		4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */; };
@@ -79,9 +79,9 @@
 		4D611D301A1A6BEF00484687 /* CommitteeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitteeTableViewCell.m; sourceTree = "<group>"; };
 		4D611D321A1A6DC400484687 /* DetailCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCommitteeViewController.h; sourceTree = "<group>"; };
 		4D611D331A1A6DC400484687 /* DetailCommitteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCommitteeViewController.m; sourceTree = "<group>"; };
-		4D6C36F81A2E17A10005F9AF /* Officer 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Officer 2.png"; path = "../../../../Desktop/SkillsUSA App/Officer 2.png"; sourceTree = "<group>"; };
-		4D6C36F91A2E17A10005F9AF /* Officer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Officer.png; path = "../../../../Desktop/SkillsUSA App/Officer.png"; sourceTree = "<group>"; };
 		4D7DC6C01A151486007F7E3B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		4DB1D0ED1A36477000D352E4 /* group5S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group5S.png; path = "../../../../Desktop/SkillsUSA App/group5S.png"; sourceTree = "<group>"; };
+		4DB1D0EE1A36477000D352E4 /* Officer5S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Officer5S.png; path = "../../../../Desktop/SkillsUSA App/Officer5S.png"; sourceTree = "<group>"; };
 		4DC1D5911A26498100A179F9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		4DC1D5921A26498100A179F9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "582px-SkillsUSALogo.png"; sourceTree = SOURCE_ROOT; };
@@ -117,8 +117,8 @@
 		4D0C64331A1D258A00AE8E23 /* Assests */ = {
 			isa = PBXGroup;
 			children = (
-				4D6C36F81A2E17A10005F9AF /* Officer 2.png */,
-				4D6C36F91A2E17A10005F9AF /* Officer.png */,
+				4DB1D0ED1A36477000D352E4 /* group5S.png */,
+				4DB1D0EE1A36477000D352E4 /* Officer5S.png */,
 				4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */,
 			);
 			name = Assests;
@@ -339,8 +339,8 @@
 				4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */,
 				4D45E46319F8370A004DAB2D /* LaunchScreen.xib in Resources */,
 				4D45E46019F8370A004DAB2D /* Images.xcassets in Resources */,
-				4D6C36FA1A2E17A10005F9AF /* Officer 2.png in Resources */,
-				4D6C36FB1A2E17A10005F9AF /* Officer.png in Resources */,
+				4DB1D0EF1A36477000D352E4 /* group5S.png in Resources */,
+				4DB1D0F01A36477000D352E4 /* Officer5S.png in Resources */,
 				4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
