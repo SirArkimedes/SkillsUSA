@@ -189,7 +189,7 @@
         <scene sceneID="Dxw-IV-QaD">
             <objects>
                 <navigationController id="ega-xS-j8i" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Registrants" id="cok-ob-bUi"/>
+                    <tabBarItem key="tabBarItem" title="Registrants" image="Registrants.png" id="cok-ob-bUi"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="t13-j6-zXZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -980,6 +980,7 @@
     </scenes>
     <resources>
         <image name="Officer5S.png" width="35" height="35"/>
+        <image name="Registrants.png" width="35" height="35"/>
         <image name="group5S.png" width="50" height="50"/>
     </resources>
 </document>

@@ -25,14 +25,15 @@
 		4D611D311A1A6BEF00484687 /* CommitteeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D301A1A6BEF00484687 /* CommitteeTableViewCell.m */; };
 		4D611D341A1A6DC400484687 /* DetailCommitteeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D611D331A1A6DC400484687 /* DetailCommitteeViewController.m */; };
 		4D7DC6C11A151486007F7E3B /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7DC6C01A151486007F7E3B /* MessageUI.framework */; };
-		4DB1D0EF1A36477000D352E4 /* group5S.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB1D0ED1A36477000D352E4 /* group5S.png */; };
-		4DB1D0F01A36477000D352E4 /* Officer5S.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DB1D0EE1A36477000D352E4 /* Officer5S.png */; };
 		4DC1D5931A26498100A179F9 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DC1D5921A26498100A179F9 /* Person.m */; };
 		4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */; };
 		4DDEA3A019FEB29200E699A2 /* QREntriesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DDEA39F19FEB29200E699A2 /* QREntriesTableViewController.m */; };
 		4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DDEA3A119FEB30B00E699A2 /* MainStoryboard.storyboard */; };
 		4DF2541A1A298ABE0073A0A4 /* QRCodeReaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF254171A298ABE0073A0A4 /* QRCodeReaderView.m */; };
 		4DF2541B1A298ABE0073A0A4 /* QRCodeReaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF254191A298ABE0073A0A4 /* QRCodeReaderViewController.m */; };
+		4DFD6A171A4A3792008B19A7 /* group5S.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFD6A141A4A3792008B19A7 /* group5S.png */; };
+		4DFD6A181A4A3792008B19A7 /* Officer5S.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFD6A151A4A3792008B19A7 /* Officer5S.png */; };
+		4DFD6A191A4A3792008B19A7 /* Registrants.png in Resources */ = {isa = PBXBuildFile; fileRef = 4DFD6A161A4A3792008B19A7 /* Registrants.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,8 +81,6 @@
 		4D611D321A1A6DC400484687 /* DetailCommitteeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailCommitteeViewController.h; sourceTree = "<group>"; };
 		4D611D331A1A6DC400484687 /* DetailCommitteeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailCommitteeViewController.m; sourceTree = "<group>"; };
 		4D7DC6C01A151486007F7E3B /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		4DB1D0ED1A36477000D352E4 /* group5S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group5S.png; path = "../../../../Desktop/SkillsUSA App/group5S.png"; sourceTree = "<group>"; };
-		4DB1D0EE1A36477000D352E4 /* Officer5S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Officer5S.png; path = "../../../../Desktop/SkillsUSA App/Officer5S.png"; sourceTree = "<group>"; };
 		4DC1D5911A26498100A179F9 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		4DC1D5921A26498100A179F9 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "582px-SkillsUSALogo.png"; sourceTree = SOURCE_ROOT; };
@@ -93,6 +92,9 @@
 		4DF254171A298ABE0073A0A4 /* QRCodeReaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderView.m; sourceTree = "<group>"; };
 		4DF254181A298ABE0073A0A4 /* QRCodeReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRCodeReaderViewController.h; sourceTree = "<group>"; };
 		4DF254191A298ABE0073A0A4 /* QRCodeReaderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeReaderViewController.m; sourceTree = "<group>"; };
+		4DFD6A141A4A3792008B19A7 /* group5S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = group5S.png; path = "App Assets/group5S.png"; sourceTree = SOURCE_ROOT; };
+		4DFD6A151A4A3792008B19A7 /* Officer5S.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Officer5S.png; path = "App Assets/Officer5S.png"; sourceTree = SOURCE_ROOT; };
+		4DFD6A161A4A3792008B19A7 /* Registrants.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Registrants.png; path = "App Assets/Registrants.png"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +119,9 @@
 		4D0C64331A1D258A00AE8E23 /* Assests */ = {
 			isa = PBXGroup;
 			children = (
-				4DB1D0ED1A36477000D352E4 /* group5S.png */,
-				4DB1D0EE1A36477000D352E4 /* Officer5S.png */,
+				4DFD6A141A4A3792008B19A7 /* group5S.png */,
+				4DFD6A151A4A3792008B19A7 /* Officer5S.png */,
+				4DFD6A161A4A3792008B19A7 /* Registrants.png */,
 				4DDEA39819FEB00B00E699A2 /* 582px-SkillsUSALogo.png */,
 			);
 			name = Assests;
@@ -339,8 +342,9 @@
 				4DDEA39919FEB00B00E699A2 /* 582px-SkillsUSALogo.png in Resources */,
 				4D45E46319F8370A004DAB2D /* LaunchScreen.xib in Resources */,
 				4D45E46019F8370A004DAB2D /* Images.xcassets in Resources */,
-				4DB1D0EF1A36477000D352E4 /* group5S.png in Resources */,
-				4DB1D0F01A36477000D352E4 /* Officer5S.png in Resources */,
+				4DFD6A171A4A3792008B19A7 /* group5S.png in Resources */,
+				4DFD6A181A4A3792008B19A7 /* Officer5S.png in Resources */,
+				4DFD6A191A4A3792008B19A7 /* Registrants.png in Resources */,
 				4DDEA3A319FEB30B00E699A2 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
