@@ -33,15 +33,15 @@
     
     self.clearsSelectionOnViewWillAppear = NO;
     
-    NSArray *data = @[@"Andrew Robinson", @"Carthage High School", @"Blue"];
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *namestr = [data objectAtIndex:0];
-    NSString *schoolstr = [data objectAtIndex:1];
-    NSString *colorstr = [data objectAtIndex:2];
-    
-    Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:nil];
-    [appDelegate.entries addObject:personObject];
+//    NSArray *data = @[@"Andrew Robinson", @"Carthage High School", @"Blue"];
+//    
+//    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+//    NSString *namestr = [data objectAtIndex:0];
+//    NSString *schoolstr = [data objectAtIndex:1];
+//    NSString *colorstr = [data objectAtIndex:2];
+//    
+//    Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:nil];
+//    [appDelegate.entries addObject:personObject];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
