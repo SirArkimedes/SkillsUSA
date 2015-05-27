@@ -33,6 +33,16 @@
     
     self.clearsSelectionOnViewWillAppear = NO;
     
+    NSArray *data = @[@"Andrew Robinson", @"Carthage High School", @"Blue"];
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSString *namestr = [data objectAtIndex:0];
+    NSString *schoolstr = [data objectAtIndex:1];
+    NSString *colorstr = [data objectAtIndex:2];
+    
+    Person *personObject = [[Person alloc] initWithName:namestr withSchool:schoolstr withColor:colorstr withRole:nil];
+    [appDelegate.entries addObject:personObject];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
 }
@@ -106,7 +116,7 @@
     Person *returnedObject = [appDelegate.entries objectAtIndex:indexPath.row];
     
     // Rounds the edges of the imageview
-    cell.colorCell.layer.cornerRadius = cell.colorCell.frame.size.width / 2;
+    cell.colorCell.layer.cornerRadius = 18;
     cell.colorCell.clipsToBounds = YES;
     
     // Checks for color type, not case sensitive.

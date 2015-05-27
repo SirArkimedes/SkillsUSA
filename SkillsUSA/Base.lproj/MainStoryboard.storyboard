@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ugn-qb-ga3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -49,29 +50,43 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r81-lZ-kbj">
+                                            <rect key="frame" x="8" y="8" width="45" height="45"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="r81-lZ-kbj" secondAttribute="height" multiplier="1:1" id="7GG-0H-aus"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carthage Senior High School" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tg-ux-O5L">
                                             <rect key="frame" x="61" y="33" width="506" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="r81-lZ-kbj">
-                                            <rect key="frame" x="8" y="8" width="45" height="45"/>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="r81-lZ-kbj" secondAttribute="centerY" constant="0.5" id="318-9t-vUK"/>
                                         <constraint firstItem="7tg-ux-O5L" firstAttribute="leading" secondItem="gWT-LV-rW4" secondAttribute="leading" id="3hM-Jn-Vo2"/>
+                                        <constraint firstItem="r81-lZ-kbj" firstAttribute="top" secondItem="gWT-LV-rW4" secondAttribute="top" id="5xQ-iz-ozy"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="7tg-ux-O5L" secondAttribute="bottom" id="Arf-bb-ut1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="r81-lZ-kbj" secondAttribute="bottom" constant="1" id="Rul-sz-X7b"/>
                                         <constraint firstItem="gWT-LV-rW4" firstAttribute="leading" secondItem="r81-lZ-kbj" secondAttribute="trailing" constant="8" symbolic="YES" id="dZ5-cU-idr"/>
                                         <constraint firstItem="7tg-ux-O5L" firstAttribute="trailing" secondItem="gWT-LV-rW4" secondAttribute="trailing" id="ggy-Qg-o9n"/>
                                         <constraint firstItem="gWT-LV-rW4" firstAttribute="centerX" secondItem="paE-re-K79" secondAttribute="centerX" constant="30.5" id="j6q-n0-Sww"/>
+                                        <constraint firstItem="r81-lZ-kbj" firstAttribute="bottom" secondItem="7tg-ux-O5L" secondAttribute="bottom" constant="-1" id="mN3-Qg-pax"/>
                                         <constraint firstAttribute="trailing" secondItem="7tg-ux-O5L" secondAttribute="trailing" id="mfP-HX-S8a"/>
                                         <constraint firstItem="r81-lZ-kbj" firstAttribute="top" secondItem="paE-re-K79" secondAttribute="topMargin" id="qMN-nL-Qxh"/>
                                         <constraint firstItem="gWT-LV-rW4" firstAttribute="top" secondItem="paE-re-K79" secondAttribute="topMargin" id="r2G-Ph-CgB"/>
                                         <constraint firstItem="r81-lZ-kbj" firstAttribute="leading" secondItem="paE-re-K79" secondAttribute="leadingMargin" id="uYa-o5-hKf"/>
                                         <constraint firstItem="7tg-ux-O5L" firstAttribute="top" secondItem="gWT-LV-rW4" secondAttribute="bottom" constant="3" id="zYZ-mC-jf7"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="5xQ-iz-ozy"/>
+                                            <exclude reference="Rul-sz-X7b"/>
+                                            <exclude reference="mN3-Qg-pax"/>
+                                            <exclude reference="qMN-nL-Qxh"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
